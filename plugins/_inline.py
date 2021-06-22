@@ -19,9 +19,9 @@ from telethon.tl.types import InputBotInlineResult, InputWebDocument
 from . import *
 
 # ================================================#
-notmine = f"This bot is for {OWNER_NAME}"
+notmine = f"ini adalah bot milik {OWNER_NAME}"
 
-TLINK = "https://telegra.ph/file/d9c9bc13647fa1d96e764.jpg"
+TLINK = "https://telegra.ph/file/3a41ceef4778f796c484c.jpg"
 helps = get_string("inline_1")
 
 add_ons = udB.get("ADDONS")
@@ -44,25 +44,25 @@ else:
 
 _main_help_menu = [
     [
-        Button.inline("• Pʟᴜɢɪɴs", data="hrrrr"),
-        Button.inline("• Aᴅᴅᴏɴs", data="frrr"),
+        Button.inline("❁ ᴘʟᴜɢɪɴs ❁", data="hrrrr"),
+        Button.inline("❁ ᴀᴅᴅᴏɴs ❁", data="frrr"),
     ],
     [
-        Button.inline("Oᴡɴᴇʀ•ᴛᴏᴏʟꜱ", data="ownr"),
-        Button.inline("Iɴʟɪɴᴇ•Pʟᴜɢɪɴs", data="inlone"),
+        Button.inline("❁ ᴏᴡɴᴇʀ ᴛᴏᴏʟs ❁", data="ownr"),
+        Button.inline("❁ ɪɴʟɪɴᴇ ᴘʟᴜɢɪɴs ❁", data="inlone"),
     ],
     [
-        Button.url("⚙️Sᴇᴛᴛɪɴɢs⚙️", url=f"https://t.me/{asst.me.username}?start=set"),
+        Button.url("⚙️ sᴇᴛᴛɪɴɢs ⚙️", url=f"https://t.me/{asst.me.username}?start=set"),
     ],
-    [Button.inline("••Cʟᴏꜱᴇ••", data="close")],
+    [Button.inline("❁ ᴄʟᴏsᴇ ❁", data="close")],
 ]
 
 SUP_BUTTONS = [
     [
-        Button.url("Repo", url="https://github.com/TeamUltroid/Ultroid"),
-        Button.url("Addons", url="https://github.com/TeamUltroid/UltroidAddons"),
+        Button.url("REPO", url="https://github.com/levina-lab/veez_ultrobot"),
+        Button.url("ADDONS", url="https://github.com/TeamUltroid/UltroidAddons"),
     ],
-    [Button.url("Support", url="t.me/UltroidSupport")],
+    [Button.url("SUPPORT", url="t.me/gcsupportbots")],
 ]
 
 # --------------------BUTTONS--------------------#
@@ -73,12 +73,12 @@ SUP_BUTTONS = [
 async def inline_alive(o):
     if len(o.text) == 0:
         b = o.builder
-        MSG = "• **Ultroid Userbot •**"
+        MSG = "❁ **SAKURA USERBOT** ❁"
         uptime = grt(time.time() - start_time)
-        MSG += f"\n\n• **Uptime** - `{uptime}`\n"
-        MSG += f"• **OWNER** - `{OWNER_NAME}`"
+        MSG += f"\n\n❁ **UPTIME** - `{uptime}`\n"
+        MSG += f"❁ **OWNER** - `{OWNER_NAME}`"
         WEB0 = InputWebDocument(
-            "https://telegra.ph/file/55dd0f381c70e72557cb1.jpg", 0, "image/jpg", []
+            "https://telegra.ph/file/3a41ceef4778f796c484c.jpg", 0, "image/jpg", []
         )
         RES = [
             InputBotInlineResult(
@@ -89,14 +89,14 @@ async def inline_alive(o):
                     media=True,
                     buttons=SUP_BUTTONS,
                 ),
-                title="Ultroid Userbot",
-                description="Userbot | Telethon",
+                title="SAKURA USERBOT",
+                description="USERBOT | TELETHON",
                 url=TLINK,
                 thumb=WEB0,
                 content=InputWebDocument(TLINK, 0, "image/jpg", []),
             )
         ]
-        await o.answer(RES, switch_pm=f"👥 ULTROID PORTAL", switch_pm_param="start")
+        await o.answer(RES, switch_pm=f"🌸 SAKURA PORTAL", switch_pm_param="start")
 
 
 @in_pattern("ultd")
@@ -127,11 +127,11 @@ async def _(event):
     link = "https://nekobin.com/"
     result = event.builder.article(
         title="Paste",
-        text="Pᴀsᴛᴇᴅ Tᴏ Nᴇᴋᴏʙɪɴ!",
+        text="ᴘᴀsᴛᴇᴅ ᴛᴏ ɴᴇᴋᴏʙɪɴ.",
         buttons=[
             [
-                Button.url("NekoBin", url=f"{link}{ok}"),
-                Button.url("Raw", url=f"{link}raw/{ok}"),
+                Button.url("NEKOBIN", url=f"{link}{ok}"),
+                Button.url("RAW", url=f"{link}raw/{ok}"),
             ],
         ],
     )
@@ -145,11 +145,11 @@ async def _(event):
     link = "https://del.dog/"
     result = event.builder.article(
         title="Paste",
-        text="Pᴀsᴛᴇᴅ Tᴏ Dᴏɢʙɪɴ!",
+        text="ᴘᴀsᴛᴇᴅ ᴛᴏ ᴅᴏɢʙɪɴ.",
         buttons=[
             [
-                Button.url("DogBin", url=f"{link}{ok}"),
-                Button.url("Raw", url=f"{link}raw/{ok}"),
+                Button.url("DOGBIN", url=f"{link}{ok}"),
+                Button.url("RAW", url=f"{link}raw/{ok}"),
             ],
         ],
     )
@@ -175,14 +175,14 @@ async def setting(event):
         link_preview=False,
         buttons=[
             [
-                Button.inline("•Pɪɴɢ•", data="pkng"),
-                Button.inline("•Uᴘᴛɪᴍᴇ•", data="upp"),
+                Button.inline("• ᴘɪɴɢ •", data="pkng"),
+                Button.inline("• ᴜᴘᴛɪᴍᴇ •", data="upp"),
             ],
             [
-                Button.inline("•Rᴇsᴛᴀʀᴛ•", data="rstrt"),
-                Button.inline("•Uᴘᴅᴀᴛᴇ•", data="doupdate"),
+                Button.inline("• ʀᴇsᴛᴀʀᴛ •", data="rstrt"),
+                Button.inline("• ᴜᴘᴅᴀᴛᴇ •", data="doupdate"),
             ],
-            [Button.inline("« Bᴀᴄᴋ", data="open")],
+            [Button.inline("« ʙᴀᴄᴋ", data="open")],
         ],
     )
 
@@ -193,12 +193,12 @@ async def _(event):
     check = await updater()
     if not check:
         return await event.answer(
-            "You Are Already On Latest Version", cache_time=0, alert=True
+            "sakura userbot anda sudah versi terbaru !!", cache_time=0, alert=True
         )
     repo = Repo.init()
     ac_br = repo.active_branch
     changelog, tl_chnglog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
-    changelog_str = changelog + f"\n\nClick the below button to update!"
+    changelog_str = changelog + f"\n\nklik tombol dibawah untuk memperbarui userbot anda!"
     if len(changelog_str) > 1024:
         await event.edit(get_string("upd_4"))
         file = open(f"ultroid_updates.txt", "w+")
@@ -208,8 +208,8 @@ async def _(event):
             get_string("upd_5"),
             file="ultroid_updates.txt",
             buttons=[
-                [Button.inline("• Uᴘᴅᴀᴛᴇ Nᴏᴡ •", data="updatenow")],
-                [Button.inline("« Bᴀᴄᴋ", data="ownr")],
+                [Button.inline("• ᴜᴘᴅᴀᴛᴇ ɴᴏᴡ •", data="updatenow")],
+                [Button.inline("« ʙᴀᴄᴋ", data="ownr")],
             ],
         )
         remove(f"ultroid_updates.txt")
@@ -218,8 +218,8 @@ async def _(event):
         await event.edit(
             changelog_str,
             buttons=[
-                [Button.inline("Update Now", data="updatenow")],
-                [Button.inline("« Bᴀᴄᴋ", data="ownr")],
+                [Button.inline("UPDATE NOW", data="updatenow")],
+                [Button.inline("« ʙᴀᴄᴋ", data="ownr")],
             ],
             parse_mode="html",
         )
@@ -230,14 +230,14 @@ async def _(event):
     start = datetime.now()
     end = datetime.now()
     ms = (end - start).microseconds
-    pin = f"🌋Pɪɴɢ = {ms} microseconds"
+    pin = f"⚡️ ᴘɪɴɢ = {ms} microseconds"
     await event.answer(pin, cache_time=0, alert=True)
 
 
 @callback("upp")
 async def _(event):
     uptime = grt(time.time() - start_time)
-    pin = f"🙋Uᴘᴛɪᴍᴇ = {uptime}"
+    pin = f"🔥 ᴜᴘᴛɪᴍᴇ = {uptime}"
     await event.answer(pin, cache_time=0, alert=True)
 
 
@@ -247,55 +247,55 @@ async def _(e):
     button = [
         [
             Button.switch_inline(
-                "Pʟᴀʏ Sᴛᴏʀᴇ Aᴘᴘs",
+                "ᴘʟᴀʏ sᴛᴏʀᴇ ᴀᴘᴘs",
                 query="app telegram",
                 same_peer=True,
             ),
             Button.switch_inline(
-                "Mᴏᴅᴅᴇᴅ Aᴘᴘs",
+                "ᴍᴏᴅᴅᴇᴅ ᴀᴘᴘs",
                 query="mods minecraft",
                 same_peer=True,
             ),
         ],
         [
             Button.switch_inline(
-                "Sᴇᴀʀᴄʜ Oɴ Gᴏᴏɢʟᴇ",
-                query="go TeamUltroid",
+                "sᴇᴀʀᴄʜ ᴏɴ ɢᴏᴏɢʟᴇ",
+                query="go sakura",
                 same_peer=True,
             ),
             Button.switch_inline(
-                "Sᴇᴀʀᴄʜ Oɴ Yᴀʜᴏᴏ",
-                query="yahoo TeamUltroid",
-                same_peer=True,
-            ),
-        ],
-        [
-            Button.switch_inline(
-                "WʜɪSᴘᴇʀ",
-                query="msg username wspr Hello",
-                same_peer=True,
-            ),
-            Button.switch_inline(
-                "YᴏᴜTᴜʙᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ",
-                query="yt Ed Sheeran Perfect",
+                "sᴇᴀʀᴄʜ ᴏɴ ʏᴀʜᴏᴏ",
+                query="yahoo sakura",
                 same_peer=True,
             ),
         ],
         [
             Button.switch_inline(
-                "EBᴏᴏᴋs Uᴘʟᴏᴀᴅᴇʀ",
-                query="ebooks India",
+                "ᴡʜɪsᴘᴇʀ",
+                query="msg username wspr hello",
                 same_peer=True,
             ),
             Button.switch_inline(
-                "OʀᴀɴɢᴇFᴏx🦊",
+                "ʏᴏᴜᴛᴜʙᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ",
+                query="yt sakura song",
+                same_peer=True,
+            ),
+        ],
+        [
+            Button.switch_inline(
+                "ᴇʙᴏᴏᴋs ᴜᴘʟᴏᴀᴅᴇʀ",
+                query="ebooks sakura",
+                same_peer=True,
+            ),
+            Button.switch_inline(
+                "🦊 ᴏʀᴀɴɢᴇғᴏx",
                 query="ofox beryllium",
                 same_peer=True,
             ),
         ],
         [
             Button.inline(
-                "« Bᴀᴄᴋ",
+                "« ʙᴀᴄᴋ",
                 data="open",
             ),
         ],
@@ -320,7 +320,7 @@ async def addon(event):
         await event.edit(f"{halp}", buttons=buttons, link_preview=False)
     else:
         await event.answer(
-            f"• Tʏᴘᴇ `{HNDLR}setredis ADDONS True`\n Tᴏ ɢᴇᴛ ᴀᴅᴅᴏɴs ᴘʟᴜɢɪɴs",
+            f"• ketik `{HNDLR}setredis ADDONS True`\n ᴜɴᴛᴜᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ᴘʟᴜɢɪɴs ᴀᴅᴅᴏɴs",
             cache_time=0,
             alert=True,
         )
@@ -433,7 +433,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(
         get_string("inline_5"),
         file=_file_to_replace,
-        buttons=Button.inline("Oᴘᴇɴ Aɢᴀɪɴ", data="open"),
+        buttons=Button.inline("🌸 ᴏᴘᴇɴ ᴀɢᴀɪɴ 🌸", data="open"),
     )
 
 
@@ -445,27 +445,27 @@ async def on_plug_in_callback_query_handler(event):
 @owner
 async def on_plug_in_callback_query_handler(event):
     plugin_name = event.data_match.group(1).decode("UTF-8")
-    help_string = f"Plugin Name - `{plugin_name}`\n"
+    help_string = f"nama plugin : `{plugin_name}`\n"
     try:
         for i in HELP[plugin_name]:
             help_string += i
     except BaseException:
         pass
     if help_string == "":
-        reply_pop_up_alert = f"{plugin_name} has no detailed help..."
+        reply_pop_up_alert = f"{plugin_name} tidak memiliki bantuan terperinci."
     else:
         reply_pop_up_alert = help_string
-    reply_pop_up_alert += "\n© @TeamUltroid"
+    reply_pop_up_alert += "\n🌸 @levinachannel"
     buttons = [
         [
             Button.inline(
-                "« Sᴇɴᴅ Pʟᴜɢɪɴ »",
+                "« sᴇɴᴅ ᴘʟᴜɢɪɴ »",
                 data=f"sndplug_{(event.data).decode('UTF-8')}",
             )
         ],
         [
-            Button.inline("« Bᴀᴄᴋ", data="back"),
-            Button.inline("••Cʟᴏꜱᴇ••", data="close"),
+            Button.inline("« ʙᴀᴄᴋ", data="back"),
+            Button.inline("• ᴄʟᴏsᴇ •", data="close"),
         ],
     ]
     try:
@@ -478,7 +478,7 @@ async def on_plug_in_callback_query_handler(event):
             reply_pop_up_alert = notmine
             await event.answer(reply_pop_up_alert, cache_time=0)
     except BaseException:
-        halps = f"Do .help {plugin_name} to get the list of commands."
+        halps = f"ketik .help {plugin_name} untuk mendapatkan daftar perintah."
         await event.edit(halps, buttons=buttons)
 
 
@@ -497,13 +497,13 @@ async def on_plug_in_callback_query_handler(event):
     except BaseException:
         try:
             for u in CMD_HELP[plugin_name]:
-                help_string = f"Plugin Name-{plugin_name}\n\n✘ Commands Available-\n\n"
+                help_string = f"nama plugin : {plugin_name}\n\n📚 Commands Available-\n\n"
                 help_string += str(CMD_HELP[plugin_name])
         except BaseException:
             try:
                 if plugin_name in LIST:
                     help_string = (
-                        f"Plugin Name-{plugin_name}\n\n✘ Commands Available-\n\n"
+                        f"nama plugin : {plugin_name}\n\n📚 Commands Available-\n\n"
                     )
                     for d in LIST[plugin_name]:
                         help_string += HNDLR + d
@@ -511,20 +511,20 @@ async def on_plug_in_callback_query_handler(event):
             except BaseException:
                 pass
     if help_string == "":
-        reply_pop_up_alert = f"{plugin_name} has no detailed help..."
+        reply_pop_up_alert = f"{plugin_name} tidak memiliki bantuan terperinci."
     else:
         reply_pop_up_alert = help_string
-    reply_pop_up_alert += "\n© @TeamUltroid"
+    reply_pop_up_alert += "\n🌸 @levinachannel"
     buttons = [
         [
             Button.inline(
-                "« Sᴇɴᴅ Pʟᴜɢɪɴ »",
+                "« sᴇɴᴅ ᴘʟᴜɢɪɴ »",
                 data=f"sndplug_{(event.data).decode('UTF-8')}",
             )
         ],
         [
-            Button.inline("« Bᴀᴄᴋ", data="buck"),
-            Button.inline("••Cʟᴏꜱᴇ••", data="close"),
+            Button.inline("« ʙᴀᴄᴋ", data="buck"),
+            Button.inline("• ᴄʟᴏsᴇ •", data="close"),
         ],
     ]
     try:
@@ -537,7 +537,7 @@ async def on_plug_in_callback_query_handler(event):
             reply_pop_up_alert = notmine
             await event.answer(reply_pop_up_alert, cache_time=0)
     except BaseException:
-        halps = f"Do .help {plugin_name} to get the list of commands."
+        halps = f"ketik .help {plugin_name} untuk mendapatkan daftar perintah."
         await event.edit(halps, buttons=buttons)
 
 
@@ -548,7 +548,7 @@ def page_num(page_number, loaded_plugins, prefix, type):
     if emoji:
         multi = emoji
     else:
-        multi = "✘"
+        multi = "❀"
     helpable_plugins = []
     global upage
     upage = page_number
@@ -577,12 +577,12 @@ def page_num(page_number, loaded_plugins, prefix, type):
         ] + [
             (
                 Button.inline(
-                    "« Pʀᴇᴠɪᴏᴜs",
+                    "« ᴘʀᴇᴠɪᴏᴜs",
                     data=f"{prefix}_prev({modulo_page})",
                 ),
-                Button.inline("« Bᴀᴄᴋ »", data="open"),
+                Button.inline("« ʙᴀᴄᴋ »", data="open"),
                 Button.inline(
-                    "Nᴇxᴛ »",
+                    "ɴᴇxᴛ »",
                     data=f"{prefix}_next({modulo_page})",
                 ),
             ),
@@ -590,5 +590,5 @@ def page_num(page_number, loaded_plugins, prefix, type):
     else:
         pairs = pairs[
             modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
-        ] + [(Button.inline("« Bᴀᴄᴋ »", data="open"),)]
+        ] + [(Button.inline("« ʙᴀᴄᴋ »", data="open"),)]
     return pairs
