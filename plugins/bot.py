@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available
+📚 Commands Available
 
 • `{i}alive`
     Check if your bot is working.
@@ -48,7 +48,7 @@ from . import *
 async def lol(ult):
     pic = udB.get("ALIVE_PIC")
     uptime = grt(time.time() - start_time)
-    header = udB.get("ALIVE_TEXT") if udB.get("ALIVE_TEXT") else "Hey,  I am alive."
+    header = udB.get("ALIVE_TEXT") if udB.get("ALIVE_TEXT") else "minasan kon'nichiwa, sakura userbot is alive boss 👩🏻‍🎤."
     y = Repo().active_branch
     xx = Repo().remotes[0].config_reader.get("url")
     rep = xx.replace(".git", f"/tree/{y}")
@@ -89,7 +89,7 @@ async def _(event):
     if not event.out and not is_sudo(event.sender_id):
         return
     start = dt.now()
-    x = await eor(event, "`Pong !`")
+    x = await eor(event, "`⚡️ pong`")
     end = dt.now()
     ms = (end - start).microseconds / 1000
     uptime = grt(time.time() - start_time)
@@ -107,7 +107,7 @@ async def cmds(event):
     pattern="restart$",
 )
 async def restartbt(ult):
-    ok = await eor(ult, "`Restarting...`")
+    ok = await eor(ult, "`restarting sakura-ubot...`")
     if Var.HEROKU_API:
         await restart(ok)
     else:
@@ -118,7 +118,7 @@ async def restartbt(ult):
 async def shutdownbot(ult):
     if not ult.out:
         if not is_fullsudo(ult.sender_id):
-            return await eod(ult, "`This Command Is Sudo Restricted.`")
+            return await eod(ult, "`perintah ini dibatasi untuk anggota sudo.`")
     await shutdown(ult)
 
 
