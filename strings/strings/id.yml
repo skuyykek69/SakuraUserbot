@@ -5,103 +5,103 @@ authors:
   - itsmenandos
 
 # commons
-com_1: "`Memproses...`"
-com_2: "`Sedang Mencari...`"
+com_1: "`memproses...`"
+com_2: "`sedang mencari...`"
 # help
 help_1: "`{}` bukan plugin yang valid!"
-help_2: "Bot tidak menanggapi inline kueri.\nLebih baik untuk menggunakan `{}restart`"
-help_3: "`Tolong aktifkan inline mode bot Anda dari` @Botfather."
-help_4: "Heioo...., \nAnda sedang mengaktifkan Mode Bot. \nPengguna Mode Bot tidak dapat mendapatkan bantuan secara langsung ... \nLebih baik cipy dan paste yang berikut di obrolan dan Klik Pop Up \n\n `@{} ultd`"
+help_2: "bot tidak menanggapi inline kueri.\nlebih baik untuk menggunakan `{}restart`"
+help_3: "`aktifkan terlebih dahulu inline mode bot anda dari` @Botfather."
+help_4: "🌸 hai kamu, \nkamu sedang mengaktifkan mode bot. \npengguna mode bot tidak dapat mendapatkan bantuan secara langsung... \nlebih baik copy dan paste yang berikut di obrolan dan klik pop up \n\n `@{} sakura`"
 
 # autopic
-autopic_1: "Haisss, beri aku suatu kata .."
-autopic_2: "Tidak ada hasil yang ditemukan untuk `{}`"
-autopic_3: "Mendapatkan koleksi `{}` yang terkait dengan penelusuran Anda !\nMemulai Autopic !"
+autopic_1: "hei, berikan aku satu kata..."
+autopic_2: "tidak ada hasil yang ditemukan untuk `{}`"
+autopic_3: "mendapatkan koleksi `{}` yang terkait dengan penelusuran anda !\nmemulai autopic !!"
 
 # inline
-inline_1: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n
-**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\n
-Pʟᴜɢɪɴs ~ {}**"
-inline_2: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n
-**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\n
-Aᴅᴅᴏɴs ~ {}**"
-inline_3: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n
-**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\n
-Aᴅᴅᴏɴs ~ {}\n\n
-Pᴇʀɢɪ Dᴀɴ Tᴀᴍʙᴀʜᴋᴀɴ `ADDONS` Vᴀʀ Dᴇɴɢᴀɴ Vᴀʟᴜᴇ Tʀᴜᴇ**"
-inline_4: "** Bᴏᴛ Oғ {}\n\nMᴀɪɴ Mᴇɴᴜ\n\nPʟᴜɢɪɴs ~ {}\nAᴅᴅᴏɴs ~ {}\nTᴏᴛᴀʟ Cᴏᴍᴍᴀɴᴅs ~ {}**"
-inline_5: "**Mᴇɴᴜ Tᴇʟᴀʜ Dɪᴛᴜᴛᴜᴘ**"
+inline_1: "[sᴀᴋᴜʀᴀ sᴜᴘᴘᴏʀᴛ](t.me/levinachannel)\n\n
+**ᴍᴇɴᴜ ʜᴇʟᴘ ᴜɴᴛᴜᴋ {}.\n\n
+ᴛᴏᴛᴀʟ ᴘʟᴜɢɪɴs ~ {}**"
+inline_2: "[sᴀᴋᴜʀᴀ sᴜᴘᴘᴏʀᴛ](t.me/levinachannel)\n\n
+**ᴍᴇɴᴜ ʜᴇʟᴘ ᴜɴᴛᴜᴋ {}.\n\n
+ᴀᴅᴅᴏɴs ~ {}**"
+inline_3: "[sᴀᴋᴜʀᴀ sᴜᴘᴘᴏʀᴛ](t.me/levinachannel)\n\n
+**ᴍᴇɴᴜ ʜᴇʟᴘ ᴜɴᴛᴜᴋ {}.\n\n
+ᴀᴅᴅᴏɴs ~ {}\n\n
+ᴘᴇʀɢɪ ᴅᴀɴ ᴛᴀᴍʙᴀʜᴋᴀɴ ᴠᴀʀ `ADDONS` ᴅᴇɴɢᴀɴ ᴠᴀʟᴜᴇ ᴛʀᴜᴇ**"
+inline_4: "**🌸 sᴀᴋᴜʀᴀ-ᴜʙᴏᴛ ᴍɪʟɪᴋ {}\n\n🌸 ᴍᴇɴᴜ ᴜᴛᴀᴍᴀ 🌸\n\n🌸 ᴘʟᴜɢɪɴs ~ {}\n🌸 ᴀᴅᴅᴏɴs ~ {}\n🌸 ᴛᴏᴛᴀʟ ᴄᴏᴍᴍᴀɴᴅs ~ {}**"
+inline_5: "**🌸 ᴍᴇɴᴜ ᴛᴇʟᴀʜ ᴅɪ ᴛᴜᴛᴜᴘ 🌸**"
 
 # tagnotif
-tagnot_1: "{} menandai anda dalam {}\n\n```{}```\n\n[📨Message📨]({})"
-tagnot_2: "{} menandai anda dalam {}\n\n [📨Message📨]({})"
+tagnot_1: "{} menandai anda dalam {}\n\n```{}```\n\n[📨MESSAGE📨]({})"
+tagnot_2: "{} menandai anda dalam {}\n\n [📨MESSAGE📨]({})"
 
 # whisper
-wspr_1: "@{} pesan rahasia buatmu.\nHapus pesanmu setelah membaca.\nAtau pesan selanjutnya tidak bisa diterima."
-wspr_2: "Pesan dihapus!"
+wspr_1: "@{} pesan rahasia buatmu.\nhapus pesanmu setelah membaca.\natau pesan selanjutnya tidak bisa diterima."
+wspr_2: "pesan dihapus!"
 
 # afk
-afk_1: "`Tidak Lagi Afk\n\n
-Karena ~ {}`"
+afk_1: "`🌸 sudah tidak afk 🌸\n\n
+karena ~ {}`"
 afk_2: "#AFK\n
-Menyetel AFK mode ke False.\n
+𝙢𝙤𝙙𝙚 𝙖𝙛𝙠 𝙣𝙤𝙣-𝙖𝙠𝙩𝙞𝙛.\n
 AFK untuk {}`"
-afk_3: "Gua lagi AFK.\n
-Terakhir dilihat {} yang lalu.`\n\n
-**Karena:** `{}`"
-afk_4: "`Gua lagi AFK.\n\n
-Terakhir dilihat {} yang lalu.`"
-afk_5: "`AFK dulu.`\n\n
-**Karena:** `{}`"
-afk_6: "AFK dulu gua."
-afk_7: "Lagi Afk karena {}"
-afk_8: "Lagi AFK."
+afk_3: "🌸 𝐒𝐄𝐃𝐀𝐍𝐆 𝐀𝐅𝐊 🌸.\n
+terakhir dilihat {} yang lalu.`\n\n
+**karena:** `{}`"
+afk_4: "`🌸 𝐒𝐄𝐃𝐀𝐍𝐆 𝐀𝐅𝐊 🌸.\n\n
+terakhir dilihat {} yang lalu.`"
+afk_5: "`🌸 𝐒𝐄𝐃𝐀𝐍𝐆 𝐀𝐅𝐊 🌸.`\n\n
+**karena:** `{}`"
+afk_6: "𝒎𝒂𝒖 𝒂𝒇𝒌 𝒅𝒖𝒍𝒖 𝒚𝒂𝒉."
+afk_7: "𝒂𝒌𝒖 𝒍𝒂𝒈𝒊 𝒂𝒇𝒌 𝒏𝒊𝒉, 𝒌𝒂𝒓𝒆𝒏𝒂 {}"
+afk_8: "𝒔𝒆𝒅𝒂𝒏𝒈 𝒂𝒇𝒌 𝒚𝒂 𝒔𝒂𝒚𝒂𝒏𝒈."
 
 # bot
-alive_1: "**The Ultroid Userbot...**\n\n
+alive_1: "**🌸 𝐒𝐀𝐊𝐔𝐑𝐀 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐈𝐒 𝐀𝐋𝐈𝐕𝐄 🌸**\n\n
 **{}**\n\n
-┏━━━━━━━━━━━━━━━━━━━━━\n
-┣ **Pemilik** - `{}`\n
-┣ **Versi** - `{}`\n
-┣ **UpTime** - `{}`\n
-┣ **Python** - `{}`\n
-┣ **Telethon** - `{}`\n
-┣ **Branch** - `{}`\n
-┗━━━━━━━━━━━━━━━━━━━━━"
-log: "**Heroku** Ultroid Logs.\nPasted [here]({}) too!"
-ping: "**Pong !!** `{}ms`\n**Uptime** - `{}`"
-usage: "**⚙️ Dyno Usage ⚙️**:\n\n
- -> `Pemakaian Dyno Untuk`  **{}**:\n
-     •  `{}`**h**  `{}`**m**
+┏━━━━━━━━━━━━━━━━━━━\n
+┣ **𝙥𝙚𝙢𝙞𝙡𝙞𝙠** - `{}`\n
+┣ **𝙫𝙚𝙧𝙨𝙞𝙤𝙣** - `{}`\n
+┣ **𝙪𝙥𝙩𝙞𝙢𝙚** - `{}`\n
+┣ **𝙥𝙮𝙩𝙝𝙤𝙣** - `{}`\n
+┣ **𝙩𝙚𝙡𝙚𝙩𝙝𝙤𝙣** - `{}`\n
+┣ **𝙗𝙧𝙖𝙣𝙘𝙝** - `{}`\n
+┗━━━━━━━━━━━━━━━━━━━"
+log: "**heroku** sakura logs.\npasted [here]({}) too!"
+ping: "**⚡️ kecepatan** : `{}ms`\n**🌻 uptime** : `{}`"
+usage: "**💰 penggunaan harta 💰**:\n\n
+ 🌸 `pemakaian dollar Untuk`  **{}**:\n
+     💵  `{}`**$**  `{}`**m**
 **|**  [`{}`**%**]\n\n
- -> `Sisa kuota jam dyno bulan ini`:\n
-     •  `{}`**h**  `{}`**m**
+ 🌸 `sisa dollar bulan ini`:\n
+     💵  `{}`**$**  `{}`**m**
 **|**  [`{}`**%**]\n\n
-**Total Ruang Disk: {}\n\n**
-**Terpakai: {}  Kosong: {}\n\n**
-**📊Penggunaan Data📊\n\nUpload: {}\nDown: {}\n\n**
+**total ruang disk: {}\n\n**
+**terpakai: {}  Kosong: {}\n\n**
+**📊 penggunaan saham 📊\n\n🏦 upload: {}\n🏦 down: {}\n\n**
 **CPU: {}%\nRAM: {}%\nDISK: {}%**"
-shutdown: "GoodBye {}.\n`Sedang Mematikan bot...`"
+shutdown: "🌸 sayonara {}.\n`sedang mematikan bot...`"
 
 # broadcast
-bd_1: "`Menambahkan ke database...`"
-bd_2: "`Mencoba menambahkan semua channel admin ke database...`"
+bd_1: "`menambahkan ke database...`"
+bd_2: "`mencoba menambahkan semua channel admin ke database...`"
 bd_3: "**Berhasil.**\nChats sudah ada dalam Database: {}\nBaru ditambahkan: {}"
 bd_4: "Channels ditambahkan!"
 bd_5: "`Menambahkan ke database!`"
 bd_6: "`Channel sudah ada dalam database!`"
 
 # carbon
-carbon_1: "Memproses..."
-carbon_2: "Carbonised oleh [{}](tg://user?id={})"
+carbon_1: "memproses..."
+carbon_2: "carbon oleh [{}](tg://user?id={})"
 
 # chats
-chats_1: "`Memproses...`"
-chats_2: "`Tidak bisa menghapus chat ini zzzz`"
-chats_3: "`Gua bukan admin`"
+chats_1: "`memproses...`"
+chats_2: "`tidak bisa menghapus chat ini.`"
+chats_3: "`aku bukan admin.`"
 chats_4: "#Terhapus\nTerhapus {}"
 chats_5: "Anda [{}]({}) Grup telah dibuat oleh boss!"
-chats_6: "Join @TeamUltroid"
+chats_6: "Join @levinachannel"
 
 # converter
 cvt_1: "Balas ke media/Dokumen apapun."
@@ -147,7 +147,7 @@ sf_14: "SuperFBan Selesai.\nTotal Feds - {}.\nPengecualian - {}.\n Pengaruh {} f
 sf_15: "Memulai Mass-UnFedBan..."
 sf_16: "SuperUnFBan Selesai.\nTotal Feds - {}.\nPengecualian - {}.\n Pengaruh {} feds.\n#TB"
 sf_17: "`Beri saya id seseorang, atau balas pesan seseorang untuk memeriksa fedstatnya.`"
-sf_18: "Daftar feds {} telah dibanned.\n\nDikumpulkan menggunakan Ultroid."
+sf_18: "Daftar feds {} telah dibanned.\n\nDikumpulkan menggunakan Sakura Ubot."
 sf_19: "**Kesalahan**\n `Unblock` @MissRose_Bot `dan coba lagi!"
 sf_20: "`Mengekstrak informasi...`"
 sf_21: "\n\nFedInfo diekstrak oleh Ultroid"
@@ -174,7 +174,7 @@ upd_3: "**UPDATE baru tersedia untuk [[{}]]({}/tree/{}):\n\nPERUBAHAN:**\n\n{}"
 upd_4: "`Perubahan log terlalu besar, lihat file untuk melihatnya.`"
 upd_5: "Gunakan `{}update now` untuk update bot."
 upd_6: "{}\n\nGunakan `{}update now` untuk update bot."
-upd_7: "\n`BOT Anda sudah`  **paling-terbaru**  `dengan`  **[[{}]]({}/tree/{})**\n"
+upd_7: "\n`sakura ubot sudah versi`  **paling-terbaru**  `dengan`  **[[{}]]({}/tree/{})**\n"
 
 # upload download
 udl_1: "`Balas ke file/media yang ingin Anda download...`"
@@ -191,4 +191,4 @@ wrd_3: "**Kata** - `{}`\n\n**Antonim** - \n"
 # assisant
 ast_1: "Pilih API yang ingin Anda setel."
 ast_2: "**remove.bg API**\nMasukkan API key Anda dari remove.bg.\n\nGunakan /cancel untuk membatalkan."
-ast_3: "Woii {}. Silakan telusuri opsi"
+ast_3: "oni-chaan {}. silahkan telusuri opsi"
