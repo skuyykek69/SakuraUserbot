@@ -1,7 +1,7 @@
 {
-    "name": "Ultroid UserBot",
-    "description": "Pluggable telegram userbot, made in python using Telethon.",
-    "logo": "https://telegra.ph/file/031957757a4f6a5191040.jpg",
+    "name": "Sakura UserBot",
+    "description": "pluggable telegram userbot, made in python using telethon, by veez project",
+    "logo": "https://telegra.ph/file/ccee9a6fff4d1fb03adf9.jpg",
     "keywords": [
         "Telethon",
         "telegram",
@@ -9,9 +9,9 @@
         "python",
         "ultroid"
     ],
-    "repository": "https://github.com/TeamUltroid/Ultroid",
+    "repository": "https://github.com/levina-lab/veez_ultrobot",
     "website": "https://ultroid.tech",
-    "success_url": "https://t.me/TheUltroid",
+    "success_url": "https://t.me/levinachannel",
     "stack": "container",
     "env": {
         "API_ID": {
