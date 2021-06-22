@@ -20,9 +20,9 @@ async def setit(event, name, value):
     try:
         udB.set(name, value)
     except BaseException:
-        return await event.edit("`Something Went Wrong`")
+        return await event.edit("`terjadi kesalahan.`")
 
 
 def get_back_button(name):
-    button = [Button.inline("« Bᴀᴄᴋ", data=f"{name}")]
+    button = [Button.inline("« ʙᴀᴄᴋ", data=f"{name}")]
     return button
