@@ -5,10 +5,10 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+📚 Commands Available -
 
 • `{i}dm <username/id> <reply/type>`
-    Direct Message the User.
+    kirim pesan secara langsung ke seseorang.
 """
 
 from . import *
@@ -17,7 +17,7 @@ from . import *
 @ultroid_cmd(pattern="dm ?(.*)")
 async def dm(e):
     if not e.out and not is_fullsudo(e.sender_id):
-        return await eor(e, "`This Command is Full Sudo Restricted..`")
+        return await eor(e, "`perintah ini dibatasi secara penuh untuk anggota sudo.`")
     if len(e.text) > 3:
         if not e.text[3] == " ":  # weird fix
             return
@@ -31,14 +31,14 @@ async def dm(e):
     masg = await e.get_reply_message()
     if e.reply_to_msg_id:
         await ultroid_bot.send_message(chat_id, masg)
-        await eod(e, "`⚜️Message Delivered!`", time=4)
+        await eod(e, "`⚜️ ᴘᴇsᴀɴ ᴛᴇʀᴋɪʀɪᴍ ⚜️`", time=4)
     for i in c[1:]:
         msg += i + " "
     if msg == "":
         return
     try:
         await ultroid_bot.send_message(chat_id, msg)
-        await eod(e, "`⚜️Message Delivered!⚜️`", time=4)
+        await eod(e, "`⚜️ ᴘᴇsᴀɴ ᴛᴇʀᴋɪʀɪᴍ ⚜️`", time=4)
     except BaseException:
         await eod(
             e,
