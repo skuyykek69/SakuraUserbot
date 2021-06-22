@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available
+📚 Commands Available
 
 • `{i}addch <id/reply to list/none>`
     Add chat to database. Adds current chat if no id specified.
@@ -100,22 +100,22 @@ async def broadcast_remover(event):
     chat_id = event.pattern_match.group(1)
     x = await eor(event, get_string("com_1"))
     if chat_id == "all":
-        await x.edit("`Removing...`")
+        await x.edit("`menghapus...`")
         udB.delete("BROADCAST")
-        await x.edit("Database cleared.")
+        await x.edit("database dibersihkan.")
         return
     if is_channel_added(chat_id):
         rem_channel(chat_id)
-        await x.edit("Removed from database")
+        await x.edit("dihapus dari database")
         await asyncio.sleep(3)
         await x.delete()
     elif is_channel_added(event.chat_id):
         rem_channel(event.chat_id)
-        await x.edit("Removed from database")
+        await x.edit("dihapus dari database")
         await asyncio.sleep(3)
         await x.delete()
     elif not is_channel_added(event.chat_id):
-        await x.edit("Channel is already removed from database. ")
+        await x.edit("channel sudah dihapus dari database. ")
         await asyncio.sleep(3)
         await x.delete()
 
@@ -124,12 +124,12 @@ async def broadcast_remover(event):
     pattern="listchannels$",
 )
 async def list_all(event):
-    x = await eor(event, "`Calculating...`")
+    x = await eor(event, "`menghitung...`")
     channels = get_channels()
     num = get_no_channels()
     if num == 0:
-        return await eod(x, "No chats were added.", time=5)
-    msg = "Channels in database:\n"
+        return await eod(x, "tidak ada obrolan yang ditambahkan.", time=5)
+    msg = "channels di database:\n"
     for channel in channels:
         name = ""
         try:
@@ -147,7 +147,7 @@ async def list_all(event):
                 out_file,
                 force_document=True,
                 allow_cache=False,
-                caption="Channels in database",
+                caption="channels di database",
                 reply_to=event,
             )
             await x.delete()
@@ -161,12 +161,12 @@ async def list_all(event):
 )
 async def forw(event):
     if not event.is_reply:
-        await eor(event, "Reply to a message to broadcast.")
+        await eor(event, "balas ke pesan untuk melakukan broadcast.")
         return
     channels = get_channels()
     x = await eor(event, "Sending...")
     if get_no_channels() == 0:
-        return await x.edit(f"Please add channels by using `{hndlr}add` in them.")
+        return await x.edit(f"mohon tambahkan channels dengan menggunakan `{hndlr}add` di dalamnya.")
     error_count = 0
     sent_count = 0
     if event.reply_to_msg_id:
@@ -183,7 +183,7 @@ async def forw(event):
             try:
                 await ultroid_bot.send_message(
                     int(udB.get("LOG_CHANNEL")),
-                    f"Error in sending at {channel}.",
+                    f"error saat mengirim di {channel}.",
                 )
             except BaseException:
                 pass
@@ -191,14 +191,14 @@ async def forw(event):
             await x.edit(
                 f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}",
             )
-    await x.edit(f"{sent_count} messages sent with {error_count} errors.")
+    await x.edit(f"{sent_count} pesan dikirim dengan {error_count} errors.")
     if error_count > 0:
         try:
             await ultroid_bot.send_message(
                 int(udB.get("LOG_CHANNEL")), f"{error_count} Errors"
             )
         except BaseException:
-            await x.edit("Set up log channel for checking errors.")
+            await x.edit("atur log channel untuk memeriksa errors.")
 
 
 @ultroid_cmd(
@@ -206,19 +206,19 @@ async def forw(event):
     allow_sudo=False,
 )
 async def sending(event):
-    x = await eor(event, "`Processing...`")
+    x = await eor(event, "`memproses...`")
     if not event.is_reply:
-        return await x.edit("Reply to a message to broadcast.")
+        return await x.edit("balas ke pesan untuk melakukan broadcast.")
     channels = get_channels()
     error_count = 0
     sent_count = 0
     if get_no_channels() == 0:
-        return await x.edit(f"Please add channels by using `{hndlr}add` in them.")
+        return await x.edit(f"mohon tambahkan channels dengan menggunakan `{hndlr}add` di dalamnya.")
     await x.edit("Sending....")
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         if previous_message.poll:
-            return await x.edit(f"Reply `{hndlr}forward` for polls.")
+            return await x.edit(f"balas `{hndlr}forward` untuk polls.")
         if previous_message:
             for channel in channels:
                 try:
@@ -231,7 +231,7 @@ async def sending(event):
                     try:
                         await ultroid_bot.send_message(
                             int(udB.get("LOG_CHANNEL")),
-                            f"Error in sending at {channel}.\n\n{error}",
+                            f"error saat mengirim di {channel}.\n\n{error}",
                         )
                     except BaseException:
                         pass
@@ -239,7 +239,7 @@ async def sending(event):
                     await x.edit(
                         f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}",
                     )
-            await x.edit(f"{sent_count} messages sent with {error_count} errors.")
+            await x.edit(f"{sent_count} pesan dikirim dengan {error_count} errors.")
             if error_count > 0:
                 try:
                     await ultroid_bot.send_message(
