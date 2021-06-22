@@ -17,36 +17,36 @@ from plugins import *
 from . import *
 
 Owner_info_msg = f"""
-**Owner** - {OWNER_NAME}
-**OwnerID** - `{OWNER_ID}`
+**PEMILIK** - {OWNER_NAME}
+**ID PEMILIK** - `{OWNER_ID}`
 
-**Message Forwards** - {udB.get("PMBOT")}
+**pesan terusan** - {udB.get("PMBOT")}
 
-__Ultroid {ultroid_version}, powered by @TeamUltroid__
+__sakura {ultroid_version}, powered by @levinachannel__
 """
 
 _settings = [
     [
-        Button.inline("API Kᴇʏs", data="apiset"),
-        Button.inline("Pᴍ Bᴏᴛ", data="chatbot"),
+        Button.inline("ᴀᴘɪ ᴋᴇʏs", data="apiset"),
+        Button.inline("ᴘᴍ ʙᴏᴛ", data="chatbot"),
     ],
     [
-        Button.inline("Aʟɪᴠᴇ", data="alvcstm"),
-        Button.inline("PᴍPᴇʀᴍɪᴛ", data="ppmset"),
+        Button.inline("ᴀʟɪᴠᴇ", data="alvcstm"),
+        Button.inline("ᴘᴍ ᴘᴇʀᴍɪᴛ", data="ppmset"),
     ],
-    [Button.inline("Fᴇᴀᴛᴜʀᴇs", data="otvars")],
-    [Button.inline("VC Sᴏɴɢ Bᴏᴛ", data="vcb")],
-    [Button.inline("« Bᴀᴄᴋ", data="mainmenu")],
+    [Button.inline("ғᴇᴀᴛᴜʀᴇs", data="otvars")],
+    [Button.inline("ᴠᴄ sᴏɴɢ ʙᴏᴛ", data="vcb")],
+    [Button.inline("« ʙᴀᴄᴋ", data="mainmenu")],
 ]
 
 _start = [
     [
-        Button.inline("Lᴀɴɢᴜᴀɢᴇ 🌐", data="lang"),
-        Button.inline("Sᴇᴛᴛɪɴɢs ⚙️", data="setter"),
+        Button.inline("🏳️‍🌈 ʙᴀʜᴀsᴀ", data="lang"),
+        Button.inline("⚙️ ᴘᴇɴɢᴀᴛᴜʀᴀɴ", data="setter"),
     ],
     [
-        Button.inline("Sᴛᴀᴛs ✨", data="stat"),
-        Button.inline("Bʀᴏᴀᴅᴄᴀsᴛ 📻", data="bcast"),
+        Button.inline("✨ sᴛᴀᴛs", data="stat"),
+        Button.inline("📻 ʙʀᴏᴀᴅᴄᴀsᴛ", data="bcast"),
     ],
 ]
 
@@ -55,7 +55,7 @@ _start = [
 async def own(event):
     await event.edit(
         Owner_info_msg,
-        buttons=[Button.inline("Close", data=f"closeit")],
+        buttons=[Button.inline("🗑 CLOSE", data=f"closeit")],
     )
 
 
@@ -69,10 +69,10 @@ async def ultroid(event):
     if event.is_group:
         if str(event.sender_id) in owner_and_sudos():
             return await event.reply(
-                "`I dont work in groups`",
+                "`saya tidak bekerja didalam grup`",
                 buttons=[
                     Button.url(
-                        "⚙️Sᴛᴀʀᴛ⚙️", url=f"https://t.me/{asst.me.username}?start=set"
+                        "🌸 sᴛᴀʀᴛ 🌸", url=f"https://t.me/{asst.me.username}?start=set"
                     )
                 ],
             )
@@ -87,9 +87,9 @@ async def ultroid(event):
             u = await event.client.get_entity(event.chat_id)
             if not udB.get("STARTMSG"):
                 if udB.get("PMBOT") == "True":
-                    ok = "You can contact my master using this bot!!\n\nSend your Message, I will Deliver it To Master."
+                    ok = "🌸 anda bisa kirim pesan ke tuan saya melalui bot ini.\n\n🌸 kirimkan pesan mu, saya akan meneruskan nya ke tuan saya."
                 await event.reply(
-                    f"Hey there [{get_display_name(u)}](tg://user?id={u.id}), this is Ultroid Assistant of [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.uid})!\n\n{ok}",
+                    f"🌸 hai [{get_display_name(u)}](tg://user?id={u.id}), ini adalah sakura asisstant bot milik [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.uid})!\n\n{ok}",
                     buttons=[Button.inline("Info.", data="ownerinfo")],
                 )
             else:
@@ -103,7 +103,7 @@ async def ultroid(event):
             name = get_display_name(event.sender_id)
             if event.pattern_match.group(1) == "set":
                 await event.reply(
-                    "Choose from the below options -",
+                    "pilih pengaturan dibawah ini -",
                     buttons=_settings,
                 )
             else:
@@ -128,8 +128,8 @@ async def ultroid(event):
 @owner
 async def botstat(event):
     ok = len(get_all_users())
-    msg = """Ultroid Assistant - Stats
-Total Users - {}""".format(
+    msg = """sakura asisstant - statistik
+total pengguna - {}""".format(
         ok,
     )
     await event.answer(msg, cache_time=0, alert=True)
@@ -139,20 +139,20 @@ Total Users - {}""".format(
 @owner
 async def bdcast(event):
     ok = get_all_users()
-    await event.edit(f"Broadcast to {len(ok)} users.")
+    await event.edit(f"broadcast ke {len(ok)} pengguna.")
     async with event.client.conversation(OWNER_ID) as conv:
         await conv.send_message(
-            "Enter your broadcast message.\nUse /cancel to stop the broadcast.",
+            "kirimkan pesan untuk broadcast.\nklik /cancel untuk membatalkan broadcast.",
         )
         response = conv.wait_event(events.NewMessage(chats=OWNER_ID))
         response = await response
         themssg = response.message.message
         if themssg == "/cancel":
-            return await conv.send_message("Cancelled!!")
+            return await conv.send_message("dibatalkan !!")
         else:
             success = 0
             fail = 0
-            await conv.send_message(f"Starting a broadcast to {len(ok)} users...")
+            await conv.send_message(f"memulai broadcast ke {len(ok)} pengguna...")
             start = datetime.now()
             for i in ok:
                 try:
@@ -164,10 +164,10 @@ async def bdcast(event):
             time_taken = (end - start).seconds
             await conv.send_message(
                 f"""
-Broadcast completed in {time_taken} seconds.
-Total Users in Bot - {len(ok)}
-Sent to {success} users.
-Failed for {fail} user(s).""",
+broadcast selesai dalam {time_taken} detik.
+total pengguna di bot - {len(ok)}
+terkirim ke {success} pengguna.
+gagal ke {fail} pengguna(s).""",
             )
 
 
@@ -175,6 +175,6 @@ Failed for {fail} user(s).""",
 @owner
 async def setting(event):
     await event.edit(
-        "Choose from the below options -",
+        "pilih pengaturan dibawah ini -",
         buttons=_settings,
     )
