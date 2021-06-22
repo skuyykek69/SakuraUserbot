@@ -6,9 +6,9 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 • `{i}update`
-    See changelogs if any update is available.
+    perintah untuk memeriksa pembaruan userbot.
 """
 
 from git import Repo
@@ -24,26 +24,26 @@ if CL:
 
 @ultroid_cmd(pattern="update$")
 async def _(e):
-    xx = await eor(e, "`Checking for updates...`")
+    xx = await eor(e, "`memeriksa pembaruan...`")
     m = await updater()
     branch = (Repo.init()).active_branch
     if m:
         x = await ultroid_bot.asst.send_file(
             int(udB.get("LOG_CHANNEL")),
             ULTPIC,
-            caption="• **Update Available** •",
+            caption="• **UPDATE TERSEDIA** •",
             force_document=False,
-            buttons=Button.inline("Changelogs", data="changes"),
+            buttons=Button.inline("CHANGE LOGS", data="changes"),
         )
         Link = (await ultroid_bot(GetLink(x.chat_id, x.id))).link
         await xx.edit(
-            f'<strong><a href="{Link}">[ChangeLogs]</a></strong>',
+            f'<strong><a href="{Link}">[changelogs]</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
     else:
         await xx.edit(
-            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://github.com/TeamUltroid/Ultroid/tree/{branch}">[{branch}]</a></strong>',
+            f'<code>sakura userbot anda </code><strong>sudah versi terbaru</strong><code> dengan </code><strong><a href="https://github.com/levina-lab/veez_ultrobot/tree/{branch}">[{branch}]</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
@@ -56,7 +56,7 @@ async def updava(event):
     await ultroid_bot.asst.send_file(
         int(udB.get("LOG_CHANNEL")),
         ULTPIC,
-        caption="• **Update Available** •",
+        caption="• **PEMBARUAN TERSEDIA** •",
         force_document=False,
-        buttons=Button.inline("Changelogs", data="changes"),
+        buttons=Button.inline("CHANGE LOGS", data="changes"),
     )
