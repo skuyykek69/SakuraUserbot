@@ -18,7 +18,7 @@ from . import *
 
 # --------------------------------------------------------------------#
 telegraph = Telegraph()
-r = telegraph.create_account(short_name="Ultroid")
+r = telegraph.create_account(short_name="Sakura")
 auth_url = r["auth_url"]
 # --------------------------------------------------------------------#
 
@@ -40,13 +40,13 @@ async def send(eve):
         buttons = [
             [
                 Button.inline(
-                    "« Pᴀsᴛᴇ »",
+                    "« ᴘᴀsᴛᴇ »",
                     data=f"pasta-{plugin}",
                 )
             ],
             [
-                Button.inline("« Bᴀᴄᴋ", data="back"),
-                Button.inline("••Cʟᴏꜱᴇ••", data="close"),
+                Button.inline("« ʙᴀᴄᴋ", data="back"),
+                Button.inline("••ᴄʟᴏsᴇ••", data="close"),
             ],
         ]
     else:
@@ -55,13 +55,13 @@ async def send(eve):
         buttons = [
             [
                 Button.inline(
-                    "« Pᴀsᴛᴇ »",
+                    "« ᴘᴀsᴛᴇ »",
                     data=f"pasta-{plugin}",
                 )
             ],
             [
-                Button.inline("« Bᴀᴄᴋ", data="buck"),
-                Button.inline("••Cʟᴏꜱᴇ••", data="close"),
+                Button.inline("« ʙᴀᴄᴋ", data="buck"),
+                Button.inline("••ᴄʟᴏsᴇ••", data="close"),
             ],
         ]
     await eve.edit(file=plugin, thumb=thumb, buttons=buttons)
@@ -81,16 +81,16 @@ async def update(eve):
             heroku_app = None
             heroku_applications = heroku.apps()
         except BaseException:
-            return await eve.edit("`Wrong HEROKU_API.`")
+            return await eve.edit("`ada kesalahan di HEROKU_API.`")
         for app in heroku_applications:
             if app.name == Var.HEROKU_APP_NAME:
                 heroku_app = app
         if not heroku_app:
-            await eve.edit("`Wrong HEROKU_APP_NAME.`")
+            await eve.edit("`ada kesalahan di HEROKU_APP_NAME.`")
             repo.__del__()
             return
         await eve.edit(
-            "`Userbot dyno build in progress, please wait for it to complete.`"
+            "`proses pembaruan sakura userbot segera dimulai, mohon tunggu beberapa saat.`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -105,13 +105,13 @@ async def update(eve):
         try:
             remote.push(refspec=f"HEAD:refs/heads/{ac_br}", force=True)
         except GitCommandError as error:
-            await eve.edit(f"`Here is the error log:\n{error}`")
+            await eve.edit(f"`here is the error log:\n{error}`")
             repo.__del__()
             return
-        await eve.edit("`Successfully Updated!\nRestarting, please wait...`")
+        await eve.edit("`sakura userbot telah diperbarui!\nmemulai ulang, mohon tunggu...`")
     else:
         await eve.edit(
-            "`Userbot dyno build in progress, please wait for it to complete.`"
+            "`proses pembaruan sakura userbot segera dimulai, mohon tunggu beberapa saat.`"
         )
         try:
             ups_rem.pull(ac_br)
@@ -119,7 +119,7 @@ async def update(eve):
             repo.git.reset("--hard", "FETCH_HEAD")
         await updateme_requirements()
         await eve.edit(
-            "`Successfully Updated!\nBot is restarting... Wait for a second!`"
+            "`sakura userbot telah diperbarui!\nmemulai ulang, mohon tunggu...`"
         )
         execl(sys.executable, sys.executable, "-m", "pyUltroid")
 
@@ -130,7 +130,7 @@ async def changes(okk):
     repo = Repo.init()
     ac_br = repo.active_branch
     changelog, tl_chnglog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
-    changelog_str = changelog + f"\n\nClick the below button to update!"
+    changelog_str = changelog + f"\n\ntekan tombol dibawah untuk memperbarui!"
     if len(changelog_str) > 1024:
         await okk.edit(get_string("upd_4"))
         file = open(f"ultroid_updates.txt", "w+")
@@ -139,14 +139,14 @@ async def changes(okk):
         await okk.edit(
             get_string("upd_5"),
             file="ultroid_updates.txt",
-            buttons=Button.inline("Update Now", data="updatenow"),
+            buttons=Button.inline("UPDATE NOW", data="updatenow"),
         )
         remove(f"ultroid_updates.txt")
         return
     else:
         await okk.edit(
             changelog_str,
-            buttons=Button.inline("Update Now", data="updatenow"),
+            buttons=Button.inline("UPDATE NOW", data="updatenow"),
             parse_mode="html",
         )
 
@@ -170,16 +170,16 @@ async def _(e):
     )
     if ok.startswith("plugins"):
         buttons = [
-            Button.inline("« Bᴀᴄᴋ", data="back"),
-            Button.inline("••Cʟᴏꜱᴇ••", data="close"),
+            Button.inline("« ʙᴀᴄᴋ", data="back"),
+            Button.inline("••ᴄʟᴏsᴇ••", data="close"),
         ]
     else:
         buttons = [
-            Button.inline("« Bᴀᴄᴋ", data="buck"),
-            Button.inline("••Cʟᴏꜱᴇ••", data="close"),
+            Button.inline("« ʙᴀᴄᴋ", data="buck"),
+            Button.inline("••ᴄʟᴏsᴇ••", data="close"),
         ]
     await e.edit(
-        f"Pasted to Nekobin\n     👉[Link](https://nekobin.com/{key})\n     👉[Raw Link](https://nekobin.com/raw/{key})",
+        f"pasted to nekobin!\n     👉[Link](https://nekobin.com/{key})\n     👉[Raw Link](https://nekobin.com/raw/{key})",
         buttons=buttons,
         link_preview=False,
     )
@@ -322,24 +322,24 @@ async def emoji(event):
     var = "EMOJI_IN_HELP"
     name = f"Emoji in `{HNDLR}help` menu"
     async with event.client.conversation(pru) as conv:
-        await conv.send_message("Send emoji u want to set 🙃.\n\nUse /cancel to cancel.")
+        await conv.send_message("🌸 kirim emoji untuk di set di menu help.\n\ntekan /cancel untuk membatalkan.")
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Cancelled!!",
+                "dibatalkan !!",
                 buttons=get_back_button("otvars"),
             )
         elif themssg.startswith(("/", HNDLR)):
             return await conv.send_message(
-                "Incorrect Emoji",
+                "emoji salah",
                 buttons=get_back_button("otvars"),
             )
         else:
             await setit(event, var, themssg)
             await conv.send_message(
-                f"{name} changed to {themssg}\n",
+                f"{name} diubah ke {themssg}\n",
                 buttons=get_back_button("otvars"),
             )
 
@@ -353,25 +353,25 @@ async def pluginch(event):
     name = "Plugin Channel"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "Send id or username of a channel from where u want to install all plugins\n\nOur Channel~ @ultroidplugins\n\nUse /cancel to cancel.",
+            "kirim id atau username channel dari mana anda ingin menginstal semua plugin.\n\natur ke ~ @ultroidplugin jika ingin mendapatkan 1300+ plugins.\n\nklik /cancel untuk membatalkan.",
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Cancelled!!",
+                "dibatalkan !!",
                 buttons=get_back_button("otvars"),
             )
         elif themssg.startswith(("/", HNDLR)):
             return await conv.send_message(
-                "Incorrect channel",
+                "channel tidak valid.",
                 buttons=get_back_button("otvars"),
             )
         else:
             await setit(event, var, themssg)
             await conv.send_message(
-                "{} changed to {}\n After Setting All Things Do Restart".format(
+                "{} diatur ke {}\n sekarang ketik restart agar plugins terinstall.".format(
                     name,
                     themssg,
                 ),
@@ -385,33 +385,33 @@ async def hndlrr(event):
     await event.delete()
     pru = event.sender_id
     var = "HNDLR"
-    name = "Handler/ Trigger"
+    name = "Handler / Trigger"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            f"Send The Symbol Which u want as Handler/Trigger to use bot\nUr Current Handler is [ `{HNDLR}` ]\n\n use /cancel to cancel.",
+            f"kirimkan simbol yang mau kamu atur sebagai Handler/Trigger untuk mengakses bot.\nhandler default mu [ `{HNDLR}` ]\n\n klik /cancel untuk batal.",
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Cancelled!!",
+                "dibatalkan !!",
                 buttons=get_back_button("otvars"),
             )
         elif len(themssg) > 1:
             return await conv.send_message(
-                "Incorrect Handler",
+                "handler tidak valid.",
                 buttons=get_back_button("otvars"),
             )
         elif themssg.startswith(("/", "#", "@")):
             return await conv.send_message(
-                "This cannot be used as handler",
+                "simbol ini tidak bisa diatur sebagai handler.",
                 buttons=get_back_button("otvars"),
             )
         else:
             await setit(event, var, themssg)
             await conv.send_message(
-                f"{name} changed to {themssg}",
+                f"{name} diatur ke {themssg}",
                 buttons=get_back_button("otvars"),
             )
 
@@ -420,11 +420,11 @@ async def hndlrr(event):
 @owner
 async def tagloggrr(e):
     await e.edit(
-        "Choose Options",
+        "pilih pengaturan",
         buttons=[
             [Button.inline("SET TAG LOG", data="settag")],
             [Button.inline("DELETE TAG LOG", data="deltag")],
-            [Button.inline("« Bᴀᴄᴋ", data="otvars")],
+            [Button.inline("« ʙᴀᴄᴋ", data="otvars")],
         ],
     )
 
@@ -433,7 +433,7 @@ async def tagloggrr(e):
 @owner
 async def delfuk(e):
     udB.delete("TAG_LOG")
-    await e.answer("Done!!! TAG lOG Off")
+    await e.answer("DONE !!, TAG LOG OFF")
 
 
 @callback("settag")
@@ -445,20 +445,20 @@ async def taglogerr(event):
     name = "Tag Log Group"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            f"Make a group, add your assistant and make it admin.\nGet the `{hndlr}id` of that group and send it here for tag logs.\n\nUse /cancel to cancel.",
+            f"buat sebuah grup, tambahkan asisstant bot mu dan jadikan admin.\nGet the `{hndlr}id` of that group and send it here for tag logs.\n\nUse /cancel to cancel.",
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Cancelled!!",
+                "dibatalkan !!",
                 buttons=get_back_button("taglog"),
             )
         else:
             await setit(event, var, themssg)
             await conv.send_message(
-                f"{name} changed to {themssg}",
+                f"{name} diatur ke {themssg}",
                 buttons=get_back_button("taglog"),
             )
 
@@ -467,11 +467,11 @@ async def taglogerr(event):
 @owner
 async def pmset(event):
     await event.edit(
-        "ADDONS~ Extra Plugins:",
+        "ADDONS ~ Extra Plugins:",
         buttons=[
-            [Button.inline("Aᴅᴅᴏɴs  Oɴ", data="edon")],
-            [Button.inline("Aᴅᴅᴏɴs  Oғғ", data="edof")],
-            [Button.inline("« Bᴀᴄᴋ", data="otvars")],
+            [Button.inline("ᴀᴅᴅᴏɴs ᴏɴ", data="edon")],
+            [Button.inline("ᴀᴅᴅᴏɴs ᴏғғ", data="edof")],
+            [Button.inline("« ʙᴀᴄᴋ", data="otvars")],
         ],
     )
 
@@ -482,7 +482,7 @@ async def eddon(event):
     var = "ADDONS"
     await setit(event, var, "True")
     await event.edit(
-        "Done! ADDONS has been turned on!!\n\n After Setting All Things Do Restart",
+        "DONE !!, ADDONS sudah dinyalakan.\n\n sekarang ketik restart agar perubahan disimpan.",
         buttons=get_back_button("eaddon"),
     )
 
@@ -493,7 +493,7 @@ async def eddof(event):
     var = "ADDONS"
     await setit(event, var, "False")
     await event.edit(
-        "Done! ADDONS has been turned off!! After Setting All Things Do Restart",
+        "DONE !!, ADDONS sudah dinonaktifkan.\n\n sekarang ketik restart agar perubahan disimpan.",
         buttons=get_back_button("eaddon"),
     )
 
@@ -502,11 +502,11 @@ async def eddof(event):
 @owner
 async def pmset(event):
     await event.edit(
-        f"SUDO MODE ~ Some peoples can use ur Bot which u selected. To know More use `{HNDLR}help sudo`",
+        f"SUDO MODE ~ untuk mengizinkan orang lain mengakses userbot mu. info lengkap ketik `{HNDLR}help sudo`",
         buttons=[
-            [Button.inline("Sᴜᴅᴏ Mᴏᴅᴇ  Oɴ", data="onsudo")],
-            [Button.inline("Sᴜᴅᴏ Mᴏᴅᴇ  Oғғ", data="ofsudo")],
-            [Button.inline("« Bᴀᴄᴋ", data="otvars")],
+            [Button.inline("sᴜᴅᴏ ᴍᴏᴅᴇ ᴏɴ", data="onsudo")],
+            [Button.inline("sᴜᴅᴏ ᴍᴏᴅᴇ ᴏғғ", data="ofsudo")],
+            [Button.inline("« ʙᴀᴄᴋ", data="otvars")],
         ],
     )
 
@@ -517,7 +517,7 @@ async def eddon(event):
     var = "SUDO"
     await setit(event, var, "True")
     await event.edit(
-        "Done! SUDO MODE has been turned on!!\n\n After Setting All Things Do Restart",
+        "DONE !!, SUDO MODE sudah diaktifkan.\n\n sekarang ketik restart agar perubahan tersimpan.",
         buttons=get_back_button("sudo"),
     )
 
@@ -528,7 +528,7 @@ async def eddof(event):
     var = "SUDO"
     await setit(event, var, "False")
     await event.edit(
-        "Done! SUDO MODE has been turned off!! After Setting All Things Do Restart",
+        "DONE !!, SUDO MODE sudah dinon-aktifkan.\n\n sekarang ketik restart agar perubahan tersimpan.",
         buttons=get_back_button("sudo"),
     )
 
@@ -537,11 +537,11 @@ async def eddof(event):
 @owner
 async def sfban(event):
     await event.edit(
-        "SuperFban Settings:",
+        "pengaturan super fban:",
         buttons=[
-            [Button.inline("FBᴀɴ Gʀᴏᴜᴘ", data="sfgrp")],
-            [Button.inline("Exᴄʟᴜᴅᴇ Fᴇᴅs", data="sfexf")],
-            [Button.inline("« Bᴀᴄᴋ", data="otvars")],
+            [Button.inline("ғʙᴀɴ ɢʀᴏᴜᴘ", data="sfgrp")],
+            [Button.inline("ᴇxᴄʟᴜᴅᴇ ғᴇᴅs", data="sfexf")],
+            [Button.inline("« ʙᴀᴄᴋ", data="otvars")],
         ],
     )
 
@@ -550,7 +550,7 @@ async def sfban(event):
 @owner
 async def sfgrp(event):
     await event.delete()
-    name = "FBan Group ID"
+    name = "FBAN GROUP ID"
     var = "FBAN_GROUP_ID"
     pru = event.sender_id
     async with asst.conversation(pru) as conv:
@@ -604,12 +604,12 @@ async def sfexf(event):
 @owner
 async def alvcs(event):
     await event.edit(
-        f"Customise your {HNDLR}alive. Choose from the below options -",
+        f"kostumisasi tampilan {HNDLR}alive mu. pilih pengaturan dibawah ini -",
         buttons=[
-            [Button.inline("Aʟɪᴠᴇ Tᴇxᴛ", data="alvtx")],
-            [Button.inline("Aʟɪᴠᴇ ᴍᴇᴅɪᴀ", data="alvmed")],
-            [Button.inline("Dᴇʟᴇᴛᴇ Aʟɪᴠᴇ Mᴇᴅɪᴀ", data="delmed")],
-            [Button.inline("« Bᴀᴄᴋ", data="setter")],
+            [Button.inline("ᴀʟɪᴠᴇ ᴛᴇxᴛ", data="alvtx")],
+            [Button.inline("ᴀʟɪᴠᴇ ᴍᴇᴅɪᴀ", data="alvmed")],
+            [Button.inline("ʜᴀᴘᴜs ᴀʟɪᴠᴇ ᴍᴇᴅɪᴀ", data="delmed")],
+            [Button.inline("« ʙᴀᴄᴋ", data="setter")],
         ],
     )
 
@@ -623,20 +623,20 @@ async def name(event):
     name = "Alive Text"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Alive Text**\nEnter the new alive text.\n\nUse /cancel to terminate the operation.",
+            "**ALIVE TEXT**\nkirimkan pesan baru untuk alive text.\n\nklik /cancel untuk membatalkan.",
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Cancelled!!",
+                "dibatalkan !!",
                 buttons=get_back_button("alvcstm"),
             )
         else:
             await setit(event, var, themssg)
             await conv.send_message(
-                "{} changed to {}\n\nAfter Setting All Things Do restart".format(
+                "{} diatur ke {}\n\nsekarang ketik restart agar perubahan tersimpan.".format(
                     name,
                     themssg,
                 ),
@@ -653,14 +653,14 @@ async def media(event):
     name = "Alive Media"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Alive Media**\nSend me a pic/gif/bot api id of sticker to set as alive media.\n\nUse /cancel to terminate the operation.",
+            "**ALIVE MEDIA**\nkirimkan saya gambar/gif/bot api id dari sticker untuk diatur sebagai alive media.\n\nklik /cancel untuk membatalkan.",
         )
         response = await conv.get_response()
         try:
             themssg = response.message.message
             if themssg == "/cancel":
                 return await conv.send_message(
-                    "Operation cancelled!!",
+                    "dibatalkan !!",
                     buttons=get_back_button("alvcstm"),
                 )
         except BaseException:
@@ -679,12 +679,12 @@ async def media(event):
                 remove(media)
             except BaseException:
                 return await conv.send_message(
-                    "Terminated.",
+                    "TERMINATED.",
                     buttons=get_back_button("alvcstm"),
                 )
         await setit(event, var, url)
         await conv.send_message(
-            f"{name} has been set.",
+            f"{name} telah diatur.",
             buttons=get_back_button("alvcstm"),
         )
 
@@ -694,10 +694,10 @@ async def media(event):
 async def dell(event):
     try:
         udB.delete("ALIVE_PIC")
-        return await event.edit("Done!", buttons=get_back_button("alvcstm"))
+        return await event.edit("DONE !!", buttons=get_back_button("alvcstm"))
     except BaseException:
         return await event.edit(
-            "Something went wrong...",
+            "terjadi kesalahan.",
             buttons=get_back_button("alvcstm"),
         )
 
@@ -706,21 +706,21 @@ async def dell(event):
 @owner
 async def alvcs(event):
     await event.edit(
-        "Customise your PMPERMIT Settings -",
+        "kostumisasi pengaturan pmpermit anda -",
         buttons=[
             [
-                Button.inline("Pᴍ Tᴇxᴛ", data="pmtxt"),
-                Button.inline("Pᴍ Mᴇᴅɪᴀ", data="pmmed"),
+                Button.inline("ᴘᴍ ᴛᴇxᴛ", data="pmtxt"),
+                Button.inline("ᴘᴍ ᴍᴇᴅɪᴀ", data="pmmed"),
             ],
             [
-                Button.inline("Aᴜᴛᴏ Aᴘᴘʀᴏᴠᴇ", data="apauto"),
-                Button.inline("PMLOGGER", data="pml"),
+                Button.inline("ᴀᴜᴛᴏ ᴀᴘᴘʀᴏᴠᴇ", data="apauto"),
+                Button.inline("ᴘᴍ ʟᴏɢɢᴇʀ", data="pml"),
             ],
             [
-                Button.inline("Sᴇᴛ Wᴀʀɴs", data="swarn"),
-                Button.inline("Dᴇʟᴇᴛᴇ Pᴍ Mᴇᴅɪᴀ", data="delpmmed"),
+                Button.inline("sᴇᴛ ᴡᴀʀɴs", data="swarn"),
+                Button.inline("ʜᴀᴘᴜs ᴘᴍ ᴍᴇᴅɪᴀ", data="delpmmed"),
             ],
-            [Button.inline("« Bᴀᴄᴋ", data="ppmset")],
+            [Button.inline("« ʙᴀᴄᴋ", data="ppmset")],
         ],
     )
 
@@ -734,25 +734,25 @@ async def name(event):
     name = "PM Text"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**PM Text**\nEnter the new Pmpermit text.\n\nu can use `{name}` `{fullname}` `{count}` `{mention}` `{username}` to get this from user Too\n\nUse /cancel to terminate the operation.",
+            "**PM TEXT**\nkirimkan pesan baru untuk pmpermit.\n\nanda bisa menggunakan `{name}` `{fullname}` `{count}` `{mention}` `{username}` untuk mendapatkan ini dari pengguna juga\n\nklik /cancel untuk membatalkan.",
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Cancelled!!",
+                "dibatalkan !!",
                 buttons=get_back_button("pmcstm"),
             )
         else:
             if len(themssg) > 4090:
                 return await conv.send_message(
-                    "Message too long!\nGive a shorter message please!!",
+                    "pesan terlalu panjang!\nmohon berikan pesan yang sedikit pendek!",
                     buttons=get_back_button("pmcstm"),
                 )
             await setit(event, var, themssg)
             await conv.send_message(
-                "{} changed to {}\n\nAfter Setting All Things Do restart".format(
+                "{} diatur ke {}\n\nsekarang ketik restart agar perubahan tersimpan.".format(
                     name,
                     themssg,
                 ),
