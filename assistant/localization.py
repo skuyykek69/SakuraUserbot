@@ -24,8 +24,8 @@ async def setlang(event):
     buttons = list(zip(tultd[::2], tultd[1::2]))
     if len(tultd) % 2 == 1:
         buttons.append((tultd[-1],))
-    buttons.append([Button.inline("« Back", data="mainmenu")])
-    await event.edit("List Of Available Languages.", buttons=buttons)
+    buttons.append([Button.inline("« ʙᴀᴄᴋ", data="mainmenu")])
+    await event.edit("🏳️‍🌈 daftar bahasa yang tersedia.", buttons=buttons)
 
 
 @callback(re.compile(b"set_(.*)"))
@@ -35,6 +35,6 @@ async def settt(event):
     languages = get_languages()
     udB.set("language", f"{lang}")
     await event.edit(
-        f"Your language has been set to {languages[lang]['natively']} [{lang}].",
+        f"bahasa anda telah diatur ke {languages[lang]['natively']} [{lang}].",
         buttons=get_back_button("lang"),
     )
