@@ -51,10 +51,10 @@ async def _(e):
         match = e.text.split(" ", maxsplit=1)[1]
     except IndexError:
         kkkk = e.builder.article(
-            title="Enter Device Codename",
+            title="enter device codename here !",
             thumb=wb(ofox, 0, "image/jpeg", []),
-            text="**OFᴏx🦊Rᴇᴄᴏᴠᴇʀʏ**\n\nYou didn't search anything",
-            buttons=Button.switch_inline("Sᴇᴀʀᴄʜ Aɢᴀɪɴ", query="ofox ", same_peer=True),
+            text="**ᴏғᴏx🦊ʀᴇᴄᴏᴠᴇʀʏ**\n\nanda tidak mencari apapun.",
+            buttons=Button.switch_inline("sᴇᴀʀᴄʜ ᴀɢᴀɪɴ", query="ofox ", same_peer=True),
         )
         await e.answer([kkkk])
     a = ofox_api.releases(codename=match)
@@ -69,11 +69,11 @@ async def _(e):
                 fullname = z.full_name
                 code = z.codename
                 link = f"https://orangefox.download/device/{code}"
-                text = f"**••OʀᴀɴɢᴇFᴏx Rᴇᴄᴏᴠᴇʀʏ Fᴏʀ•[•]({ofox})** {fullname}\n"
-                text += f"**••Cᴏᴅᴇɴᴀᴍᴇ••** {code}\n"
-                text += f"**••Bᴜɪʟᴅ Tʏᴘᴇ••** {release}\n"
-                text += f"**••Vᴇʀsɪᴏɴ••** {ver}\n"
-                text += f"**••Sɪᴢᴇ••** {size}\n"
+                text = f"**••ᴏʀᴀɴɢᴇғᴏx ʀᴇᴄᴏᴠᴇʀʏ ғᴏʀ•[•]({ofox})** {fullname}\n"
+                text += f"**••ᴄᴏᴅᴇ ɴᴀᴍᴇ••** {code}\n"
+                text += f"**••ʙᴜɪʟᴅ ᴛʏᴘᴇ••** {release}\n"
+                text += f"**••ᴠᴇʀsɪᴏɴ••** {ver}\n"
+                text += f"**••sɪᴢᴇ••** {size}\n"
                 fox.append(
                     await e.builder.article(
                         title=f"{fullname}",
@@ -82,9 +82,9 @@ async def _(e):
                         thumb=wb(ofox, 0, "image/jpeg", []),
                         link_preview=True,
                         buttons=[
-                            Button.url("Dᴏᴡɴʟᴏᴀᴅ", url=f"{link}"),
+                            Button.url("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{link}"),
                             Button.switch_inline(
-                                "Sᴇᴀʀᴄʜ Aɢᴀɪɴ", query="ofox ", same_peer=True
+                                "sᴇᴀʀᴄʜ ᴀɢᴀɪɴ", query="ofox ", same_peer=True
                             ),
                         ],
                     )
@@ -126,9 +126,9 @@ async def _(e):
     except BaseException:
         lnk = e.builder.article(
             title="fl2lnk",
-            text="File not found",
+            text="file tidak ditemukan",
         )
-    await e.answer([lnk], switch_pm="File to Link.", switch_pm_param="start")
+    await e.answer([lnk], switch_pm="file to link.", switch_pm_param="start")
 
 
 @callback(
@@ -143,7 +143,7 @@ async def _(e):
     host = data.split("//")[0]
     file = data.split("//")[1]
     file_name = file.split("/")[-1]
-    await e.edit(f"Uploading `{file_name}` on {host}")
+    await e.edit(f"uploading `{file_name}` on {host}")
     await dloader(e, host, file)
 
 
@@ -152,14 +152,14 @@ async def _(e):
 async def repo(e):
     res = [
         await e.builder.article(
-            title="Ultroid Userbot",
-            description="Userbot | Telethon",
+            title="sakura userbot",
+            description="USERBOT | TELETHON",
             thumb=wb(ultpic, 0, "image/jpeg", []),
-            text="• **ULTROID USERBOT** •",
+            text="• **SAKURA USERBOT** •",
             buttons=SUP_BUTTONS,
         ),
     ]
-    await e.answer(res, switch_pm="Ultroid Repo.", switch_pm_param="start")
+    await e.answer(res, switch_pm="𝑺𝒂𝒌𝒖𝒓𝒂 𝑹𝒆𝒑𝒐.", switch_pm_param="start")
 
 
 @in_pattern("go")
@@ -169,7 +169,7 @@ async def gsearch(q_event):
         match = q_event.text.split(" ", maxsplit=1)[1]
     except IndexError:
         await q_event.answer(
-            [], switch_pm="Google Search. Enter a query!", switch_pm_param="start"
+            [], switch_pm="Google Search. masukkan nama pencarian!", switch_pm_param="start"
         )
     searcher = []
     page = findall(r"page=\d+", match)
@@ -478,13 +478,13 @@ async def clip(e):
 @callback(re_compile("ebk_(.*)"))
 async def eupload(event):
     match = event.pattern_match.group(1).decode("utf-8")
-    await event.answer("Uploading..")
+    await event.answer("uploading..")
     try:
         await event.edit(
             file=f"https://www.gutenberg.org/files/{match}/{match}-pdf.pdf"
         )
     except BaseException:
-        book = "Ultroid-Book.epub"
+        book = "Sakura-Book.epub"
         urllib.request.urlretrieve(
             "https://www.gutenberg.org/ebooks/132.epub.images", book
         )
