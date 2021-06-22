@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 **DataBase Commands, do not use if you don't know what it is.**
 
@@ -34,7 +34,7 @@ from . import *
 async def _(ult):
     if not ult.out:
         if not is_fullsudo(ult.sender_id):
-            return await eod(ult, "`This Command Is Sudo Restricted.`")
+            return await eod(ult, "`perintah ini dibatasi untuk anggota sudo.`")
     ok = await eor(ult, "`...`")
     try:
         delim = " " if re.search("[|]", ult.pattern_match.group(1)) is None else " | "
@@ -42,13 +42,13 @@ async def _(ult):
         udB.set(data[0], data[1])
         redisdata = Redis(data[0])
         await ok.edit(
-            "Redis Key Value Pair Updated\nKey : `{}`\nValue : `{}`".format(
+            "redis key value pair updated\nKey : `{}`\nValue : `{}`".format(
                 data[0],
                 redisdata,
             ),
         )
     except BaseException:
-        await ok.edit("`Something Went Wrong`")
+        await ok.edit("`telah terjadi kesalahan`")
 
 
 @ultroid_cmd(
@@ -57,16 +57,16 @@ async def _(ult):
 async def _(ult):
     if not ult.out:
         if not is_fullsudo(ult.sender_id):
-            return await eod(ult, "`This Command Is Sudo Restricted.`")
-    ok = await eor(ult, "`Deleting data from Redis ...`")
+            return await eod(ult, "`perintah ini dibatasi untuk anggota sudo.`")
+    ok = await eor(ult, "`menghapus data dari Redis ...`")
     try:
         key = ult.pattern_match.group(1)
         k = udB.delete(key)
         if k == 0:
-            return await ok.edit("`No Such Key.`")
-        await ok.edit(f"`Successfully deleted key {key}`")
+            return await ok.edit("`no such key.`")
+        await ok.edit(f"`succesfully deleted key {key}`")
     except BaseException:
-        await ok.edit("`Something Went Wrong`")
+        await ok.edit("`telah terjadi kesalahan.`")
 
 
 @ultroid_cmd(
@@ -75,7 +75,7 @@ async def _(ult):
 async def _(ult):
     if not ult.out:
         if not is_fullsudo(ult.sender_id):
-            return await eod(ult, "`This Command Is Sudo Restricted.`")
+            return await eod(ult, "`perintah ini dibatasi untuk anggota sudo.`")
     ok = await eor(ult, "`...`")
     delim = " " if re.search("[|]", ult.pattern_match.group(1)) is None else " | "
     data = ult.pattern_match.group(1).split(delim)
@@ -83,12 +83,12 @@ async def _(ult):
         try:
             udB.rename(data[0], data[1])
             await ok.edit(
-                "Redis Key Rename Successful\nOld Key : `{}`\nNew Key : `{}`".format(
+                "redis key rename successful\nOld Key : `{}`\nNew Key : `{}`".format(
                     data[0],
                     data[1],
                 ),
             )
         except BaseException:
-            await ok.edit("Something went wrong ...")
+            await ok.edit("terjadi kesalahan...")
     else:
-        await ok.edit("Key not found")
+        await ok.edit("key not found")
