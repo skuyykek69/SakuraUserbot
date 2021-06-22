@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 • `{i}addsudo`
     Add Sudo Users by replying to user or using <space> separated userid(s)
@@ -28,23 +28,23 @@ from . import *
 )
 async def _(ult):
     if not ult.out and not is_fullsudo(ult.sender_id):
-        return await eod(ult, "`This Command is Sudo Restricted!..`")
+        return await eod(ult, "`perintah ini dibatasi untuk anggota sudo!..`")
     inputs = ult.pattern_match.group(1)
     if str(ult.sender_id) in sudoers():
-        return await eod(ult, "`Sudo users can't add new sudos!`", time=10)
-    ok = await eor(ult, "`Updating SUDO Users List ...`")
+        return await eod(ult, "`anggota sudo tidak dapat menambahkan anggota sudo baru!`", time=10)
+    ok = await eor(ult, "`memperbarui daftar anggota sudo...`")
     mmm = ""
     if ult.reply_to_msg_id:
         replied_to = await ult.get_reply_message()
         id = await get_user_id(replied_to.sender_id)
         name = (await ult.client.get_entity(int(id))).first_name
         if id == ultroid_bot.me.id:
-            mmm += "You cant add yourself as Sudo User..."
+            mmm += "kamu tidak dapat menambahkan dirimu sendiri sebagai anggota sudo..."
         elif is_sudo(id):
-            mmm += f"[{name}](tg://user?id={id}) `is already a SUDO User ...`"
+            mmm += f"[{name}](tg://user?id={id}) `sudah menjadi anggota sudo...`"
         elif add_sudo(id):
             udB.set("SUDO", "True")
-            mmm += f"**Added [{name}](tg://user?id={id}) as SUDO User**"
+            mmm += f"**menambahkan [{name}](tg://user?id={id}) sebagai anggota sudo.**"
         else:
             mmm += "`SEEMS LIKE THIS FUNCTION CHOOSE TO BREAK ITSELF`"
     elif inputs:
@@ -54,22 +54,22 @@ async def _(ult):
         except BaseException:
             name = ""
         if id == ultroid_bot.me.id:
-            mmm += "You cant add yourself as Sudo User..."
+            mmm += "kamu tidak dapat menambahkan dirimu sendiri sebagai anggota sudo..."
         elif is_sudo(id):
             if name != "":
-                mmm += f"[{name}](tg://user?id={id}) `is already a SUDO User ...`"
+                mmm += f"[{name}](tg://user?id={id}) `sudah menjadi anggota sudo...`"
             else:
-                mmm += f"`{id} is already a SUDO User...`"
+                mmm += f"`{id} sudah menjadi anggota sudo...`"
         elif add_sudo(id):
             udB.set("SUDO", "True")
             if name != "":
-                mmm += f"**Added [{name}](tg://user?id={id}) as SUDO User**"
+                mmm += f"**menambahkan [{name}](tg://user?id={id}) sebagai anggota sudo**"
             else:
-                mmm += f"**Added **`{id}`** as SUDO User**"
+                mmm += f"**menambahkan **`{id}`** sebagai anggota sudo**"
         else:
             mmm += "`SEEMS LIKE THIS FUNCTION CHOOSE TO BREAK ITSELF`"
     else:
-        mmm += "`Reply to a msg or add it's id/username.`"
+        mmm += "`balas ke pesan nya atau tambahkan melalui id/username nya.`"
     await eod(ok, mmm)
 
 
@@ -78,23 +78,23 @@ async def _(ult):
 )
 async def _(ult):
     if not ult.out and not is_fullsudo(ult.sender_id):
-        return await eod(ult, "`This Command is Sudo Restricted!..`")
+        return await eod(ult, "`perintah ini dibatasi untuk anggota sudo!`")
     inputs = ult.pattern_match.group(1)
     if str(ult.sender_id) in sudoers():
         return await eod(
             ult,
-            "You are sudo user, You cant remove other sudo user.",
+            "kamu anggota sudo, tidak dapat menghapus anggota sudo lain.",
         )
-    ok = await eor(ult, "`Updating SUDO Users List ...`")
+    ok = await eor(ult, "`memperbarui daftar anggota sudo...`")
     mmm = ""
     if ult.reply_to_msg_id:
         replied_to = await ult.get_reply_message()
         id = await get_user_id(replied_to.sender_id)
         name = (await ult.client.get_entity(int(id))).first_name
         if not is_sudo(id):
-            mmm += f"[{name}](tg://user?id={id}) `wasn't a SUDO User ...`"
+            mmm += f"[{name}](tg://user?id={id}) `bukan anggota sudo...`"
         elif del_sudo(id):
-            mmm += f"**Removed [{name}](tg://user?id={id}) from SUDO User(s)**"
+            mmm += f"**menghapus [{name}](tg://user?id={id}) dari anggota sudo.(s)**"
         else:
             mmm += "`SEEMS LIKE THIS FUNCTION CHOOSE TO BREAK ITSELF`"
     elif inputs:
@@ -105,14 +105,14 @@ async def _(ult):
             name = ""
         if not is_sudo(id):
             if name != "":
-                mmm += f"[{name}](tg://user?id={id}) `wasn't a SUDO User ...`"
+                mmm += f"[{name}](tg://user?id={id}) `bukan anggota sudo...`"
             else:
-                mmm += f"`{id} wasn't a SUDO User...`"
+                mmm += f"`{id} bukan anggota sudo...`"
         elif del_sudo(id):
             if name != "":
-                mmm += f"**Removed [{name}](tg://user?id={id}) from SUDO User(s)**"
+                mmm += f"**menghapus [{name}](tg://user?id={id}) dari anggota sudo.(s)**"
             else:
-                mmm += f"**Removed **`{id}`** from SUDO User(s)**"
+                mmm += f"**menghapus **`{id}`** dari anggota sudo.(s)**"
         else:
             mmm += "`SEEMS LIKE THIS FUNCTION CHOOSE TO BREAK ITSELF`"
     else:
@@ -143,5 +143,5 @@ async def _(ult):
     if m == "False":
         m = "[False](https://telegra.ph/Ultroid-04-06)"
     return await ok.edit(
-        f"**SUDO MODE : {m}\n\nList of SUDO Users :**\n{msg}", link_preview=False
+        f"**SUDO MODE : {m}\n\n🌸 daftar anggota sudo :**\n{msg}", link_preview=False
     )
