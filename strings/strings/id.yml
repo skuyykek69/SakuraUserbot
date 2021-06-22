@@ -58,7 +58,7 @@ afk_7: "𝒂𝒌𝒖 𝒍𝒂𝒈𝒊 𝒂𝒇𝒌 𝒏𝒊𝒉, 𝒌𝒂𝒓�
 afk_8: "𝒔𝒆𝒅𝒂𝒏𝒈 𝒂𝒇𝒌 𝒚𝒂 𝒔𝒂𝒚𝒂𝒏𝒈."
 
 # bot
-alive_1: "**🌸 𝐒𝐀𝐊𝐔𝐑𝐀 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐈𝐒 𝐀𝐋𝐈𝐕𝐄 🌸**\n\n
+alive_1: "**🌸 𝐒𝐀𝐊𝐔𝐑𝐀 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐀𝐋𝐈𝐕𝐄 🌸**\n\n
 **{}**\n\n
 ┏━━━━━━━━━━━━━━━━━━━\n
 ┣ **𝙥𝙚𝙢𝙞𝙡𝙞𝙠** - `{}`\n
@@ -77,9 +77,9 @@ usage: "**💰 penggunaan harta 💰**:\n\n
  🌸 `sisa dollar bulan ini`:\n
      💵  `{}`**$**  `{}`**m**
 **|**  [`{}`**%**]\n\n
-**total ruang disk: {}\n\n**
-**terpakai: {}  Kosong: {}\n\n**
-**📊 penggunaan saham 📊\n\n🏦 upload: {}\n🏦 down: {}\n\n**
+**penyimpanan brankas: {}\n\n**
+**terpakai: {}  kosong: {}\n\n**
+**📊 penggunaan saham 📊\n\n🏦 high: {}\n🏦 down: {}\n\n**
 **CPU: {}%\nRAM: {}%\nDISK: {}%**"
 shutdown: "🌸 sayonara {}.\n`sedang mematikan bot...`"
 
@@ -106,8 +106,8 @@ chats_6: "Join @levinachannel"
 # converter
 cvt_1: "Balas ke media/Dokumen apapun."
 cvt_2: "Beri Nama dan ekstensi file"
-cvt_3: "`Memproses...`"
-cvt_4: "Balas ke media."
+cvt_3: "`memproses...`"
+cvt_4: "balas ke media."
 
 # core
 core_1: "`Modul ditemukan`"
@@ -149,16 +149,16 @@ sf_16: "SuperUnFBan Selesai.\nTotal Feds - {}.\nPengecualian - {}.\n Pengaruh {}
 sf_17: "`Beri saya id seseorang, atau balas pesan seseorang untuk memeriksa fedstatnya.`"
 sf_18: "Daftar feds {} telah dibanned.\n\nDikumpulkan menggunakan Sakura Ubot."
 sf_19: "**Kesalahan**\n `Unblock` @MissRose_Bot `dan coba lagi!"
-sf_20: "`Mengekstrak informasi...`"
-sf_21: "\n\nFedInfo diekstrak oleh Ultroid"
+sf_20: "`mengekstrak informasi...`"
+sf_21: "\n\nFedInfo diekstrak oleh Sakura"
 
 # gdrive
 gdrive_1: "`Anda telah memberi otorisasi dengan Google Drive`"
 gdrive_2: "Pergi [kesini](https://console.developers.google.com/flows/enableapi?apiid=drive) dan dapatkan `GDRIVE_CLIENT_ID` dan `GDRIVE_CLIENT_SECRET` kamu\n\n
 Kirim GDRIVE_CLIENT_ID dan GDRIVE_CLIENT_SECRET kamu seperti ini.\n`GDRIVE_CLIENT_ID GDRIVE_CLIENT_SECRET` dipisahkan dengan spasi."
 gdrive_3: "`Client Id salah anjim`"
-gdrive_4: "`Terjadi kesalahan! Kirim `/auth` lagi.\nJika masih sama, harap hubungi `@TheUltroid"
-gdrive_5: "`Berhasil!\nAnda siap untuk menggunakan Google Drive dengan Ultroid Userbot.`"
+gdrive_4: "`Terjadi kesalahan! Kirim `/auth` lagi.\nJika masih sama, harap hubungi `@levinachannel"
+gdrive_5: "`Berhasil!\nAnda siap untuk menggunakan Google Drive dengan Sakura Userbot.`"
 gdrive_6: "`Pergi ke `{}` dan kirim ``/auth.`"
 gdrive_7: "**File Berhasil Diupload kedalam G-Drive :**\n\n[{}]({})"
 
@@ -168,16 +168,16 @@ pmperm_2: "Anda telah melakukan spamming pada pesan Boss saya."
 pmperm_3: "Balas pesan seseorang atau coba perintah ini secara pribadi."
 
 # updater
-upd_1: "`Memeriksa pembaruan, harap tunggu....`"
-upd_2: "`Oops.. Updater tidak dapat melanjutkan karena beberapa masalah.`\n\n**LOGTRACE:**\n"
+upd_1: "`memeriksa pembaruan, harap tunggu....`"
+upd_2: "`oops.. updater tidak dapat melanjutkan karena beberapa masalah.`\n\n**LOGTRACE:**\n"
 upd_3: "**UPDATE baru tersedia untuk [[{}]]({}/tree/{}):\n\nPERUBAHAN:**\n\n{}"
-upd_4: "`Perubahan log terlalu besar, lihat file untuk melihatnya.`"
-upd_5: "Gunakan `{}update now` untuk update bot."
-upd_6: "{}\n\nGunakan `{}update now` untuk update bot."
-upd_7: "\n`sakura ubot sudah versi`  **paling-terbaru**  `dengan`  **[[{}]]({}/tree/{})**\n"
+upd_4: "`log perubahan terlalu besar, lihat file untuk melihatnya.`"
+upd_5: "ketik `{}update now` untuk memperbarui userbot."
+upd_6: "{}\n\nketik `{}update now` untuk update bot."
+upd_7: "\n`sakura ubot sudah versi`  **paling terbaru**  `dengan`  **[[{}]]({}/tree/{})**\n"
 
 # upload download
-udl_1: "`Balas ke file/media yang ingin Anda download...`"
+udl_1: "`Balas ke file/media yang ingin anda download...`"
 udl_2: "Download Berhasil..\nTo\n`{}`\nin `{}`"
 udl_3: "`Berikan tempat penyimpanan khusus ke file`"
 
