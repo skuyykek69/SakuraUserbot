@@ -1,4 +1,3 @@
 py-Ultroid==2021.6.18.1
 Shazamio
 https://github.com/New-dev0/Telethon/archive/BETTER.zip
-https://github.com/levina-lab/veez_ultrobot
