@@ -6,43 +6,43 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
-• `{i}promote <reply to user/userid/username>`
+• `{i}promote <balas ke user/userid/username>`
 • `{i}demote`
-    Promote/Demote the user in the chat.
+    Promote/Demote pengguna didalam obrolan.
 
-• `{i}ban <reply to user/userid/username> <reason>`
+• `{i}ban <balas ke user/userid/username> <reason>`
 • `{i}unban`
-    Ban/Unban the user from the chat.
+    Ban/Unban pengguna dari obrolan.
 
 • `{i}kick <reply to user/userid/username> <reason>`
-    Kick the user from the chat.
+    Kick pengguna dari obrolan.
 
 • `{i}pin <reply to message>`
-    Pin the message in the chat
+    sematkan pesan didalam obrolan.
     for silent pin use ({i}pin silent).
 
 • `{i}unpin (all) <reply to message>`
-    Unpin the messages in the chat.
+   lepas sematan pesan didalam obrolan.
 
 • `{i}pinned`
    Get pinned message in the current chat.
 
 • `{i}autodelete <24h/7d/off>`
-   Enable Auto Delete Messages in Chat.
+   aktifkan penghapus pesan otomatis didalam obrolan.
 
 • `{i}listpinned`
    Get all pinned messages in current chat.
 
 • `{i}purge <reply to message>`
-    Purge all messages from the replied message.
+   hapus semua pesan dari pesan yang dibalas..
 
 • `{i}purgeme <reply to message>`
-    Purge Only your messages from the replied message.
+   hapus semua pesanmu dari pesan yang dibalas.
 
 • `{i}purgeall`
-    Delete all msgs of replied user.
+   hapus semua pesan dari pengguna yang di reply.
 """
 
 import asyncio
@@ -69,7 +69,7 @@ async def prmte(ult):
     if not rank:
         rank = "Admin"
     if not user:
-        return await xx.edit("`Reply to a user to promote him!`")
+        return await xx.edit("`balas ke pengguna untuk mempromosikannya!`")
     try:
         await ultroid_bot(
             EditAdminRequest(
@@ -87,10 +87,10 @@ async def prmte(ult):
             ),
         )
         await xx.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) `is now an admin in {ult.chat.title} with title {rank}.`",
+            f"[{user.first_name}](tg://user?id={user.id}) `sekarang adalah admin di {ult.chat.title} dengan title {rank}.`",
         )
     except BadRequestError:
-        return await xx.edit("`I don't have the right to promote you.`")
+        return await xx.edit("`saya tidak punya izin untuk mempromosikan mu.`")
     await asyncio.sleep(5)
     await xx.delete()
 
@@ -107,7 +107,7 @@ async def dmote(ult):
     if not rank:
         rank = "Not Admin"
     if not user:
-        return await xx.edit("`Reply to a user to demote him!`")
+        return await xx.edit("`balas ke pengguna untuk menurunkannya dari admin!`")
     try:
         await ultroid_bot(
             EditAdminRequest(
@@ -125,10 +125,10 @@ async def dmote(ult):
             ),
         )
         await xx.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) `is no longer an admin in {ult.chat.title}`",
+            f"[{user.first_name}](tg://user?id={user.id}) `bukan lagi admin di {ult.chat.title}`",
         )
     except BadRequestError:
-        return await xx.edit("`I don't have the right to demote you.`")
+        return await xx.edit("`saya tidak punya izin untuk menurunkanmu!.`")
     await asyncio.sleep(5)
     await xx.delete()
 
@@ -143,30 +143,30 @@ async def bban(ult):
     await ult.get_chat()
     user, reason = await get_user_info(ult)
     if not user:
-        return await xx.edit("`Reply to a user or give username to ban him!`")
+        return await xx.edit("`balas ke pengguna atau berikan username nya untuk membanned nya!`")
     if str(user.id) in DEVLIST:
-        return await xx.edit(" `LoL, I can't Ban my Developer 😂`")
+        return await xx.edit(" `anda melawak?, saya tidak dapat mem-banned developer saya 😂`")
     try:
         await ultroid_bot.edit_permissions(ult.chat_id, user.id, view_messages=False)
     except BadRequestError:
-        return await xx.edit("`I don't have the right to ban a user.`")
+        return await xx.edit("`saya tidak memiliki izin untuk membanned pengguna.`")
     except UserIdInvalidError:
-        await xx.edit("`I couldn't get who he is!`")
+        await xx.edit("`saya tidak mengetahui siapa dia!`")
     try:
         reply = await ult.get_reply_message()
         if reply:
             await reply.delete()
     except BadRequestError:
         return await xx.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) **was banned by** [{OWNER_NAME}](tg://user?id={OWNER_ID}) **in** `{ult.chat.title}`\n**Reason**: `{reason}`\n**Messages Deleted**: `False`",
+            f"[{user.first_name}](tg://user?id={user.id}) **telah dibanned oleh** [{OWNER_NAME}](tg://user?id={OWNER_ID}) **di** `{ult.chat.title}`\n**Karena**: `{reason}`\n**Pesan Dihapus**: `False`",
         )
     if reason:
         await xx.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) **was banned by** [{OWNER_NAME}](tg://user?id={OWNER_ID}) **in** `{ult.chat.title}`\n**Reason**: `{reason}`",
+            f"[{user.first_name}](tg://user?id={user.id}) **telah dibanned oleh** [{OWNER_NAME}](tg://user?id={OWNER_ID}) **di** `{ult.chat.title}`\n**Karena**: `{reason}`",
         )
     else:
         await xx.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) **was banned by** [{OWNER_NAME}](tg://user?id={OWNER_ID}) **in** `{ult.chat.title}`",
+            f"[{user.first_name}](tg://user?id={user.id}) **telah dibanned oleh** [{OWNER_NAME}](tg://user?id={OWNER_ID}) **di** `{ult.chat.title}`",
         )
 
 
@@ -180,20 +180,20 @@ async def uunban(ult):
     await ult.get_chat()
     user, reason = await get_user_info(ult)
     if not user:
-        return await xx.edit("`Reply to a user or give username to unban him!`")
+        return await xx.edit("`balas ke pengguna atau berikan username nya untuk melepas nya dari banned!`")
     try:
         await ultroid_bot.edit_permissions(ult.chat_id, user.id, view_messages=True)
     except BadRequestError:
-        return await xx.edit("`I don't have the right to unban a user.`")
+        return await xx.edit("`saya tidak memiliki izin untuk unbanned pengguna.`")
     except UserIdInvalidError:
-        await xx.edit("`I couldn't get who he is!`")
+        await xx.edit("`saya tidak mengetahui siapa dia!`")
     if reason:
         await xx.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) **was unbanned by** [{OWNER_NAME}](tg://user?id={OWNER_ID}) **in** `{ult.chat.title}`\n**Reason**: `{reason}`",
+            f"[{user.first_name}](tg://user?id={user.id}) **telah diunbanned oleh** [{OWNER_NAME}](tg://user?id={OWNER_ID}) **in** `{ult.chat.title}`\n**Karena**: `{reason}`",
         )
     else:
         await xx.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) **was unbanned by** [{OWNER_NAME}](tg://user?id={OWNER_ID}) **in** `{ult.chat.title}`",
+            f"[{user.first_name}](tg://user?id={user.id}) **telah diunbanned oleh** [{OWNER_NAME}](tg://user?id={OWNER_ID}) **in** `{ult.chat.title}`",
         )
 
 
@@ -209,27 +209,27 @@ async def kck(ult):
     await ult.get_chat()
     user, reason = await get_user_info(ult)
     if not user:
-        return await xx.edit("`Kick? Whom? I couldn't get his info...`")
+        return await xx.edit("`kick siapa ?, saya tidak mengetahui informasi nya...`")
     if str(user.id) in DEVLIST:
-        return await xx.edit(" `Lol, I can't Kick my Developer`😂")
+        return await xx.edit(" `jangan melawak, saya tidak bisa kick developer saya`😂")
     if user.id == ultroid_bot.uid:
-        return await xx.edit("`You Can't kick urself`")
+        return await xx.edit("`kamu tidak bisa kick dirimu sendiri.`")
     try:
         await ultroid_bot.kick_participant(ult.chat_id, user.id)
         await asyncio.sleep(0.5)
     except BadRequestError:
-        return await xx.edit("`I don't have the right to kick a user.`")
+        return await xx.edit("`saya tidak punya izin untuk kick pengguna.`")
     except Exception as e:
         return await xx.edit(
-            f"`I don't have the right to kick a user.`\n\n**ERROR**:\n`{str(e)}`",
+            f"`saya tidak punya izin untuk kick pengguna.`\n\n**ERROR**:\n`{str(e)}`",
         )
     if reason:
         await xx.edit(
-            f"[{user.first_name}](tg://user?id={user.id})` was kicked by` [{OWNER_NAME}](tg://user?id={OWNER_ID}) `in {ult.chat.title}`\n**Reason**: `{reason}`",
+            f"[{user.first_name}](tg://user?id={user.id})` telah di kick oleh` [{OWNER_NAME}](tg://user?id={OWNER_ID}) `in {ult.chat.title}`\n**Karena**: `{reason}`",
         )
     else:
         await xx.edit(
-            f"[{user.first_name}](tg://user?id={user.id})` was kicked by` [{OWNER_NAME}](tg://user?id={OWNER_ID}) `in {ult.chat.title}`",
+            f"[{user.first_name}](tg://user?id={user.id})` telah di kick oleh` [{OWNER_NAME}](tg://user?id={OWNER_ID}) `in {ult.chat.title}`",
         )
 
 
@@ -237,7 +237,7 @@ async def kck(ult):
     pattern="pin ?(.*)",
 )
 async def pin(msg):
-    mss = "`Pinned.`"
+    mss = "`disematkan !!`"
     xx = msg.reply_to_msg_id
     tt = msg.text
     try:
@@ -250,14 +250,14 @@ async def pin(msg):
         return
     if not msg.is_private:
         link = (await ultroid_bot(ExpLink(msg.chat_id, xx))).link
-        mss = f"`Pinned` [This Message]({link})"
+        mss = f"`menyematkan` [pesan ini]({link})"
     ch = msg.pattern_match.group(1)
     if ch != "silent":
         slnt = True
         try:
             await ultroid_bot.pin_message(msg.chat_id, xx, notify=slnt)
         except BadRequestError:
-            return await eor(msg, "`Hmm.. Guess I have no rights here!`")
+            return await eor(msg, "`hmmm, saya pikir saya tidak punya izin disini!`")
         except Exception as e:
             return await eor(msg, f"**ERROR:**`{str(e)}`")
         await eor(msg, mss)
@@ -265,7 +265,7 @@ async def pin(msg):
         try:
             await ultroid_bot.pin_message(msg.chat_id, xx, notify=False)
         except BadRequestError:
-            return await eor(msg, "`Hmm.. Guess I have no rights here!`")
+            return await eor(msg, "`hmmm, saya pikir saya tidak punya izin disini!`")
         except Exception as e:
             return await eor(msg, f"**ERROR:**`{str(e)}`")
         try:
@@ -288,14 +288,14 @@ async def unp(ult):
         try:
             await ultroid_bot.unpin_message(ult.chat_id, msg)
         except BadRequestError:
-            return await xx.edit("`Hmm.. Guess I have no rights here!`")
+            return await xx.edit("`hmmm, saya pikir saya tidak punya izin disini!`")
         except Exception as e:
             return await xx.edit(f"**ERROR:**\n`{str(e)}`")
     elif ch == "all":
         try:
             await ultroid_bot.unpin_message(ult.chat_id)
         except BadRequestError:
-            return await xx.edit("`Hmm.. Guess I have no rights here!`")
+            return await xx.edit("`hmmm, saya pikir saya tidak punya izin disini!`")
         except Exception as e:
             return await xx.edit(f"**ERROR:**`{str(e)}`")
     else:
