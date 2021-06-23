@@ -6,12 +6,12 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
-• `{i}afk <optional reason>`
-    AFK means away from keyboard,
-    After u active this if Someone tag or msg u then It auto Reply Him/her,
-    (Note : By Reply To any media U can set media afk too).
+• `{i}afk <alasan>`
+    afk mungkin berarti berarti meninggalkan obrolan,
+    setelaha anda mengaktifkan opsi ini orang yang tag atau mereply pesan anda akan diberitahu bahwa anda sedang afk,
+    (note : balas ke media apapun untuk memasang nya sebagai pesan afk).
 
 """
 
@@ -161,7 +161,7 @@ async def on_afk(event):
 @ultroid_cmd(pattern=r"afk ?(.*)")
 async def _(event):
     if not is_fullsudo(event.sender_id):
-        return await eor(event, "`This Command Is Sudo Restricted.`")
+        return await eor(event, "`perintah ini dibatasi untuk anggota sudo.`")
     reply = await event.get_reply_message()
     global USER_AFK
     global afk_time
