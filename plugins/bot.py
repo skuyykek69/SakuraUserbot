@@ -9,25 +9,25 @@
 📚 Commands Available
 
 • `{i}alive`
-    Check if your bot is working.
+   untuk mengetahui apakah bot bekerja atau tidak.
 
 • `{i}ping`
-    Check Ultroid's response time.
+   cek kecepatan respon sakura ubot.
 
 • `{i}cmds`
-    View all plugin names.
+   lihat semua nama plugins.
 
 • `{i}restart`
-    To restart your bot.
+   untuk memulai ulang bot anda.
 
 • `{i}logs (sys)`
-    Get the full terminal logs.
+   dapatkan full logs terminal.
 
 • `{i}logs heroku`
    Get the latest 100 lines of heroku logs.
 
 • `{i}shutdown`
-    Turn off your bot.
+   matikan sakura userbot mu.
 """
 
 import time
