@@ -6,30 +6,30 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 • `{i}gban <reply user/ username>`
 • `{i}ungban`
-    Ban/Unban Globally.
+    Ban/Unban pengguna secara global.
 
 • `{i}gstat <reply to user/userid/username>`
-   Check if user is GBanned.
+   periksa apakah pengguna di gbanned atau tidak.
 
 • `{i}listgban`
-   List all GBanned users.
+   list semua pengguna yang di gbanned.
 
 • `{i}gmute <reply user/ username>`
 • `{i}ungmute`
-    Mute/UnMute Globally.
+   Mute/UnMute pengguna secara global.
 
 • `{i}gkick <reply user/ username>`
-    Globally Kick User.
+   kick pengguna secara global.
 
 • `{i}gcast <Message>`
-    Globally Send that msg in all grps.
+   kirimkan pesan ke semua grup secara global.
 
 • `{i}gucast <Message>`
-    Globally Send that msg in all Ur Chat Users.
+   kirimkan pesan ke semua pengguna di private chat mu secara global.
 
 •`{i}gpromote <reply to user> <channel/group/all> <rank>`
     globally promote user where you are admin.
@@ -74,13 +74,13 @@ _gdemote_rights = ChatAdminRights(
 )
 async def _(e):
     if not e.out and not is_fullsudo(e.sender_id):
-        return await eod(e, "`This Command Is Sudo Restricted.`")
+        return await eod(e, "`perintah ini dibatasi untuk anggota sudo.`")
     x = e.pattern_match.group(1)
     if not x:
         return await eod(e, "`Incorrect Format`")
     user = await e.get_reply_message()
     if user:
-        ev = await eor(e, "`Promoting Replied User Globally`")
+        ev = await eor(e, "`mempromosikan pengguna yang dibalas secara global...`")
         ok = e.text.split()
         key = "all"
         if len(ok) > 1:
@@ -137,11 +137,11 @@ async def _(e):
                         c += 1
                     except Exception as er:
                         LOGS.info(er)
-        return await eor(ev, f"Promoted The Replied Users in Total : {c} {key} chats")
+        return await eor(ev, f"mempromosikan pengguna yang dibalas dengan total : {c} {key} obrolan")
     else:
         k = e.text.split()
         if not k[1]:
-            return await eod(e, "`Give someone's username/id or replied to user.")
+            return await eod(e, "`berikan username/id pengguna atau balas ke pengguna.")
         user = k[1]
         if user.isdigit():
             user = int(user)
@@ -149,7 +149,7 @@ async def _(e):
             name = await ultroid_bot.get_entity(user)
         except BaseException:
             return await eod(e, f"`No User Found Regarding {user}`")
-        ev = await eor(e, f"`Promoting {name.first_name} globally.`")
+        ev = await eor(e, f"`mempromosikan {name.first_name} secara global...`")
         key = "all"
         if len(k) > 2:
             if ("group" in k[2]) or ("channel" in k[2]):
@@ -201,7 +201,7 @@ async def _(e):
                         c += 1
                     except BaseException:
                         pass
-        return await eor(ev, f"Promoted {name.first_name} in Total : {c} {key} chats.")
+        return await eor(ev, f"berhasil mempromosikan {name.first_name} dalam total : {c} {key} obrolan.")
 
 
 @ultroid_cmd(
@@ -209,7 +209,7 @@ async def _(e):
 )
 async def _(e):
     if not e.out and not is_fullsudo(e.sender_id):
-        return await eod(e, "`This Command Is Sudo Restricted.`")
+        return await eod(e, "`perintah ini dibatasi untuk anggota sudo.`")
     x = e.pattern_match.group(1)
     if not x:
         return await eod(e, "`Incorrect Format`")
@@ -219,7 +219,7 @@ async def _(e):
             user.id = user.peer_id.user_id
         else:
             user.id = user.from_id.user_id
-        ev = await eor(e, "`Demoting Replied User Globally`")
+        ev = await eor(e, "`menurunkan pengguna yang dibalas secara global`")
         ok = e.text.split()
         key = "all"
         if len(ok) > 1:
@@ -270,11 +270,11 @@ async def _(e):
                         c += 1
                     except BaseException:
                         pass
-        return await eor(ev, f"Demoted The Replied Users in Total : {c} {key} chats")
+        return await eor(ev, f"menurunkan pengguna yang dibalas dalam total: {c} {key} obrolan")
     else:
         k = e.text.split()
         if not k[1]:
-            return await eod(e, "`Give someone's username/id or replied to user.")
+            return await eod(e, "`berikan username/id atau balas ke pengguna.")
         user = k[1]
         if user.isdigit():
             user = int(user)
@@ -282,7 +282,7 @@ async def _(e):
             name = await ultroid_bot.get_entity(user)
         except BaseException:
             return await eod(e, f"`No User Found Regarding {user}`")
-        ev = await eor(e, f"`Demoting {name.first_name} globally.`")
+        ev = await eor(e, f"`menurunkan {name.first_name} secara global...`")
         key = "all"
         if len(k) > 2:
             if ("group" in k[2]) or ("channel" in k[2]):
@@ -332,14 +332,14 @@ async def _(e):
                         c += 1
                     except BaseException:
                         pass
-        return await eor(ev, f"Demoted {name.first_name} in Total : {c} {key} chats.")
+        return await eor(ev, f"berhasil menurunkan {name.first_name} dalam total : {c} {key} obrolan.")
 
 
 @ultroid_cmd(
     pattern="ungban ?(.*)",
 )
 async def _(e):
-    xx = await eor(e, "`UnGbanning...`")
+    xx = await eor(e, "`ungbanning...`")
     if e.reply_to_msg_id:
         userid = (await e.get_reply_message()).sender_id
     elif e.pattern_match.group(1):
@@ -347,11 +347,11 @@ async def _(e):
     elif e.is_private:
         userid = (await e.get_chat()).id
     else:
-        return await eod(xx, "`Reply to some msg or add their id.`", time=5)
+        return await eod(xx, "`balas ke sebuah pesan atau berikan id nya.`", time=5)
     name = (await e.client.get_entity(userid)).first_name
     chats = 0
     if not is_gbanned(userid):
-        return await eod(xx, "`User is not gbanned.`", time=3)
+        return await eod(xx, "`pengguna tidak di gbanned.`", time=3)
     async for ggban in e.client.iter_dialogs():
         if ggban.is_group or ggban.is_channel:
             try:
@@ -366,7 +366,7 @@ async def _(e):
     except Exception as ex:
         return await eor(xx, str(ex))
     await xx.edit(
-        f"`Ungbanned` [{name}](tg://user?id={userid}) `in {chats} chats.\nRemoved from gbanwatch.`",
+        f"`ungbanned` [{name}](tg://user?id={userid}) `di {chats} obrolan.\ndihapus dari gbanwatch.`",
     )
 
 
@@ -375,8 +375,8 @@ async def _(e):
 )
 async def _(e):
     if not e.out and not is_fullsudo(e.sender_id):
-        return await eor(e, "`This Command Is Sudo Restricted.`")
-    xx = await eor(e, "`Gbanning...`")
+        return await eor(e, "`perintah ini dibatasi untuk anggota sudo.`")
+    xx = await eor(e, "`gbanning...`")
     reason = ""
     if e.reply_to_msg_id:
         userid = (await e.get_reply_message()).sender_id
@@ -398,17 +398,17 @@ async def _(e):
         except IndexError:
             reason = ""
     else:
-        return await eod(xx, "`Reply to some msg or add their id.`", tome=5)
+        return await eod(xx, "`balas ke sebuah pesan atau berikan id nya.`", tome=5)
     name = (await e.client.get_entity(userid)).first_name
     chats = 0
     if userid == ultroid_bot.uid:
-        return await eod(xx, "`I can't gban myself.`", time=3)
+        return await eod(xx, "`saya tidak bisa melakukan gban terhadap diri sendiri.`", time=3)
     if str(userid) in DEVLIST:
-        return await eod(xx, "`I can't gban my Developers.`", time=3)
+        return await eod(xx, "`saya tidak bisa gban developer saya.`", time=3)
     if is_gbanned(userid):
         return await eod(
             xx,
-            "`User is already gbanned and added to gbanwatch.`",
+            "`pengguna sudah di gbanned dan ditambahkan ke gbanwatch.`",
             time=4,
         )
     async for ggban in e.client.iter_dialogs():
@@ -424,9 +424,9 @@ async def _(e):
         await e.client(BlockRequest(int(userid)))
     except Exception as ex:
         return await eor(xx, str(ex))
-    gb_msg = f"**#Gbanned** [{name}](tg://user?id={userid}) `in {chats} chats and added to gbanwatch!`"
+    gb_msg = f"**#Gbanned** [{name}](tg://user?id={userid}) `di {chats} obrolan dan ditambahkan ke gbanwatch!`"
     if reason != "":
-        gb_msg += f"\n**Reason** - {reason}"
+        gb_msg += f"\n**Karena** - {reason}"
     await xx.edit(gb_msg)
 
 
@@ -435,13 +435,13 @@ async def _(e):
 )
 async def gcast(event):
     if not event.out and not is_fullsudo(event.sender_id):
-        return await eor(event, "`This Command Is Sudo Restricted.`")
+        return await eor(event, "`perintah ini dibatasi untuk anggota sudo.`")
     xx = event.pattern_match.group(1)
     if not xx:
-        return eor(event, "`Give some text to Globally Broadcast`")
+        return eor(event, "`berikan sebuah pesan untuk global broadcast!`")
     tt = event.text
     msg = tt[6:]
-    kk = await eor(event, "`Globally Broadcasting Msg...`")
+    kk = await eor(event, "`melakukan broadcast secara global...`")
     er = 0
     done = 0
     async for x in ultroid_bot.iter_dialogs():
@@ -452,7 +452,7 @@ async def gcast(event):
                 await ultroid_bot.send_message(chat, msg)
             except BaseException:
                 er += 1
-    await kk.edit(f"Done in {done} chats, error in {er} chat(s)")
+    await kk.edit(f"berhasil di {done} obrolan, gagal di {er} obrolan(s)")
 
 
 @ultroid_cmd(
@@ -460,13 +460,13 @@ async def gcast(event):
 )
 async def gucast(event):
     if not event.out and not is_fullsudo(event.sender_id):
-        return await eor(event, "`This Command Is Sudo Restricted.`")
+        return await eor(event, "`perintah ini dibatasi untuk anggota sudo.`")
     xx = event.pattern_match.group(1)
     if not xx:
-        return eor(event, "`Give some text to Globally Broadcast`")
+        return eor(event, "`berikan sebuah pesan untuk global broadcast!`")
     tt = event.text
     msg = tt[7:]
-    kk = await eor(event, "`Globally Broadcasting Msg...`")
+    kk = await eor(event, "`melakukan global broadcast...`")
     er = 0
     done = 0
     async for x in ultroid_bot.iter_dialogs():
@@ -477,14 +477,14 @@ async def gucast(event):
                 await ultroid_bot.send_message(chat, msg)
             except BaseException:
                 er += 1
-    await kk.edit(f"Done in {done} chats, error in {er} chat(s)")
+    await kk.edit(f"berhasil di {done} obrolan, gagal di {er} obrolan(s)")
 
 
 @ultroid_cmd(
     pattern="gkick ?(.*)",
 )
 async def gkick(e):
-    xx = await eor(e, "`Gkicking...`")
+    xx = await eor(e, "`gkicking...`")
     if e.reply_to_msg_id:
         userid = (await e.get_reply_message()).sender_id
     elif e.pattern_match.group(1):
