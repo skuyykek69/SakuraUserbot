@@ -101,7 +101,7 @@ async def upstream(ups):
             changelog_str = (
                 changelog + f"\n\nketik <code>{hndlr}update now</code> untuk memperbarui!"
             )
-            tldr_str = tl_chnglog + f"\n\nketik {hndlr}update now untuk memprbarui!"
+            tldr_str = tl_chnglog + f"\n\nketik {hndlr}update now untuk memperbarui!"
             if len(changelog_str) > 4096:
                 await eor(pagal, get_string("upd_4"))
                 file = open(f"ultroid_updates.txt", "w+")
