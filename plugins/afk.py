@@ -9,9 +9,9 @@
 📚 Commands Available -
 
 • `{i}afk <alasan>`
-    afk mungkin berarti berarti meninggalkan obrolan,
-    setelaha anda mengaktifkan opsi ini orang yang tag atau mereply pesan anda akan diberitahu bahwa anda sedang afk,
-    (note : balas ke media apapun untuk memasang nya sebagai pesan afk).
+   afk mungkin berarti anda meninggalkan obrolan,
+   setelah anda mengaktifkan opsi ini, orang yang tag atau mereply pesan anda akan diberitahu bahwa anda sedang afk,
+   (note : balas ke media apapun untuk memasang nya sebagai pesan afk).
 
 """
 
