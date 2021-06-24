@@ -8,7 +8,7 @@
 """
 📚 Commands Available -
 • `{i}update`
-    perintah untuk memeriksa pembaruan userbot.
+   perintah untuk memeriksa pembaruan userbot dan memperbarui nya.
 """
 
 from git import Repo
@@ -43,7 +43,7 @@ async def _(e):
         )
     else:
         await xx.edit(
-            f'<code>sakura userbot anda</code><strong>sudah versi terbaru</strong><code> dengan </code><strong><a href="https://github.com/levina-lab/veez_ultrobot/tree/{branch}">[{branch}]</a></strong>',
+            f'<code>sakura userbot anda </code><strong>sudah versi terbaru</strong><code> dengan </code><strong><a href="https://github.com/levina-lab/veez_ultrobot/tree/{branch}">[{branch}]</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
