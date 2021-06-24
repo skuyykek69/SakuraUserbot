@@ -6,26 +6,26 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
-• `{i}mute <reply to msg/ user id>`
-    Mute user in current chat.
+• `{i}mute <balas ke [pesan/id pengguna>`
+    bisukan pengguna disebuah obrolan.
 
-• `{i}unmute <reply to msg/ user id>`
-    Unmute user in current chat.
+• `{i}unmute <balas ke pesan/id pengguna>`
+    unmute pengguna disebuah obrolan.
 
-• `{i}dmute <reply to msg/ user id>`
-    Mute user in current chat by deleting msgs.
+• `{i}dmute <balas ke pesan/id pengguna>`
+    hapus pesan dan bisukan pengguna disebuah obrolan.
 
-• `{i}undmute <reply to msg/ use id>`
-    Unmute dmuted user in current chat.
+• `{i}undmute <balas ke pesan/id pengguna>`
+    unmute pengguna yang di dmuted di sebuah obrolan.
 
-• `{i}tmute <time> <reply to msg/ use id>`
-    s- seconds
-    m- minutes
-    h- hours
-    d- days
-    Mute user in current chat with time.
+• `{i}tmute <time> <balas ke pesan/gunakan id>`
+    s- detik
+    m- menit
+    h- jam
+    d- hari
+    bisukan pengguna disebuah obrolan dengan waktu tertentu.
 """
 
 
@@ -48,7 +48,7 @@ async def watcher(event):
     pattern="dmute ?(.*)",
 )
 async def startmute(event):
-    xx = await eor(event, "`Muting...`")
+    xx = await eor(event, "`membisukan...`")
     input = event.pattern_match.group(1)
     private = False
     if event.is_private:
@@ -66,25 +66,25 @@ async def startmute(event):
     elif private is True:
         userid = event.chat_id
     else:
-        return await eod(xx, "`Reply to a user or add their userid.`", time=5)
+        return await eod(xx, "`balas ke pengguna atau berikan id nya.`", time=5)
     chat_id = event.chat_id
     chat = await event.get_chat()
     if "admin_rights" in vars(chat) and vars(chat)["admin_rights"] is not None:
         if chat.admin_rights.delete_messages is True:
             pass
         else:
-            return await eor(xx, "`No proper admin rights...`", time=5)
+            return await eor(xx, "`no proper admin rights...`", time=5)
     elif "creator" in vars(chat):
         pass
     elif private:
         pass
     else:
-        return await eod(xx, "`No proper admin rights...`", time=5)
+        return await eod(xx, "`no proper admin rights...`", time=5)
     if is_muted(f"{userid}_{chat_id}"):
-        return await eod(xx, "`This user is already muted in this chat.`", time=5)
+        return await eod(xx, "`pengguna ini sudah dibisukan di obrolan ini.`", time=5)
     try:
         mute(f"{userid}_{chat_id}")
-        await eod(xx, "`Successfully muted...`", time=3)
+        await eod(xx, "`berhasil dibisukan...`", time=3)
     except Exception as e:
         await eod(xx, "Error: " + f"`{str(e)}`")
 
@@ -93,7 +93,7 @@ async def startmute(event):
     pattern="undmute ?(.*)",
 )
 async def endmute(event):
-    xx = await eor(event, "`Unmuting...`")
+    xx = await eor(event, "`membuka mute...`")
     private = False
     input = event.pattern_match.group(1)
     if event.is_private:
@@ -111,13 +111,13 @@ async def endmute(event):
     elif private is True:
         userid = event.chat_id
     else:
-        return await eod(xx, "`Reply to a user or add their userid.`", time=5)
+        return await eod(xx, "`balas ke pengguna atau berikan id nya.`", time=5)
     chat_id = event.chat_id
     if not is_muted(f"{userid}_{chat_id}"):
-        return await eod(xx, "`This user is not muted in this chat.`", time=3)
+        return await eod(xx, "`pengguna ini sudah tidak dibisukan di obrolan ini.`", time=3)
     try:
         unmute(f"{userid}_{chat_id}")
-        await eod(xx, "`Successfully unmuted...`", time=3)
+        await eod(xx, "`berhasil di unmute...`", time=3)
     except Exception as e:
         await eod(xx, "Error: " + f"`{str(e)}`")
 
@@ -127,12 +127,12 @@ async def endmute(event):
     groups_only=True,
 )
 async def _(e):
-    xx = await eor(e, "`Muting...`")
+    xx = await eor(e, "`membisukan...`")
     huh = e.text.split(" ")
     try:
         tme = huh[1]
     except BaseException:
-        return await eod(xx, "`Time till mute?`", time=5)
+        return await eod(xx, "`tentukan sampai kapan akan dimute ?`", time=5)
     try:
         input = huh[2]
     except BaseException:
@@ -152,9 +152,9 @@ async def _(e):
             userid = (await e.client.get_entity(input)).id
             name = (await event.client.get_entity(userid)).first_name
     else:
-        return await eod(xx, "`Reply to someone or use its id...`", time=3)
+        return await eod(xx, "`balas ke seseorang atau gunakan id nya...`", time=3)
     if userid == ultroid_bot.uid:
-        return await eod(xx, "`I can't mute myself.`", time=3)
+        return await eod(xx, "`tidak dapat membisukan diri sendiri.`", time=3)
     try:
         bun = await ban_time(xx, tme)
         await e.client.edit_permissions(
@@ -165,7 +165,7 @@ async def _(e):
         )
         await eod(
             xx,
-            f"`Successfully Muted` [{name}](tg://user?id={userid}) `in {chat.title} for {tme}`",
+            f"`berhasil membisukan` [{name}](tg://user?id={userid}) `di {chat.title} untuk {tme}`",
             time=5,
         )
     except BaseException as m:
@@ -177,7 +177,7 @@ async def _(e):
     groups_only=True,
 )
 async def _(e):
-    xx = await eor(e, "`Unmuting...`")
+    xx = await eor(e, "`membuka mute...`")
     input = e.pattern_match.group(1)
     chat = await e.get_chat()
     if e.reply_to_msg_id:
@@ -194,7 +194,7 @@ async def _(e):
             userid = (await e.client.get_entity(input)).id
             name = (await e.client.get_entity(userid)).first_name
     else:
-        return await eod(xx, "`Reply to someone or use its id...`", time=3)
+        return await eod(xx, "`balas ke seseorang atau gunakan id nya...`", time=3)
     try:
         await e.client.edit_permissions(
             chat.id,
@@ -204,7 +204,7 @@ async def _(e):
         )
         await eod(
             xx,
-            f"`Successfully Unmuted` [{name}](tg://user?id={userid}) `in {chat.title}`",
+            f"`berhasil di unmute` [{name}](tg://user?id={userid}) `di {chat.title}`",
             time=5,
         )
     except BaseException as m:
@@ -216,7 +216,7 @@ async def _(e):
     groups_only=True,
 )
 async def _(e):
-    xx = await eor(e, "`Muting...`")
+    xx = await eor(e, "`membisukan...`")
     input = e.pattern_match.group(1)
     chat = await e.get_chat()
     if e.reply_to_msg_id:
@@ -233,9 +233,9 @@ async def _(e):
             userid = (await e.client.get_entity(input)).id
             name = (await e.client.get_entity(userid)).first_name
     else:
-        return await eod(xx, "`Reply to someone or use its id...`", time=3)
+        return await eod(xx, "`balas ke seseorang atau gunakan id nya...`", time=3)
     if userid == ultroid_bot.uid:
-        return await eod(xx, "`I can't mute myself.`", time=3)
+        return await eod(xx, "`tidak dapat membisukan diri sendiri.`", time=3)
     try:
         await e.client.edit_permissions(
             chat.id,
@@ -245,7 +245,7 @@ async def _(e):
         )
         await eod(
             xx,
-            f"`Successfully Muted` [{name}](tg://user?id={userid}) `in {chat.title}`",
+            f"`berhasil membisukan` [{name}](tg://user?id={userid}) `di {chat.title}`",
             time=5,
         )
     except BaseException as m:
