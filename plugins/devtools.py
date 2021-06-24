@@ -9,10 +9,10 @@
 ✘ Commands Available -
 
 • `{i}bash <cmds>`
-    Run linux commands on telegram.
+   jalankan perintah linux di telegram.
 
 • `{i}eval <cmds>`
-    Evaluate python commands on telegram.
+   evaluasi perintah python di telegram.
     Shortcuts:
         client = bot = event.client
         e = event
@@ -21,7 +21,7 @@
         chat = event.chat_id
 
 • `{i}sysinfo`
-    Shows System Info.
+   perlihatkan info sistem.
 """
 import io
 import sys
@@ -37,7 +37,7 @@ from . import *
     pattern="sysinfo$",
 )
 async def _(e):
-    xx = await eor(e, "`Sending...`")
+    xx = await eor(e, "`mengirim...`")
     x, y = await bash("neofetch|sed 's/\x1B\\[[0-9;\\?]*[a-zA-Z]//g' >> neo.txt")
     with open("neo.txt", "r") as neo:
         p = (neo.read()).replace("\n\n", "")
@@ -54,18 +54,18 @@ async def _(e):
 )
 async def _(event):
     if not event.out and not is_fullsudo(event.sender_id):
-        return await eor(event, "`This Command Is Sudo Restricted.`")
+        return await eor(event, "`perintah ini dibatasi untuk anggota sudo.`")
     if Redis("I_DEV") != "True":
         await eor(
             event,
             f"Developer Restricted!\nIf you know what this does, and want to proceed\n\n `{HNDLR}setredis I_DEV True`\n\nThis Might Be Dangerous.",
         )
         return
-    xx = await eor(event, "`Processing...`")
+    xx = await eor(event, "`memproses...`")
     try:
         cmd = event.text.split(" ", maxsplit=1)[1]
     except IndexError:
-        return await eod(xx, "`No cmd given`", time=10)
+        return await eod(xx, "`no cmd given`", time=10)
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
@@ -108,14 +108,14 @@ async def _(event):
         if not event.text[5] == " ":
             return
     if not event.out and not is_fullsudo(event.sender_id):
-        return await eor(event, "`This Command Is Sudo Restricted.`")
+        return await eor(event, "`perintah ini dibatasi untuk anggota sudo.`")
     if Redis("I_DEV") != "True":
         await eor(
             event,
             f"Developer Restricted!\nIf you know what this does, and want to proceed\n\n {HNDLR}setredis I_DEV True\n\nThis Might Be Dangerous.",
         )
         return
-    xx = await eor(event, "`Processing ...`")
+    xx = await eor(event, "`memproses...`")
     try:
         cmd = event.text.split(" ", maxsplit=1)[1]
     except IndexError:
@@ -144,7 +144,7 @@ async def _(event):
     elif stdout:
         evaluation = stdout
     else:
-        evaluation = "Success"
+        evaluation = "sukses !!"
     final_output = (
         "__►__ **EVALPy**\n```{}``` \n\n __►__ **OUTPUT**: \n```{}``` \n".format(
             cmd,
