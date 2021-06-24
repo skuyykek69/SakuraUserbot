@@ -6,19 +6,19 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
-• `{i}ftyping <time/in secs>`
-    `Show Fake Typing in current chat. `
+• `{i}ftyping <time/dalam detik>`
+  `lakukan aksi palsu mengetik didalam grup. `
 
 • `{i}faudio <time/in secs>`
-    `Show Fake Recording Action in current chat. `
+  `lakukan aksi palsu merekam voice note didalam grup. `
 
 • `{i}fvideo <time/in secs>`
-    `Show Fake video action in current chat. `
+  `lakukan aksi palsu merekam video didalam grup. `
 
 • `{i}fgame <time/in secs>`
-    `Show Fake Game Playing Action in current chat. `
+  `lakukan aksi palsu bermain game didalam grup. `
 """
 
 from . import *
@@ -37,7 +37,7 @@ async def _(e):
                 t = await ban_time(e, t)
             except BaseException:
                 return await eod(e, "`Incorrect Format`")
-    await eod(e, f"Starting Fake Typing For {t} sec.")
+    await eod(e, f"memulai aksi mengetik palsu dalam {t} detik.")
     async with e.client.action(e.chat_id, "typing"):
         await asyncio.sleep(t)
 
@@ -55,7 +55,7 @@ async def _(e):
                 t = await ban_time(e, t)
             except BaseException:
                 return await eod(e, "`Incorrect Format`")
-    await eod(e, f"Starting Fake audio recording For {t} sec.")
+    await eod(e, f"memulai aksi merekam audio palsu dalam {t} detik.")
     async with e.client.action(e.chat_id, "record-audio"):
         await asyncio.sleep(t)
 
@@ -73,7 +73,7 @@ async def _(e):
                 t = await ban_time(e, t)
             except BaseException:
                 return await eod(e, "`Incorrect Format`")
-    await eod(e, f"Starting Fake video recording For {t} sec.")
+    await eod(e, f"memulai aksi merekam video palsu dalam {t} detik.")
     async with e.client.action(e.chat_id, "record-video"):
         await asyncio.sleep(t)
 
@@ -91,6 +91,6 @@ async def _(e):
                 t = await ban_time(e, t)
             except BaseException:
                 return await eod(e, "`Incorrect Format`")
-    await eod(e, f"Starting Fake Game Playing For {t} sec.")
+    await eod(e, f"memulai aksi bermain game palsu dalam {t} detik.")
     async with e.client.action(e.chat_id, "game"):
         await asyncio.sleep(t)
