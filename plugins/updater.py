@@ -8,7 +8,7 @@
 """
 📚 Commands Available -
 • `{i}update`
-   perintah untuk memeriksa pembaruan userbot dan memperbarui nya.
+   perintah untuk memeriksa pembaruan userbot dan memperbarui nya ke versi terbaru.
 """
 
 from git import Repo
