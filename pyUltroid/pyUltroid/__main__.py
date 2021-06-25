@@ -186,8 +186,8 @@ async def autopilot():
     try:
         r = await ultroid_bot(
             CreateChannelRequest(
-                title="My Ultroid Logs",
-                about="My Ultroid Log Group\n\n Join @TeamUltroid",
+                title="Sakura Log Group",
+                about="My Sakura Log Group\n\n Join @levinachannel",
                 megagroup=True,
             ),
         )
@@ -220,7 +220,7 @@ async def autopilot():
     pfpa = await ultroid_bot.download_profile_photo(chat_id)
     if not pfpa:
         urllib.request.urlretrieve(
-            "https://telegra.ph/file/bac3a1c21912a7b35c797.jpg", "channelphoto.jpg"
+            "https://telegra.ph/file/0154c6a8c2ef83c058f0b.jpg", "channelphoto.jpg"
         )
         ll = await ultroid_bot.upload_file("channelphoto.jpg")
         await ultroid_bot(EditPhotoRequest(chat_id, InputChatUploadedPhoto(ll)))
@@ -241,12 +241,12 @@ async def bot_info(asst):
 LOGS.info("Initialising...")
 LOGS.info(f"py-Ultroid Version - {ver}")
 LOGS.info(f"Telethon Version - {vers}")
-LOGS.info("Ultroid Version - 0.0.8.1")
+LOGS.info("Sakura Version - 0.0.8.1")
 
 
 # log in
 BOT_TOKEN = udB.get("BOT_TOKEN")
-LOGS.info("Starting Ultroid...")
+LOGS.info("Starting Sakura...")
 try:
     ultroid_bot.asst = TelegramClient(
         "asst-session", api_id=Var.API_ID, api_hash=Var.API_HASH
@@ -257,7 +257,7 @@ try:
     LOGS.info("Done, startup completed")
     LOGS.info("UserBot - Started")
 except AuthKeyDuplicatedError or PhoneNumberInvalidError or EOFError:
-    LOGS.info("Session String expired. Please create a new one! Ultroid is stopping...")
+    LOGS.info("Session String expired. Please create a new one! Sakura is stopping...")
     exit(1)
 except ApiIdInvalidError:
     LOGS.info("Your API ID/API HASH combination is invalid. Kindly recheck.")
@@ -301,9 +301,9 @@ for plugin_name in files:
         if plugin_name.endswith(".py"):
             load_assistant(plugin_name[:-3])
             if not plugin_name.startswith("__") or plugin_name.startswith("_"):
-                LOGS.info(f"Ultroid - Assistant -  Installed - {plugin_name}")
+                LOGS.info(f"Sakura - Assistant -  Installed - {plugin_name}")
     except Exception:
-        LOGS.info(f"Ultroid - Assistant - ERROR - {plugin_name}")
+        LOGS.info(f"Sakura - Assistant - ERROR - {plugin_name}")
         LOGS.info(str(traceback.print_exc()))
 
 # for addons
@@ -351,9 +351,9 @@ if Plug_channel:
                 if "(" not in files:
                     try:
                         load_addons(plugin.replace(".py", ""))
-                        LOGS.info(f"Ultroid - PLUGIN_CHANNEL - Installed - {plugin}")
+                        LOGS.info(f"Sakura - PLUGIN_CHANNEL - Installed - {plugin}")
                     except Exception as e:
-                        LOGS.info(f"Ultroid - PLUGIN_CHANNEL - ERROR - {plugin}")
+                        LOGS.info(f"Sakura - PLUGIN_CHANNEL - ERROR - {plugin}")
                         LOGS.info(str(e))
                 else:
                     LOGS.info(f"Plugin {plugin} is Pre Installed")
@@ -415,7 +415,7 @@ async def customize():
             await asyncio.sleep(1)
             await ultroid_bot.send_message(
                 "botfather",
-                f"✨ PowerFul Ultroid Assistant Bot ✨\n✨ Master ~ {sir} ✨\n\n✨ Powered By ~ @TeamUltroid ✨",
+                f"✨ PowerFul Sakura Assistant Bot ✨\n✨ Master ~ {sir} ✨\n\n✨ Powered By ~ @levinachannel ✨",
             )
             await asyncio.sleep(2)
             await ultroid_bot.send_message(
@@ -429,7 +429,7 @@ async def customize():
 # some stuffs
 async def ready():
     chat_id = int(udB.get("LOG_CHANNEL"))
-    MSG = f"**Ultroid has been deployed!**\n➖➖➖➖➖➖➖➖➖\n**UserMode**: [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.me.id})\n**Assistant**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖\n**Support**: @TeamUltroid\n➖➖➖➖➖➖➖➖➖"
+    MSG = f"**Sakura has been deployed!**\n➖➖➖➖➖➖➖➖➖\n**UserMode**: [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.me.id})\n**Assistant**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖\n**Support**: @levinachannel\n➖➖➖➖➖➖➖➖➖"
     BTTS = [Button.inline("Help", "open")]
     updava = await updater()
     try:
@@ -479,7 +479,7 @@ ultroid_bot.loop.run_until_complete(ready())
 LOGS.info(
     """
                 ----------------------------------------------------------------------
-                    Ultroid has been deployed! Visit @TheUltroid for updates!!
+                    Sakura has been deployed! Visit @levinachannel for updates!!
                 ----------------------------------------------------------------------
 """
 )
