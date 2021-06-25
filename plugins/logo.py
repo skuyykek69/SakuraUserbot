@@ -6,12 +6,12 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 • `{i}logo <text>`
-   Generate a logo of the given Text
-   Or Reply To image , to write ur text on it.
-   Or Reply To Font File, To write with that font.
+   Hasilkan logo dari teks yang diberikan,
+   atau balas ke gambar, untuk menulis teks anda di atasnya,
+   atau balas ke file font, Untuk menulis dengan font tersebut.
 
 """
 
@@ -30,7 +30,7 @@ async def logo_gen(event):
     xx = await eor(event, get_string("com_1"))
     name = event.pattern_match.group(1)
     if not name:
-        await eod(xx, "`Give a name too!`")
+        await eod(xx, "`berikan teks untuk logo!`")
     bg_, font_ = "", ""
     if event.reply_to_msg_id:
         temp = await event.get_reply_message()
@@ -45,7 +45,7 @@ async def logo_gen(event):
     else:
         pics = []
         async for i in ultroid.iter_messages(
-            "@UltroidLogos", filter=InputMessagesFilterPhotos
+            "@SakuraLogos", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
         id_ = random.choice(pics)
@@ -55,7 +55,7 @@ async def logo_gen(event):
     if not bg_:
         pics = []
         async for i in ultroid.iter_messages(
-            "@UltroidLogos", filter=InputMessagesFilterPhotos
+            "@SakuraLogos", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
         id_ = random.choice(pics)
@@ -96,7 +96,7 @@ async def logo_gen(event):
         await event.client.send_file(
             event.chat_id,
             file=flnme,
-            caption=f"Logo by [{OWNER_NAME}](tg://user?id={OWNER_ID})",
+            caption=f"logo oleh [{OWNER_NAME}](tg://user?id={OWNER_ID})",
             force_document=True,
         )
         os.remove(flnme)
