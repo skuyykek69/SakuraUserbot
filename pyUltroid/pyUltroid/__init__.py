@@ -29,7 +29,7 @@ basicConfig(
 LOGS.info(
     """
                 -----------------------------------
-                        Starting Deployment
+                        MEMULAI DEPLOYMENT
                 -----------------------------------
 """
 )
