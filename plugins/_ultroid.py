@@ -12,7 +12,7 @@ from telethon.errors.rpcerrorlist import BotMethodInvalidError as bmi
 from . import *
 
 REPOMSG = (
-    "• **SAKURA USERBOT** •\n\n",
+    "🌸 **SAKURA USERBOT** 🌸\n\n",
     "• REPO - [KLIK DISINI](https://github.com/levina-lab/veez_ultrobot)\n",
     "• ADDONS - [KLIK DISINI](https://github.com/TeamUltroid/UltroidAddons)\n",
     "• SUPPORT - @levinachannel",
