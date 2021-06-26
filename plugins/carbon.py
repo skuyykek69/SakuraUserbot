@@ -6,13 +6,13 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
-• `{i}carbon <text/reply to msg/reply to document>`
-    Carbonise the text with default settings.
+• `{i}carbon <text/balas ke pesan/balas ke dokumen>`
+   karbonisasi teks dengan pengaturan default.
 
 • `{i}rcarbon <text/reply to msg/reply to document>`
-    Carbonise the text, with random bg colours.
+   karbonisasi teks dengan warna background random.
 """
 
 import random
@@ -194,7 +194,7 @@ async def crbn(event):
     webs = requests.get("https://carbonara.vercel.app/api/cook")
     if webs.status_code == 502:
         return await eor(
-            event, "`Temporary Server Error has Occured !\nPlease Try Again Later`"
+            event, "`terjadi kesalahan server sementara !!\nsilahkan coba lagi nanti.`"
         )
     carbon = Carbon(base_url="https://carbonara.vercel.app/api/cook", code=code)
     xx = await carbon.memorize("ultroid_carbon")
@@ -202,7 +202,7 @@ async def crbn(event):
     await ultroid_bot.send_file(
         event.chat_id,
         xx,
-        caption=f"Carbonised by [{OWNER_NAME}](tg://user?id={OWNER_ID})",
+        caption=f"karbon oleh [{OWNER_NAME}](tg://user?id={OWNER_ID})",
     )
 
 
@@ -210,7 +210,7 @@ async def crbn(event):
     pattern="rcarbon",
 )
 async def crbn(event):
-    xxxx = await eor(event, "Processing")
+    xxxx = await eor(event, "`memproses...`")
     if event.reply_to_msg_id:
         temp = await event.get_reply_message()
         if temp.media:
@@ -227,7 +227,7 @@ async def crbn(event):
     webs = requests.get("https://carbonara.vercel.app/api/cook")
     if webs.status_code == 502:
         return await eor(
-            event, "`Temporary Server Error has Occured !\nPlease Try Again Later`"
+            event, "`terjadi kesalahan server sementara !!\nsilahkan coba lagi nanti.`"
         )
     carbon = Carbon(
         base_url="https://carbonara.vercel.app/api/cook", code=code, background=col
@@ -237,5 +237,5 @@ async def crbn(event):
     await ultroid_bot.send_file(
         event.chat_id,
         xx,
-        caption=f"Carbonised by [{OWNER_NAME}](tg://user?id={OWNER_ID})",
+        caption=f"karbon oleh [{OWNER_NAME}](tg://user?id={OWNER_ID})",
     )
