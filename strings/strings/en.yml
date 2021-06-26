@@ -9,31 +9,31 @@ authors:
   - avish-kumar1
 
 # commons
-com_1: "`Processing...`"
-com_2: "`Searching...`"
+com_1: "`processing...`"
+com_2: "`searching...`"
 # help
 help_1: "`{}` is not a valid plugin!"
-help_2: "The bot did not respond to the inline query.\nConsider using `{}restart`"
-help_3: "`Please turn on inline mode for your bot from` @Botfather."
+help_2: "the bot did not respond to the inline query.\nconsider using `{}restart`"
+help_3: "`please turn on inline mode for your bot from` @Botfather."
 
 # autopic
-autopic_1: "Heya Give me some Text .."
-autopic_2: "No Results found for `{}`"
+autopic_1: "heya give me some Text .."
+autopic_2: "no results found for `{}`"
 autopic_3: "Got a Collection `{}` related to your search !\nStarting Autopic !"
 
 # inline
-inline_1: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n
+inline_1: "[sᴀᴋᴜʀᴀ sᴜᴘᴘᴏʀᴛ](t.me/levinachannel)\n\n
 **Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\n
 Pʟᴜɢɪɴs ~ {}**"
-inline_2: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n
+inline_2: "[sᴀᴋᴜʀᴀ sᴜᴘᴘᴏʀᴛ](t.me/levinachannel)\n\n
 **Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\n
 Aᴅᴅᴏɴs ~ {}**"
-inline_3: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n
+inline_3: "[sᴀᴋᴜʀᴀ sᴜᴘᴘᴏʀᴛ](t.me/levinachannel)\n\n
 **Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\n
 Aᴅᴅᴏɴs ~ {}\n\n
 Dᴏ **`.setredis ADDONS True`** ᴀɴᴅ ʀᴇsᴛᴀʀᴛ ᴛᴏ ɢᴇᴛ ᴀᴅᴅᴏɴs.**"
-inline_4: "** Bᴏᴛ Oғ {}\n\nMᴀɪɴ Mᴇɴᴜ\n\nPʟᴜɢɪɴs ~ {}\nAᴅᴅᴏɴs ~ {}\nTᴏᴛᴀʟ Cᴏᴍᴍᴀɴᴅs ~ {}**"
-inline_5: "**Mᴇɴᴜ Hᴀs Bᴇᴇɴ Cʟᴏsᴇᴅ**"
+inline_4: "**🌸sᴀᴋᴜʀᴀ ʙᴏᴛ ᴏғ {}\n\n🌸 ᴍᴀɪɴ ᴍᴇɴᴜ\n\n🌸 ᴘʟᴜɢɪɴs ~ {}\n🌸 ᴀᴅᴅᴏɴs ~ {}\n🌸 ᴛᴏᴛᴀʟ ᴄᴏᴍᴍᴀɴᴅs ~ {}**"
+inline_5: "**🌸 ᴍᴇɴᴜ ʜᴀs ʙᴇᴇɴ ᴄʟᴏsᴇᴅ 🌸**"
 
 # tagnotif
 tagnot_1: "{} tagged you in {}\n\n```{}```\n\n[📨 Message 📨]({})"
@@ -44,35 +44,35 @@ wspr_1: "@{} secret msg for you.\nDelete your msg after reading.\nOr the next ms
 wspr_2: "Message deleted"
 
 # afk
-afk_1: "`No Longer Afk\n\n
+afk_1: "`🌸 𝐎𝐍𝐋𝐈𝐍𝐄 🌸\n\n
 Was away for ~ {}`"
 afk_2: "#AFK\n
 Set AFK mode to False.\n
 Was AFK for `{}`"
-afk_3: "`I'm currently AFK.\n
-Last seen {} ago.`\n\n
-**Reason:** `{}`"
-afk_4: "`I'm currently AFK.\n\n
-Last seen {} ago.`"
-afk_5: "`Going AFK.`\n\n
-**Reason:** `{}`"
-afk_6: "I'm going AFK."
-afk_7: "Currently AFK with reason {}"
-afk_8: "Currently AFK."
+afk_3: "`🌸 𝐈'𝐌 𝐀𝐅𝐊 🌸\n
+last seen {} ago.`\n\n
+**reason:** `{}`"
+afk_4: "`🌸 𝐁𝐔𝐒𝐘, 𝐈'𝐌 𝐀𝐅𝐊 🌸\n\n
+last seen {} ago.`"
+afk_5: "`🌸 𝐈'𝐌 𝐀𝐅𝐊 𝐍𝐎𝐖 🌸`\n\n
+**reason:** `{}`"
+afk_6: "𝙞'𝙢 𝙜𝙤𝙞𝙣𝙜 𝙖𝙛𝙠."
+afk_7: "𝙘𝙪𝙧𝙧𝙚𝙣𝙩𝙡𝙮 𝙖𝙛𝙠, 𝙗𝙚𝙘𝙖𝙪𝙨𝙚 {}"
+afk_8: "𝙘𝙪𝙧𝙧𝙚𝙣𝙩𝙡𝙮 𝙖𝙛𝙠."
 
 # bot
-alive_1: "**The Ultroid Userbot...**\n\n
+alive_1: "**🌸 𝐒𝐀𝐊𝐔𝐑𝐀 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 🌸**\n\n
 **{}**\n\n
-┏━━━━━━━━━━━━━━━━━━━━━\n
-┣ **Owner** - `{}`\n
-┣ **Version** - `{}`\n
-┣ **Py-Ultroid** - `{}`\n
-┣ **UpTime** - `{}`\n
-┣ **Python** - `{}`\n
-┣ **Telethon** - `{}`\n
-┣ **Branch** - `{}`\n
-┗━━━━━━━━━━━━━━━━━━━━━"
-log: "**Heroku** Ultroid Logs.\nPasted [here]({}) too!"
+╭═──────╼═⌘═╾──────═\n
+▸ **Owner** - `{}`\n
+▸ **Version** - `{}`\n
+▸ **Py-Sakura** - `{}`\n
+▸ **UpTime** - `{}`\n
+▸ **Python** - `{}`\n
+▸ **Telethon** - `{}`\n
+▸ **Branch** - `{}`\n
+╰═──────╼═⌘═╾──────═"
+log: "**Heroku** Sakura Logs.\nPasted [here]({}) too!"
 ping: "**Pong !!** `{}ms`\n**Uptime** - `{}`"
 usage: "**⚙️ Dyno Usage ⚙️**:\n\n
 -> **Dyno usage for** `{}`:\n
@@ -108,7 +108,7 @@ chats_2: "`Cant delete this chat`"
 chats_3: "`I m not an admin`"
 chats_4: "#Deleted\nDeleted {}"
 chats_5: "Your [{}]({}) Group Made Boss!"
-chats_6: "Join @TeamUltroid"
+chats_6: "Join @levinachannl"
 
 # converter
 cvt_1: "Reply to any media/Document."
