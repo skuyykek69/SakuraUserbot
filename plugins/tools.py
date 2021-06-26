@@ -6,30 +6,30 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available : berikut beberapa fungsi yg tersedia.
 
 • `{i}circle`
-    Reply to a audio song or gif to get video note.
+   Balas ke audio lagu atau gif untuk mendapatkan catatan video.
 
 • `{i}ls`
-    Get all the Files inside a Directory.
-
+   Dapatkan semua file di dalam direktori.
+   
 • `{i}bots`
-    Shows the number of bots in the current chat with their perma-link.
+   Menunjukkan jumlah bot dalam obrolan saat ini dengan tautan permanen mereka.
 
 • `{i}hl <a link>`
-    Embeds the link with a whitespace as message.
+   Sematkan tautan dengan spasi putih sebagai pesan.
 
 • `{i}id`
-    Reply a Sticker to Get Its Id
-    Reply a User to Get His Id
-    Without Replying You Will Get the Chat's Id
+   Balas ke stiker untuk mendapatkan id nya.
+   Balas ke pengguna untuk mendapatkan id nya.
+   Dapatkan id obrolan tanpa harus membalas ke pesan.
 
-• `{i}sg <reply to a user><username/id>`
-    Get His Name History of the replied user.
+• `{i}sg <balas ke pengguna><username/id>`
+   Dapatkan histori nama dari pengguna yang dibalas.
 
-• `{i}tr <dest lang code> <(reply to) a message>`
-    Get translated message.
+• `{i}tr <kode bahasa> <(balas ke) pesan>`
+   Terjemahkan kalimat kedalam bahasa yang ditentukan.
 
 """
 
@@ -60,7 +60,7 @@ async def _(event):
             return
     input = event.text[4:6]
     txt = event.text[7:]
-    xx = await eor(event, "`Translating...`")
+    xx = await eor(event, "`menerjemahkan...`")
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         text = previous_message.message
@@ -69,11 +69,11 @@ async def _(event):
         text = txt
         lan = input or "en"
     else:
-        return await eod(xx, f"`{hndlr}tr LanguageCode` as reply to a message", time=5)
+        return await eod(xx, f"`{hndlr}tr (kode bahasa)` dengan cara balas ke pesan.", time=5)
     translator = Translator()
     try:
         tt = translator.translate(text, dest=lan)
-        output_str = f"**TRANSLATED** from {tt.src} to {lan}\n{tt.text}"
+        output_str = f"**diterjemahkan** dari {tt.src} ke {lan}\n{tt.text}"
         await eor(xx, output_str)
     except Exception as exc:
         await eod(xx, str(exc), time=10)
@@ -90,7 +90,7 @@ async def _(event):
             bot_api_file_id = pack_bot_file_id(r_msg.media)
             await eor(
                 event,
-                "**Current Chat ID:**  `{}`\n**From User ID:**  `{}`\n**Bot API File ID:**  `{}`".format(
+                "**ID OBROLAN:**  `{}`\n**ID PENGGUNA:**  `{}`\n**BOT API FILE ID:**  `{}`".format(
                     str(event.chat_id),
                     str(r_msg.sender_id),
                     bot_api_file_id,
@@ -99,7 +99,7 @@ async def _(event):
         else:
             await eor(
                 event,
-                "**Chat ID:**  `{}`\n**User ID:**  `{}`".format(
+                "**ID OBROLAN:**  `{}`\n**ID PENGGUNA:**  `{}`".format(
                     str(event.chat_id),
                     str(r_msg.sender_id),
                 ),
@@ -108,33 +108,33 @@ async def _(event):
         ids = await get_user_id(event.pattern_match.group(1))
         return await eor(
             event,
-            "**Chat ID:**  `{}`\n**User ID:**  `{}`".format(
+            "**ID OBROLAN:**  `{}`\n**ID PENGGUNA:**  `{}`".format(
                 str(event.chat_id),
                 str(ids),
             ),
         )
     else:
-        await eor(event, "**Current Chat ID:**  `{}`".format(str(event.chat_id)))
+        await eor(event, "**ID OBROLAN SAAT INI:**  `{}`".format(str(event.chat_id)))
 
 
 @ultroid_cmd(
     pattern="bots ?(.*)",
 )
 async def _(ult):
-    await ult.edit("`...`")
+    await ult.edit("`proses...`")
     if ult.is_private:
         user = await ult.get_chat()
         if not user.bot:
-            return await ult.edit("`Seariously ?`")
+            return await ult.edit("`anda yakin ?`")
 
-    mentions = "**Bots in this Chat**: \n"
+    mentions = "**bot didalam obrolan ini**: \n"
     input_str = ult.pattern_match.group(1)
     to_write_chat = await ult.get_input_chat()
     chat = None
     if not input_str:
         chat = to_write_chat
     else:
-        mentions = f"**Bots in **{input_str}: \n"
+        mentions = f"**list bot di **{input_str}: \n"
         try:
             chat = await ultroid_bot.get_entity(input_str)
         except Exception as e:
@@ -169,7 +169,7 @@ async def _(ult):
     try:
         input = ult.text.split(" ", maxsplit=1)[1]
     except IndexError:
-        return await eod(ult, "`Input some link`", time=5)
+        return await eod(ult, "`masukkan beberapa tautan..`", time=5)
     await eor(ult, "[ㅤㅤㅤㅤㅤㅤㅤ](" + input + ")", link_preview=False)
 
 
@@ -179,9 +179,9 @@ async def _(ult):
 async def _(e):
     a = await e.get_reply_message()
     if a is None:
-        return await eor(e, "Reply to a gif or audio")
+        return await eor(e, "balas ke gif atau audio")
     if a.document and a.document.mime_type == "audio/mpeg":
-        z = await eor(e, "**Cʀᴇᴀᴛɪɴɢ Vɪᴅᴇᴏ Nᴏᴛᴇ**")
+        z = await eor(e, "**ᴍᴇᴍʙᴜᴀᴛ ɴᴏᴛᴇ ᴠɪᴅᴇᴏ...**")
         toime = time.time()
         try:
             bbbb = await a.download_media(thumb=-1)
@@ -203,9 +203,9 @@ async def _(e):
             a.media.document,
             z,
             toime,
-            "Dᴏᴡɴʟᴏᴀᴅɪɴɢ...",
+            "ᴍᴇɴɢᴜɴᴅᴜʜ...",
         )
-        await z.edit("**Dᴏᴡɴʟᴏᴀᴅᴇᴅ...\nNᴏᴡ Cᴏɴᴠᴇʀᴛɪɴɢ...**")
+        await z.edit("**ᴅɪᴜɴᴅᴜʜ...\nsᴇᴋᴀʀᴀɴɢ ᴍᴇɴɢᴋᴏɴᴠᴇʀsɪ...**")
         await bash(
             f'ffmpeg -i "{c.name}" -preset ultrafast -acodec libmp3lame -ac 2 -ab 144 -ar 44100 comp.mp3'
         )
@@ -213,7 +213,7 @@ async def _(e):
             f'ffmpeg -y -i "{thumb}" -i comp.mp3 -preset ultrafast -c:a copy circle.mp4'
         )
         taime = time.time()
-        foile = await uploader("circle.mp4", "circle.mp4", taime, z, "Uᴘʟᴏᴀᴅɪɴɢ...")
+        foile = await uploader("circle.mp4", "circle.mp4", taime, z, "ᴍᴇɴɢᴜᴘʟᴏᴀᴅ...")
         metadata = extractMetadata(createParser("circle.mp4"))
         duration = metadata.get("duration").seconds
         attributes = [video(duration=duration, w=320, h=320, round_message=True)]
@@ -228,7 +228,7 @@ async def _(e):
         os.system("rm resources/downloads/*")
         os.system("rm circle.mp4 comp.mp3 img.png")
     elif a.document and a.document.mime_type == "video/mp4":
-        z = await eor(e, "**Cʀᴇᴀᴛɪɴɢ Vɪᴅᴇᴏ Nᴏᴛᴇ**")
+        z = await eor(e, "**ᴍᴇᴍʙᴜᴀᴛ ᴠɪᴅᴇᴏ ɴᴏᴛᴇ...**")
         c = await a.download_media("resources/downloads/")
         await e.client.send_file(
             e.chat_id,
@@ -240,7 +240,7 @@ async def _(e):
         await z.delete()
         os.remove(c)
     else:
-        return await eor(e, "**Reply to a gif or audio file only**")
+        return await eor(e, "**balas ke gif atau file audio saja.**")
 
 
 @ultroid_cmd(
@@ -252,9 +252,9 @@ async def _(e):
         path = Path(".")
     else:
         if not os.path.isdir(path):
-            return await eod(e, "`Incorrect Directory.`")
+            return await eod(e, "`direktori salah.`")
         if not os.listdir(path):
-            return await eod(e, "`This Directory is Empty.`")
+            return await eod(e, "`direktori ini kosong.`")
     files = path.iterdir()
     pyfiles = []
     jsons = []
@@ -356,7 +356,7 @@ async def _(e):
 async def lastname(steal):
     mat = steal.pattern_match.group(1)
     if not (steal.is_reply or mat):
-        await eor(steal, "`Use this command with reply or give Username/id...`")
+        await eor(steal, "`gunakan perintah ini dengan membalas ke pesan atau berikan id/username pengguna...`")
         return
     if mat:
         user_id = await get_user_id(mat)
@@ -365,7 +365,7 @@ async def lastname(steal):
         user_id = message.sender.id
     chat = "@SangMataInfo_bot"
     id = f"/search_id {user_id}"
-    lol = await eor(steal, "`Processing !...`")
+    lol = await eor(steal, "`memproses...`")
     try:
         async with ultroid_bot.conversation(chat) as conv:
             try:
@@ -374,14 +374,14 @@ async def lastname(steal):
                 respond = await conv.get_response()
                 responds = await conv.get_response()
             except YouBlockedUserError:
-                await lol.edit("Please unblock @sangmatainfo_bot and try again")
+                await lol.edit("mohon unblock @sangmatainfo_bot lalu coba lagi.")
                 return
             if (
-                response.text.startswith("No records found")
-                or respond.text.startswith("No records found")
-                or responds.text.startswith("No records found")
+                response.text.startswith("tidak ada rekaman nama yang ditemukan.")
+                or respond.text.startswith("tidak ada rekaman nama yang ditemukan.")
+                or responds.text.startswith("tidak ada rekaman nama yang ditemukan.")
             ):
-                await lol.edit("No records found for this user")
+                await lol.edit("tidak ada rekaman nama yang ditemukan dari pengguna ini")
                 await steal.client.delete_messages(conv.chat_id, [msg.id, response.id])
                 return
             else:
@@ -399,4 +399,4 @@ async def lastname(steal):
                 [msg.id, responds.id, respond.id, response.id],
             )
     except TimeoutError:
-        return await lol.edit("Error: @SangMataInfo_bot is not responding!.")
+        return await lol.edit("error: @SangMataInfo_bot tidak merespon.")
