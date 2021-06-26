@@ -6,16 +6,16 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-📚 Commands Available -
+📚 Commands Available : pilih siapa saja orang yang dapat mengakses userbot milikmu.
 
 • `{i}addsudo`
-    Add Sudo Users by replying to user or using <space> separated userid(s)
+   Tambahkan pengguna sudo dengan membalas pengguna atau menggunakan <spasi> id pengguna dengan terpisah(s)
 
 • `{i}delsudo`
-    Remove Sudo Users by replying to user or using <space> separated userid(s)
+   Hapus pengguna sudo dengan membalas ke pengguna atau menggunakan <spasi> id pengguna dengan terpisah(s)
 
 • `{i}listsudo`
-    List all sudo users.
+   Daftar semua anggota sudo.
 """
 
 from pyUltroid.misc import sudoers
@@ -116,7 +116,7 @@ async def _(ult):
         else:
             mmm += "`SEEMS LIKE THIS FUNCTION CHOOSE TO BREAK ITSELF`"
     else:
-        mmm += "`Reply to a msg or add it's id/username.`"
+        mmm += "`balas ke pesan nya atau berikan id/username nya.`"
     await eod(ok, mmm)
 
 
@@ -127,7 +127,7 @@ async def _(ult):
     ok = await eor(ult, "`...`")
     sudos = Redis("SUDOS")
     if sudos == "" or sudos is None:
-        return await eod(ult, "`No SUDO User was assigned ...`", time=5)
+        return await eod(ult, "`tidak ada pengguna sudo yang ditetapkan...`", time=5)
     sumos = sudos.split(" ")
     msg = ""
     for i in sumos:
@@ -138,7 +138,7 @@ async def _(ult):
         if name != "":
             msg += f"• [{name}](tg://user?id={i}) ( `{i}` )\n"
         else:
-            msg += f"• `{i}` -> Invalid User\n"
+            msg += f"• `{i}` ➠ invalid user\n"
     m = udB.get("SUDO") if udB.get("SUDO") else "False"
     if m == "False":
         m = "[False](https://telegra.ph/Ultroid-04-06)"
