@@ -36,7 +36,7 @@ async def _(e):
         except ValueError as ex:
             return await eor(e, str(ex))
         except AttributeError:
-            return await eor(e, "No username of replied user was found.")
+            return await eor(e, "`tidak ada username dari pengguna yang diminta.`")
     else:
         put = e.pattern_match.group(1)
     if put:
@@ -52,7 +52,7 @@ async def _(e):
         await results[0].click(e.chat_id, reply_to=e.reply_to_msg_id, hide_via=True)
         await e.delete()
     else:
-        await eor(e, "Add some id or username too")
+        await eor(e, "`berikan juga id atau username nya`")
 
 
 @in_pattern("msg")
@@ -72,7 +72,7 @@ async def _(e):
     try:
         desc = sed[1]
     except IndexError:
-        desc = "Touch me"
+        desc = "tekan saya"
     if "wspr" not in vvv:
         try:
             logi = await ultroid_bot(gu(id=query))
@@ -83,32 +83,32 @@ async def _(e):
             x = logi.user.status
             bio = logi.about
             if isinstance(x, on):
-                status = "Online"
+                status = "online"
             if isinstance(x, off):
-                status = "Offline"
+                status = "offline"
             if isinstance(x, rec):
-                status = "Last Seen Recently"
+                status = "baru saja terlihat belakangan ini"
             if isinstance(x, lm):
-                status = "Last seen months ago"
+                status = "terakhir terlihat beberapa bulan yang lalu"
             if isinstance(x, lw):
-                status = "Last seen weeks ago"
+                status = "terakhir terlihat beberapa minggu yang lalu"
             if isinstance(x, mt):
-                status = "Can't Tell"
-            text = f"**Name:**    `{name}`\n"
-            text += f"**Id:**    `{ids}`\n"
+                status = "tidak diketahui"
+            text = f"**nama:**    `{name}`\n"
+            text += f"**id:**    `{ids}`\n"
             if username:
-                text += f"**Username:**    `{username}`\n"
+                text += f"**username:**    `{username}`\n"
                 url = f"https://t.me/{username}"
             else:
-                text += f"**Mention:**    `{mention}`\n"
+                text += f"**mention:**    `{mention}`\n"
                 url = f"tg://user?id={ids}"
-            text += f"**Status:**    `{status}`\n"
-            text += f"**About:**    `{bio}`"
+            text += f"**status:**    `{status}`\n"
+            text += f"**tentang:**    `{bio}`"
             button = [
-                Button.url("Private", url=url),
+                Button.url("private", url=url),
                 Button.switch_inline(
-                    "Secret msg",
-                    query=f"msg {query} wspr Hello 👋",
+                    "secret msg",
+                    query=f"msg {query} wspr haii 👋",
                     same_peer=True,
                 ),
             ]
@@ -119,7 +119,7 @@ async def _(e):
                 buttons=button,
             )
         except BaseException:
-            name = f"User {query} Not Found\nSearch Again"
+            name = f"pengguna {query} tidak ditemukan\ncari lagi."
             sur = e.builder.article(
                 title=name,
                 text=name,
@@ -128,8 +128,8 @@ async def _(e):
         try:
             logi = await ultroid_bot.get_entity(query)
             button = [
-                Button.inline("Secret Msg", data=f"dd_{e.id}"),
-                Button.inline("Delete Msg", data=f"del_{e.id}"),
+                Button.inline("PESAN RAHASIA", data=f"dd_{e.id}"),
+                Button.inline("HAPUS PESAN", data=f"del_{e.id}"),
             ]
             us = logi.username
             sur = e.builder.article(
@@ -142,8 +142,8 @@ async def _(e):
             snap.update({e.id: desc})
         except ValueError:
             sur = e.builder.article(
-                title="Type ur msg",
-                text=f"You Didn't Type Your Msg",
+                title="ketikkan pesan mu",
+                text=f"anda tidak mengetik pesan apapun.",
             )
     await e.answer([sur])
 
@@ -159,9 +159,9 @@ async def _(e):
         if e.sender_id in buddhhu[ids]:
             await e.answer(snap[ids], alert=True)
         else:
-            await e.answer("Not For You", alert=True)
+            await e.answer("🌸 pesan ini bukan untukmu 🌸", alert=True)
     else:
-        await e.answer("Message Deleted", alert=True)
+        await e.answer("pesan telah dihapus", alert=True)
 
 
 @callback(re.compile("del_(.*)"))
@@ -176,4 +176,4 @@ async def _(e):
             except np:
                 pass
     else:
-        await e.answer("You Can't do this", alert=True)
+        await e.answer("anda tidak dapat melakukan ini !!", alert=True)
