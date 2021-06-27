@@ -6,30 +6,30 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available - Plugin Voice Chat.
 
 • `{i}startvc`
-    Start Group Call in a group.
+   mulai/nyalakan voice chat group.
 
 • `{i}stopvc`
-    Stop Group Call in a group.
+   stop/matikan voice chat group.
 
 • `{i}playvc`
-    Start Voice Chat Bot to receive Commands.
+   mulai bot music voice chat untuk menerima perintah.
 
 • `{i}vcinvite`
-    Invite all members of group in Group Call.
-    (You must be joined)
+   undang semua member kedalam voice chat group.
+   (anda harus join terlebih dahulu)
 
-• `{i}vcaccess <id/username/reply to msg>`
-    Give access of Voice Chat Bot.
+• `{i}vcaccess <id/username/balas ke pesan>`
+   berikan seseorang akses untuk menggunakan bot music vcg.
 
 • `{i}rmvcaccess <id/username/reply to msg>`
-    Remove access of Voice Chat Bot.
+   hapus akses seseorang dari bot music vcg.
 
 • **Voice Chat - Bot Commands**
-   `/play ytsearch : song-name`
-   `/play youtube link`
+   `/play ytsearch : nama lagu`
+   `/play link youtube`
    `/current`
    `/skip`
    `/exitVc`
@@ -66,7 +66,7 @@ def user_list(l, n):
 async def _(e):
     try:
         await e.client(stopvc(await get_call(e)))
-        await eor(e, "`Voice Chat Stopped...`")
+        await eor(e, "`voice chat dimatikan...`")
     except Exception as ex:
         await eor(e, f"`{str(ex)}`")
 
@@ -75,7 +75,7 @@ async def _(e):
     pattern="playvc$",
 )
 async def _(e):
-    zz = await eor(e, "`VC bot started...`")
+    zz = await eor(e, "`vcg music bot dimulai...`")
     er, out = await bash("python vcstarter.py & sleep 10 && npm start")
     LOGS.info(er)
     LOGS.info(out)
@@ -96,7 +96,7 @@ async def _(e):
     groups_only=True,
 )
 async def _(e):
-    ok = await eor(e, "`Inviting Members to Voice Chat...`")
+    ok = await eor(e, "`mengundang member ke voice chat grup...`")
     users = []
     z = 0
     async for x in e.client.iter_participants(e.chat_id):
@@ -109,7 +109,7 @@ async def _(e):
             z += 6
         except BaseException:
             pass
-    await ok.edit(f"`Invited {z} users`")
+    await ok.edit(f"`mengundang {z} pengguna`")
 
 
 @ultroid_cmd(
@@ -120,7 +120,7 @@ async def _(e):
 async def _(e):
     try:
         await e.client(startvc(e.chat_id))
-        await eor(e, "`Voice Chat Started...`")
+        await eor(e, "`voice chat grup dimulai...`")
     except Exception as ex:
         await eor(e, f"`{str(ex)}`")
 
@@ -129,16 +129,16 @@ async def _(e):
     pattern="listvcaccess$",
 )
 async def _(e):
-    xx = await eor(e, "`Getting Voice Chat Bot Users List...`")
+    xx = await eor(e, "`mendapatkan daftar pengguna bot voice chat grup...`")
     mm = get_vcsudos()
-    pp = f"**{len(mm)} Voice Chat Bot Approved Users**\n"
+    pp = f"**{len(mm)} pengguna yang dapat menggunakan bot vcg.**\n"
     if len(mm) > 0:
         for m in mm:
             try:
                 name = (await e.client.get_entity(int(m))).first_name
                 pp += f"• [{name}](tg://user?id={int(m)})\n"
             except ValueError:
-                pp += f"• `{int(m)} » No Info`\n"
+                pp += f"• `{int(m)} » tidak ada info`\n"
     await xx.edit(pp)
 
 
@@ -146,7 +146,7 @@ async def _(e):
     pattern="rmvcaccess ?(.*)",
 )
 async def _(e):
-    xx = await eor(e, "`Disapproving to access Voice Chat features...`")
+    xx = await eor(e, "`menghapus akses ke fitur voice chat bot...`")
     input = e.pattern_match.group(1)
     if e.reply_to_msg_id:
         userid = (await e.get_reply_message()).sender_id
@@ -158,18 +158,18 @@ async def _(e):
         except ValueError as ex:
             return await eod(xx, f"`{str(ex)}`", time=5)
     else:
-        return await eod(xx, "`Reply to user's msg or add it's id/username...`", time=3)
+        return await eod(xx, "`balas ke pesan pengguna atau berikan id/username nya...`", time=3)
     if not is_vcsudo(userid):
         return await eod(
             xx,
-            f"[{name}](tg://user?id={userid})` is not approved to use my Voice Chat Bot.`",
+            f"[{name}](tg://user?id={userid})` tidak diizinkan untuk mengakses bot music vcg saya.`",
             time=5,
         )
     try:
         del_vcsudo(userid)
         await eod(
             xx,
-            f"[{name}](tg://user?id={userid})` is removed from Voice Chat Bot Users.`",
+            f"[{name}](tg://user?id={userid})` telah dihapus dari daftar orang yang diizinkan menggunakan bot music vcg.`",
             time=5,
         )
     except Exception as ex:
@@ -180,7 +180,7 @@ async def _(e):
     pattern="vcaccess ?(.*)",
 )
 async def _(e):
-    xx = await eor(e, "`Approving to access Voice Chat features...`")
+    xx = await eor(e, "`memberikan akses ke bot music vcg...`")
     input = e.pattern_match.group(1)
     if e.reply_to_msg_id:
         userid = (await e.get_reply_message()).sender_id
@@ -192,18 +192,18 @@ async def _(e):
         except ValueError as ex:
             return await eod(xx, f"`{str(ex)}`", time=5)
     else:
-        return await eod(xx, "`Reply to user's msg or add it's id/username...`", time=3)
+        return await eod(xx, "`balas ke pesan si pengguna atau berikan id/username nya...`", time=3)
     if is_vcsudo(userid):
         return await eod(
             xx,
-            f"[{name}](tg://user?id={userid})` is already approved to use my Voice Chat Bot.`",
+            f"[{name}](tg://user?id={userid})` telah disetujui untuk mengakses bot music vcg saya.`",
             time=5,
         )
     try:
         add_vcsudo(userid)
         await eod(
             xx,
-            f"[{name}](tg://user?id={userid})` is added to Voice Chat Bot Users.`",
+            f"[{name}](tg://user?id={userid})` ditambahkan ke daftar pengguna yang diizinkan mengakses bot music vcg.`",
             time=5,
         )
     except Exception as ex:
