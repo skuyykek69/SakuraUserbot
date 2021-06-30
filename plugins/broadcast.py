@@ -14,14 +14,14 @@
 • `{i}remch <all/id/none>`
     Removes the specified chat (current chat if none specified), or all chats.
 
-• `{i}broadcast <reply to msg>`
-    Send the replied message to all chats in database.
+• `{i}broadcast <balas ke pesan>`
+    kirim pesan ke semua grup yang ada di database.
 
 • `{i}forward <reply to msg>`
-     Forward the message to all chats in database.
+    teruskan pesan ke semua obrolan yang ada di database.
 
 • `{i}listchannels`
-    To get list of all added chats.
+    untuk menampilkan daftar obrolan yang ditambahkan.
 """
 
 import asyncio
@@ -214,7 +214,7 @@ async def sending(event):
     sent_count = 0
     if get_no_channels() == 0:
         return await x.edit(f"mohon tambahkan channels dengan menggunakan `{hndlr}add` di dalamnya.")
-    await x.edit("Sending....")
+    await x.edit("mengirim...")
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         if previous_message.poll:
