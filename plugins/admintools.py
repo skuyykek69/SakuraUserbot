@@ -250,7 +250,7 @@ async def pin(msg):
         return
     if not msg.is_private:
         link = (await ultroid_bot(ExpLink(msg.chat_id, xx))).link
-        mss = f"`menyematkan` [pesan ini]({link})"
+        mss = f"`saya sudah menyematkan` [pesan ini]({link})"
     ch = msg.pattern_match.group(1)
     if ch != "silent":
         slnt = True
