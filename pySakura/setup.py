@@ -2,7 +2,7 @@ import re
 
 import setuptools
 
-with open("pyUltroid/version.py", "rt", encoding="utf8") as x:
+with open("pySakura/version.py", "rt", encoding="utf8") as x:
     version = re.search(r'__version__ = "(.*?)"', x.read()).group(1)
 
 with open("README.md", "r", encoding="utf-8") as fh:
@@ -11,12 +11,12 @@ with open("README.md", "r", encoding="utf-8") as fh:
 with open("requirements.txt", "r") as fr:
     requirements = (fr.read()).split("\n")
 
-name = "py-Ultroid"
-author = "TeamUltroid"
-author_email = "teamultroid@protonmail.ch"
-description = "A Secure and Powerful Python-Telethon Based Library For Ultroid Userbot."
+name = "py-Sakura"
+author = "levina-lab"
+author_email = "levinashavila@gmail.com"
+description = "A Secure and Powerful Python-Telethon Based Library For Sakura Userbot."
 license = "GNU AFFERO GENERAL PUBLIC LICENSE (v3)"
-url = "https://github.com/TeamUltroid/Ultroid"
+url = "https://github.com/levina-lab/veez_ultrobot"
 
 setuptools.setup(
     name=name,
