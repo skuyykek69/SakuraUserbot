@@ -155,7 +155,7 @@ async def repo(e):
             title="sakura userbot",
             description="USERBOT | TELETHON",
             thumb=wb(ultpic, 0, "image/jpeg", []),
-            text="• **SAKURA USERBOT** •",
+            text="🌸 **SAKURA USERBOT** 🌸",
             buttons=SUP_BUTTONS,
         ),
     ]
