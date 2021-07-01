@@ -17,7 +17,7 @@ async def dsb(ult):
 	await asyncio.sleep(0.5)
 	await ult.edit("`pong....!`")
 	await asyncio.sleep(0.5)
-	await ult.edit("`🌸🌸 PONG 🌸🌸\n\n➥ SAKURA AI\n➥ 69.69ms\n➥ SAKURA BOT BY: `@dlwrml")
+	await ult.edit("`🌸🌸 PONG 🌸🌸\n\n➥ SAKURA AI\n➥ 69.69ms\n➥ SAKURA UBOT BY:`@dlwrml")
 	
 # By @levina-lab 😁
 
