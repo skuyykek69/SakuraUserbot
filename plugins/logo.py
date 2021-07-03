@@ -89,9 +89,9 @@ async def logo_gen(event):
     draw.text(
         (x, y), name, font=font, fill="white", stroke_width=strke, stroke_fill="black"
     )
-    flnme = f"ultd.png"
+    flnme = f"sakura.png"
     img.save(flnme, "png")
-    await xx.edit("`Done!`")
+    await xx.edit("`SELESAI !`")
     if os.path.exists(flnme):
         await event.client.send_file(
             event.chat_id,
