@@ -37,7 +37,7 @@
 ## Deploy to Heroku
 Get the [Necessary Variables](#Necessary-Variables) and then click the button below!  
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2F1levina-lab-00%2Fveez_ultrobot-1)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/levina-lab/veez_ultrobot/tree/main)
 
 ## Deploy Locally
 - [Traditional Method](#local-deploy---traditional-method)
@@ -90,10 +90,10 @@ Different ways to get your `SESSION`:
 * PowerShell : `cd desktop ; wget https://git.io/JY9JI ; python ultroid.py`
 * Termux : `sh -c "$(curl -fsSL https://da.gd/termux-tel)"`
 
-Made with 💕 by [@TeamUltroid](https://t.me/TeamUltroid). <br />
+Made with 💕 by [@VeezProject](https://t.me/levinachannel). <br />
 
 # License
-Ultroid is licensed under [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.en.html) v3 or later.
+Sakura is licensed under [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.en.html) v3 or later.
 
 [![License](https://www.gnu.org/graphics/agplv3-155x51.png)](LICENSE)
 
