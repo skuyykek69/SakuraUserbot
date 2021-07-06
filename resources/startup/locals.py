@@ -32,7 +32,7 @@ def start():
         os.system("rm -rf Ultroid")
     except BaseException:
         pass
-    os.system("git clone https://github.com/levina-lab/veez_ultrobot")
+    os.system("git clone https://github.com/levina-lab/SakuraUserbot")
     print("\n\nDone")
     os.chdir("Ultroid")
     clear_screen()
@@ -90,7 +90,7 @@ def start():
     os.system("pip3 install -r resources/extras/local-requirements.txt")
     clear_screen()
     print(a)
-    print("\nStarting Ultroid...")
+    print("\nStarting Sakura...")
     os.system("python3 -m pyUltroid")
 
 
