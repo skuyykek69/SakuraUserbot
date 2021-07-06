@@ -13,7 +13,7 @@ from . import *
 
 REPOMSG = (
     "🌸 **SAKURA USERBOT** 🌸\n\n",
-    "• REPO - [KLIK DISINI](https://github.com/levina-lab/veez_ultrobot)\n",
+    "• REPO - [KLIK DISINI](https://github.com/levina-lab/SakuraUserbot)\n",
     "• ADDONS - [KLIK DISINI](https://github.com/TeamUltroid/UltroidAddons)\n",
     "• SUPPORT - @levinachannel",
 )
