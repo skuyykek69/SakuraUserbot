@@ -9,7 +9,7 @@
         "python",
         "ultroid"
     ],
-    "repository": "https://github.com/levina-lab/veez_ultrobot",
+    "repository": "https://github.com/levina-lab/SakuraUserbot",
     "website": "https://ultroid.tech",
     "success_url": "https://t.me/levinachannel",
     "stack": "container",
