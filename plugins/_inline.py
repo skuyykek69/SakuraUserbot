@@ -59,7 +59,7 @@ _main_help_menu = [
 
 SUP_BUTTONS = [
     [
-        Button.url("REPO", url="https://github.com/levina-lab/veez_ultrobot"),
+        Button.url("REPO", url="https://github.com/levina-lab/SakuraUserbot"),
         Button.url("ADDONS", url="https://github.com/TeamUltroid/UltroidAddons"),
     ],
     [Button.url("SUPPORT", url="t.me/gcsupportbots")],
