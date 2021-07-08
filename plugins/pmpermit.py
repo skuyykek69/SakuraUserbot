@@ -59,13 +59,13 @@ UND = get_string("pmperm_1")
 
 if not Redis("PM_TEXT"):
     UNAPPROVED_MSG = """
-**sistem keamanan pm milik {ON}!**
+**𝐏𝐌 𝐒𝐄𝐂𝐔𝐑𝐈𝐓𝐘 𝐌𝐈𝐋𝐈𝐊 {ON}!**
 {UND}
 kamu memiliki {warn}/{twarn} peringatan!"""
 else:
     UNAPPROVED_MSG = (
         """
-**sistem keamanan pm milik {ON}!**"""
+**𝐏𝐌 𝐒𝐄𝐂𝐔𝐑𝐈𝐓𝐘 𝐌𝐈𝐋𝐈𝐊 {ON}!**"""
         f"""
 {Redis("PM_TEXT")}
 """
@@ -327,7 +327,7 @@ if sett == "True":
                 await asst.edit_message(
                     int(udB.get("LOG_CHANNEL")),
                     _not_approved[user.id],
-                    f"[{name0}](tg://user?id={user.id}) telah diblokir karena spam.",
+                    f"[{name0}](tg://user?id={user.id}) telah diblokir karena melakukan spam ke pm anda.",
                 )
 
     @ultroid_cmd(
@@ -380,7 +380,7 @@ if sett == "True":
                     ],
                 )
             else:
-                await eod(apprvpm, "`pengguna sudah disetujui untuk pm.`")
+                await eod(apprvpm, "`pengguna sudah disetujui untuk melakukan pm.`")
         elif apprvpm.is_private:
             user = await apprvpm.get_chat()
             aname = await apprvpm.client.get_entity(user.id)
@@ -422,7 +422,7 @@ if sett == "True":
                         ],
                     )
             else:
-                await eod(apprvpm, "`pengguna sudah disetujui untuk pm.`")
+                await eod(apprvpm, "`pengguna sudah disetujui untuk melakukan pm.`")
         else:
             await apprvpm.edit(NO_REPLY)
 
@@ -482,14 +482,14 @@ if sett == "True":
                         _not_approved[bbb.id],
                         f"#DISAPPROVED\n\n[{name0}](tg://user?id={bbb.id}) `telah ditolak untuk melakukan pm ke kamu.`",
                         buttons=[
-                            Button.inline("Approve PM", data=f"approve_{bbb.id}"),
-                            Button.inline("Block", data=f"block_{bbb.id}"),
+                            Button.inline("sᴇᴛᴜᴊᴜɪ ᴘᴍ", data=f"approve_{bbb.id}"),
+                            Button.inline("ʙʟᴏᴋɪʀ", data=f"block_{bbb.id}"),
                         ],
                     )
                 except KeyError:
                     _not_approved[bbb.id] = await asst.send_message(
                         int(udB.get("LOG_CHANNEL")),
-                        f"#DISAPPROVED\n\n[{name0}](tg://user?id={bbb.id}) `was disapproved to PM you.`",
+                        f"#DISAPPROVED\n\n[{name0}](tg://user?id={bbb.id}) `telah ditolak untuk melakukan pm ke kamu.`",
                         buttons=[
                             Button.inline("sᴇᴛᴜᴊᴜɪ ᴘᴍ", data=f"approve_{bbb.id}"),
                             Button.inline("ʙʟᴏᴋɪʀ", data=f"block_{bbb.id}"),
@@ -568,8 +568,8 @@ async def unblockpm(unblock):
             _not_approved[user],
             f"#UNBLOCKED\n\n[{aname.first_name}](tg://user?id={user}) telah di **unblokir**.",
             buttons=[
-                Button.inline("BLOCK", data=f"block_{user}"),
-                Button.inline("TUTUP", data="deletedissht"),
+                Button.inline("ʙʟᴏᴋɪʀ", data=f"block_{user}"),
+                Button.inline("ᴛᴜᴛᴜᴘ", data="deletedissht"),
             ],
         )
     except KeyError:
@@ -577,8 +577,8 @@ async def unblockpm(unblock):
             int(udB.get("LOG_CHANNEL")),
             f"#UNBLOCKED\n\n[{aname.first_name}](tg://user?id={user}) telah di **unblokir**.",
             buttons=[
-                Button.inline("BLOKIR", data=f"block_{user}"),
-                Button.inline("TUTUP", data="deletedissht"),
+                Button.inline("ʙʟᴏᴋɪʀ", data=f"block_{user}"),
+                Button.inline("ᴛᴜᴛᴜᴘ", data="deletedissht"),
             ],
         )
 
@@ -645,11 +645,11 @@ async def disapr_in(event):
         await event.edit(
             f"#DISAPPROVED\n\n[{user_name}](tg://user?id={uid}) `ditolak untuk melakukan pm!`",
             buttons=[
-                Button.inline("Approve PM", data=f"approve_{uid}"),
-                Button.inline("Block", data=f"block_{uid}"),
+                Button.inline("sᴇᴛᴜᴊᴜɪ ᴘᴍ", data=f"approve_{uid}"),
+                Button.inline("ʙʟᴏᴋɪʀ", data=f"block_{uid}"),
             ],
         )
-        await event.answer("DisApproved.")
+        await event.answer("ditolak !!.")
         x = await ultroid.send_message(uid, "anda telah ditolak untuk melakukan pm ke saya!")
         await asyncio.sleep(5)
         await x.delete()
@@ -657,8 +657,8 @@ async def disapr_in(event):
         await event.edit(
             "`pengguna tidak akan pernah disetujui!`",
             buttons=[
-                Button.inline("TOLAK PM", data=f"disapprove_{uid}"),
-                Button.inline("BLOKIR", data=f"block_{uid}"),
+                Button.inline("ᴛᴏʟᴀᴋ ᴘᴍ", data=f"disapprove_{uid}"),
+                Button.inline("ʙʟᴏᴋɪʀ", data=f"block_{uid}"),
             ],
         )
 
