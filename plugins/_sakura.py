@@ -1,10 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
-
+# Sakura - UserBot
 
 from telethon.errors import ChatSendInlineForbiddenError
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as bmi
@@ -14,7 +8,7 @@ from . import *
 REPOMSG = (
     "🌸 **SAKURA USERBOT** 🌸\n\n",
     "• REPO - [KLIK DISINI](https://github.com/levina-lab/SakuraUserbot)\n",
-    "• ADDONS - [KLIK DISINI](https://github.com/TeamUltroid/UltroidAddons)\n",
+    "• ADDONS - [KLIK DISINI](https://github.com/levina-lab/scyaddons)\n",
     "• SUPPORT - @levinachannel",
 )
 
