@@ -30,7 +30,7 @@ except ModuleNotFoundError:
 
 
 start_time = time.time()
-scyther_version = "v0.8.5.5"
+sakura_version = "v0.8.5.5"
 OWNER_NAME = ultroid_bot.me.first_name
 OWNER_ID = ultroid_bot.me.id
 
