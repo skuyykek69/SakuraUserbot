@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 •`{i}addcmd <new cmd> <reply>`
    It will set new cmd for your assistant bot with that reply message.
@@ -20,7 +20,7 @@
 
 import os
 
-from pyUltroid.functions.asstcmd_db import *
+from pySakura.functions.asstcmd_db import *
 from telegraph import upload_file as uf
 from telethon.utils import pack_bot_file_id
 
