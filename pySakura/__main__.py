@@ -363,7 +363,7 @@ async def customize():
 # some stuffs
 async def ready():
     chat_id = int(udB.get("LOG_CHANNEL"))
-    MSG = f"**🌸SAKURA USERBOT AKTIF🌸**\n➖➖➖➖➖➖➖➖➖\n**USERBOT**: [{scyther_bot.me.first_name}](tg://user?id={scyther_bot.me.id})\n**ASSISTANT**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖\n**SUPPORT**: @levinachannel\n➖➖➖➖➖➖➖➖➖"
+    MSG = f"**🌸SAKURA USERBOT AKTIF🌸**\n➖➖➖➖➖➖➖➖➖\n**USERBOT**: [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.me.id})\n**ASSISTANT**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖\n**SUPPORT**: @levinachannel\n➖➖➖➖➖➖➖➖➖"
     BTTS = [Button.inline("✨ BUKA MENU HELP ✨", "open")]
     updava = await updater()
     try:
