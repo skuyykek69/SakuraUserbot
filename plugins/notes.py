@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 • `{i}addnote <word><reply to a message>`
     add note in the used chat with replied message and choosen word.
@@ -23,7 +23,7 @@
 """
 import os
 
-from pyUltroid.functions.notes_db import *
+from pySakura.functions.notes_db import *
 from telegraph import upload_file as uf
 from telethon.utils import pack_bot_file_id
 
