@@ -29,12 +29,12 @@ def start():
     print("Welcome to sakura, lets start setting up!\n\n")
     print("Cloning the repository...\n\n")
     try:
-        os.system("rm -rf Ultroid")
+        os.system("rm -rf SakuraUserbot")
     except BaseException:
         pass
     os.system("git clone https://github.com/levina-lab/SakuraUserbot")
     print("\n\nDone")
-    os.chdir("Ultroid")
+    os.chdir("SakuraUserbot")
     clear_screen()
     print(a)
     print("\n\nLet's start!\n")
@@ -91,7 +91,7 @@ def start():
     clear_screen()
     print(a)
     print("\nStarting Sakura...")
-    os.system("python3 -m pyUltroid")
+    os.system("python3 -m pySakura")
 
 
 def do_input(var):
