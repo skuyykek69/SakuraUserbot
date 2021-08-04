@@ -1,9 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# veez project
 
 """
 📚 Commands Available -
@@ -38,8 +33,8 @@
 
 import re
 
-from pyUltroid.functions.logusers_db import *
-from pyUltroid.functions.pmpermit_db import *
+from pySakura.functions.logusers_db import *
+from pySakura.functions.pmpermit_db import *
 from telethon import events
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
