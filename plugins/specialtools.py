@@ -1,12 +1,7 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# Sakura - UserBot
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 • `{i}wspr <username>`
     Send secret message..
@@ -36,7 +31,7 @@ import moviepy.editor as m
 import pytz
 import requests
 from bs4 import BeautifulSoup as b
-from pyUltroid.functions.google_image import googleimagesdownload
+from pySakura.functions.google_image import googleimagesdownload
 
 from . import *
 
