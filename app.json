@@ -10,22 +10,22 @@
         "ultroid"
     ],
     "repository": "https://github.com/levina-lab/SakuraUserbot",
-    "website": "https://ultroid.tech",
+    "website": "https://t.me/VeezSupportGroup",
     "success_url": "https://t.me/levinachannel",
     "stack": "container",
     "env": {
         "API_ID": {
-            "description": "You api id, from my.telegram.org or @ScrapperRoBot.",
+            "description": "isi dengan api id mu dari my.telegram.org atau @ScrapperRoBot.",
             "value": "", 
             "required": false
         },
         "API_HASH": {
-            "description": "You api hash, from my.telegram.org or @ScrapperRoBot.",
+            "description": "isi dengan api hash mu dari my.telegram.org atau @ScrapperRoBot.",
             "value": "",
             "required": false
         },
         "SESSION": {
-            "description": "Your session string. Can be added now, or after deploy. (The bot will NOT work without a session string!!)",
+            "description": "isi dengan session string, (The bot will NOT work without a session string!!)",
             "value": ""
         },
         "REDIS_URI": {
@@ -42,13 +42,13 @@
             "required": false
         },
         "HEROKU_APP_NAME": {
-            "description": "Name of your heroku app, given in the first blank on this page. To be added if deploying to heroku ONLY.",
+            "description": "isi dengan app name yang kamu isi diawal.",
             "value": "",
             "required": false
         }
     },
     "formation": {
-        "ultroid": {
+        "sakura": {
             "quantity": 1,
             "size": "free"
         }
