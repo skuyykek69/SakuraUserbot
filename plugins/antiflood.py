@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 • `{i}setflood <integer>`
     Set flood limit in a chat.
@@ -21,7 +21,7 @@
 
 import re
 
-from pyUltroid.functions.antiflood_db import (
+from pySakura.functions.antiflood_db import (
     get_flood,
     get_flood_limit,
     rem_flood,
