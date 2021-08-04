@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 •`{i}addclean`
     Clean all Upcoming action msg in added chat like someone joined/left/pin etc.
@@ -19,7 +19,7 @@
 
 """
 
-from pyUltroid.functions.clean_db import *
+from pySakura.functions.clean_db import *
 
 from . import *
 
