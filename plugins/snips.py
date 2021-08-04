@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 • `{i}addsnip <word><reply to a message>`
     add the used word as snip relating to replied message.
@@ -22,7 +22,7 @@
 """
 import os
 
-from pyUltroid.functions.snips_db import *
+from pySakura.functions.snips_db import *
 from telegraph import upload_file as uf
 from telethon.utils import pack_bot_file_id
 
