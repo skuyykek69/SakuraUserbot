@@ -132,7 +132,7 @@ async def autobot():
             LOGS.info(f"SELESAI, ASSISTANT BOT ANDA SUDAH SELESAI DIBUAT @{username}")
         else:
             LOGS.info(
-                f"Please Delete Some Of your Telegram bots at @Botfather or Set Var BOT_TOKEN with token of a bot"
+                f"mohon hapus salah satu bot anda di @Botfather atau set var BOT_TOKEN menggunakan bot token dari bot yang anda buat"
             )
             exit(1)
     elif isdone.startswith("Done!"):
@@ -146,7 +146,7 @@ async def autobot():
         LOGS.info(f"SELESAI, ASSISTANT BOT ANDA SUDAH SELESAI DIBUAT @{username}")
     else:
         LOGS.info(
-            f"Please Delete Some Of your Telegram bots at @Botfather or Set Var BOT_TOKEN with token of a bot"
+            f"mohon hapus salah satu bot anda di @Botfather atau set var BOT_TOKEN menggunakan bot token dari bot yang anda buat"
         )
         exit(1)
 
@@ -178,7 +178,7 @@ async def autopilot():
     try:
         r = await ultroid_bot(
             CreateChannelRequest(
-                title="🌸 sakura log group 🌸",
+                title="🌸 SAKURA LOGS 🌸",
                 about="🌸 my sakura logs group\n\n Join @levinachannel",
                 megagroup=True,
             ),
@@ -231,19 +231,19 @@ LOGS.info("menginialisasi...")
 
 # log in
 BOT_TOKEN = udB.get("BOT_TOKEN")
-LOGS.info("Starting Sakura...")
+LOGS.info("starting sakura...")
 try:
     asst.start(bot_token=BOT_TOKEN)
     ultroid_bot.start()
     ultroid_bot.loop.run_until_complete(istart())
     ultroid_bot.loop.run_until_complete(bot_info())
-    LOGS.info("Done, startup completed")
-    LOGS.info("Assistant - Started")
+    LOGS.info("selesai, persiapan selesai")
+    LOGS.info("assistant - started")
 except (AuthKeyDuplicatedError, PhoneNumberInvalidError, EOFError):
-    LOGS.info("Session String expired. Please create a new one! Sakura is stopping...")
+    LOGS.info("String Session expired, mohon buat baru lagi sakura dihentikan...")
     exit(1)
 except ApiIdInvalidError:
-    LOGS.info("Your API ID/API HASH combination is invalid. Kindly recheck.")
+    LOGS.info("kombinasi API ID & API HASH mu invalid, periksa lagi.")
     exit(1)
 except AccessTokenExpiredError:
     udB.delete("BOT_TOKEN")
@@ -349,13 +349,13 @@ async def customize():
             await asyncio.sleep(1)
             await ultroid_bot.send_message(
                 "botfather",
-                f"🌸 sakura assistant bot 🌸\n👩🏻‍💻 master » {sir} ✨\n\n✨ powered by » @levinachannel",
+                f"🌸 sakura assistant bot 🌸\n\n👩🏻‍💻 master » {sir} ✨\n\n✨ powered by » @levinachannel\n✨ support » @VeezSupportGroup",
             )
             await asyncio.sleep(2)
             await ultroid_bot.send_message(
-                chat_id, "**Auto Customisation** Done at @BotFather"
+                chat_id, "**kostumisasi otomatis** selesai dilakukan di @BotFather"
             )
-            LOGS.info("Customisation Done")
+            LOGS.info("kostumisasi selesai")
     except Exception as e:
         LOGS.info(str(e))
 
@@ -363,7 +363,7 @@ async def customize():
 # some stuffs
 async def ready():
     chat_id = int(udB.get("LOG_CHANNEL"))
-    MSG = f"**🌸SAKURA USERBOT AKTIF🌸**\n➖➖➖➖➖➖➖➖➖\n**USERBOT**: [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.me.id})\n**ASSISTANT**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖\n**SUPPORT**: @levinachannel\n➖➖➖➖➖➖➖➖➖"
+    MSG = f"**🌸SAKURA USERBOT AKTIF🌸**\n➖➖➖➖➖➖➖➖➖➖➖\n⚡**pengguna** : [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.me.id})\n⚡**assistant** : @{asst.me.username}\n➖➖➖➖➖➖➖➖➖➖➖\n💖**support** : @levinachannel\n➖➖➖➖➖➖➖➖➖➖➖"
     BTTS = [Button.inline("✨ BUKA MENU HELP ✨", "open")]
     updava = await updater()
     try:
