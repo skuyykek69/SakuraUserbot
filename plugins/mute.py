@@ -29,8 +29,8 @@
 """
 
 
-from pyUltroid.functions.all import ban_time
-from pyUltroid.functions.mute_db import is_muted, mute, unmute
+from pySakura.functions.all import ban_time
+from pySakura.functions.mute_db import is_muted, mute, unmute
 from telethon import events
 
 from . import *
@@ -73,18 +73,18 @@ async def startmute(event):
         if chat.admin_rights.delete_messages is True:
             pass
         else:
-            return await eor(xx, "`no proper admin rights...`", time=5)
+            return await eor(xx, "`tidak memiliki izin admin...`", time=5)
     elif "creator" in vars(chat):
         pass
     elif private:
         pass
     else:
-        return await eod(xx, "`no proper admin rights...`", time=5)
+        return await eod(xx, "`tidak memiliki izin admin...`", time=5)
     if is_muted(f"{userid}_{chat_id}"):
         return await eod(xx, "`pengguna ini sudah dibisukan di obrolan ini.`", time=5)
     try:
         mute(f"{userid}_{chat_id}")
-        await eod(xx, "`berhasil dibisukan...`", time=3)
+        await eod(xx, "`berhasil dibisukan.`", time=3)
     except Exception as e:
         await eod(xx, "Error: " + f"`{str(e)}`")
 
