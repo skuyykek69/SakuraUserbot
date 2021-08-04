@@ -1,12 +1,7 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# Sakura - UserBot
 
 """
-✘ Commands Available
+📚 Commands Available
 
 
 🔹 `{i}shift <from channel> | <to channel>`
@@ -38,7 +33,7 @@
 
 import asyncio
 
-from pyUltroid.functions.ch_db import *
+from pySakura.functions.ch_db import *
 
 from . import *
 
