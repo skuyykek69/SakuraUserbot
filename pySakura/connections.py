@@ -43,9 +43,9 @@ LOGS.info(
                 ----------------------------------
 """
 )
-LOGS.info(f"py-Sakura Version - {ver}")
-LOGS.info(f"Telethon Version - {vers}")
-LOGS.info(f"Sakura Version - {sakura_version}")
+LOGS.info(f"pySakura Version » {ver}")
+LOGS.info(f"Telethon Version » {vers}")
+LOGS.info(f"Sakura Version » {sakura_version}")
 
 
 def connect_redis():
@@ -67,7 +67,7 @@ def connect_redis():
             LOGS.info(err)
             exit(1)
         redis_info = Var.REDIS_URI.split(":")
-        LOGS.info("Getting Connection With Redis Database")
+        LOGS.info("mendapatkan koneksi ke database redis")
         time.sleep(3.5)
         return redis.Redis(
             host=redis_info[0],
@@ -76,7 +76,7 @@ def connect_redis():
             decode_responses=True,
         )
     else:
-        LOGS.info("Getting Connection With Redis Database")
+        LOGS.info("mendapatkan koneksi ke database redis")
         time.sleep(3.5)
         return connect_qovery_redis()
         """
@@ -98,7 +98,7 @@ def redis_connection():
         our_db.ping()
     except BaseException:
         connected = []
-        LOGS.info("Can't connect to Redis Database.... Restarting....")
+        LOGS.info("gagal menghubungkan ke database redis... restarting...")
         for x in range(1, 6):
             try:
                 our_db = connect_redis()
@@ -108,14 +108,14 @@ def redis_connection():
                     break
             except BaseException as conn:
                 LOGS.info(
-                    f"{(conn)}\nConnection Failed ...  Trying To Reconnect {x}/5 .."
+                    f"{(conn)}\nkoneksi gagal... menghubungkan kembali {x}/5 .."
                 )
         if not connected:
-            LOGS.info("Redis Connection Failed.....")
+            LOGS.info("koneksi ke redis gagal....")
             exit(1)
         else:
-            LOGS.info("Reconnected To Redis Server Succesfully")
-    LOGS.info("Succesfully Established Connection With Redis DataBase.")
+            LOGS.info("koneksi ke server redis berhasil")
+    LOGS.info("berhasil mendapatkan koneksi ke database redis.")
     return our_db
 
 
@@ -125,7 +125,7 @@ def session_file():
     elif Var.SESSION:
         _session = StringSession(Var.SESSION)
     else:
-        LOGS.info("No String Session found. Quitting...")
+        LOGS.info("string session tidak ditemukan. Quitting...")
         exit(1)
     return _session
 
