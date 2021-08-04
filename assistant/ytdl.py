@@ -1,10 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2020 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
-
+# Sakura - UserBot
 
 import os
 import re
@@ -12,7 +6,7 @@ import time
 from urllib.request import urlretrieve
 
 from numerize import numerize
-from pyUltroid.functions.all import *
+from pySakura.functions.all import *
 from telethon import Button
 from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
 from telethon.tl.types import InputWebDocument as wb
