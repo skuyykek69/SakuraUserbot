@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 • `{i}blacklist <word/all words with a space>`
     blacklist the choosen word in that chat.
@@ -22,7 +22,7 @@
 """
 
 
-from pyUltroid.functions.blacklist_db import *
+from pySakura.functions.blacklist_db import *
 
 from . import *
 
