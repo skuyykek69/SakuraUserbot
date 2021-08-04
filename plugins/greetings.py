@@ -1,12 +1,7 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# Sakura - UserBot
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 ---- Welcomes ----
 • `{i}setwelcome <message/reply to message>`
@@ -31,7 +26,7 @@
 """
 import os
 
-from pyUltroid.functions.greetings_db import *
+from pySakura.functions.greetings_db import *
 from telegraph import upload_file as uf
 from telethon.utils import get_display_name, pack_bot_file_id
 
