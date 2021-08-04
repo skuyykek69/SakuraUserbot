@@ -1,9 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# Sakura - UserBot
 
 import re
 import time
@@ -44,25 +39,25 @@ else:
 
 _main_help_menu = [
     [
-        Button.inline("❁ ᴘʟᴜɢɪɴs ❁", data="hrrrr"),
-        Button.inline("❁ ᴀᴅᴅᴏɴs ❁", data="frrr"),
+        Button.inline("📚 ᴘʟᴜɢɪɴs", data="hrrrr"),
+        Button.inline("📘 ᴀᴅᴅᴏɴs ❁", data="frrr"),
     ],
     [
-        Button.inline("❁ ᴏᴡɴᴇʀ ᴛᴏᴏʟs ❁", data="ownr"),
-        Button.inline("❁ ɪɴʟɪɴᴇ ᴘʟᴜɢɪɴs ❁", data="inlone"),
+        Button.inline("👩🏻‍💻 ᴏᴡɴᴇʀ", data="ownr"),
+        Button.inline("🔎 ɪɴʟɪɴᴇ", data="inlone"),
     ],
     [
-        Button.url("⚙️ sᴇᴛᴛɪɴɢs ⚙️", url=f"https://t.me/{asst.me.username}?start=set"),
+        Button.url("⚙️ sᴇᴛᴛɪɴɢs", url=f"https://t.me/{asst.me.username}?start=set"),
     ],
-    [Button.inline("❁ ᴄʟᴏsᴇ ❁", data="close")],
+    [Button.inline("🗑 ᴄʟᴏsᴇ", data="close")],
 ]
 
 SUP_BUTTONS = [
     [
         Button.url("REPO", url="https://github.com/levina-lab/SakuraUserbot"),
-        Button.url("ADDONS", url="https://github.com/TeamUltroid/UltroidAddons"),
+        Button.url("ADDONS", url="https://github.com/levina-lab/scyaddons"),
     ],
-    [Button.url("SUPPORT", url="t.me/gcsupportbots")],
+    [Button.url("SUPPORT", url="t.me/VeezSupportGroup")],
 ]
 
 # --------------------BUTTONS--------------------#
@@ -201,18 +196,18 @@ async def _(event):
     changelog_str = changelog + f"\n\nklik tombol dibawah untuk memperbarui userbot anda!"
     if len(changelog_str) > 1024:
         await event.edit(get_string("upd_4"))
-        file = open(f"ultroid_updates.txt", "w+")
+        file = open(f"sakura_updates.txt", "w+")
         file.write(tl_chnglog)
         file.close()
         await event.edit(
             get_string("upd_5"),
-            file="ultroid_updates.txt",
+            file="sakura_updates.txt",
             buttons=[
                 [Button.inline("• ᴜᴘᴅᴀᴛᴇ ɴᴏᴡ •", data="updatenow")],
                 [Button.inline("« ʙᴀᴄᴋ", data="ownr")],
             ],
         )
-        remove(f"ultroid_updates.txt")
+        remove(f"sakura_updates.txt")
         return
     else:
         await event.edit(
@@ -433,7 +428,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(
         get_string("inline_5"),
         file=_file_to_replace,
-        buttons=Button.inline("🌸 ᴏᴘᴇɴ ᴀɢᴀɪɴ 🌸", data="open"),
+        buttons=Button.inline("🌸 ʙᴜᴋᴀ ʟᴀɢɪ 🌸", data="open"),
     )
 
 
