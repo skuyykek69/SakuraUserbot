@@ -1,7 +1,7 @@
 from os import listdir, path
 from typing import Any, Dict, List, Union
 
-from pyUltroid import udB
+from pySakura import udB
 from yaml import safe_load
 
 languages = {}
@@ -22,7 +22,7 @@ def get_string(key: str) -> Any:
         try:
             return languages["en"][key]
         except KeyError:
-            return f"Warning: could not load any string with the key {key}"
+            return f"Warning: tidak dapat memuat string apa pun dengan kunci {key}"
 
 
 def get_languages() -> Dict[str, Union[str, List[str]]]:
