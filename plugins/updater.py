@@ -53,7 +53,7 @@ async def updava(event):
     await ultroid_bot.asst.send_file(
         int(udB.get("LOG_CHANNEL")),
         ULTPIC,
-        caption="• **PEMBARUAN TERSEDIA** •",
+        caption="✨ **PEMBARUAN TERSEDIA** ✨",
         force_document=False,
         buttons=Button.inline("CHANGE LOGS", data="changes"),
     )
