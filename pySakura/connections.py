@@ -1,9 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# Sakura - UserBot
 
 import os
 import time
@@ -24,13 +19,13 @@ from telethon.sessions import StringSession
 
 from .dB.database import Var
 from .version import __version__ as ver
-from .version import ultroid_version
+from .version import sakura_version
 
-LOGS = getLogger("pyUltroid")
+LOGS = getLogger("pySakura")
 
-if os.path.exists("ultroid.log"):
+if os.path.exists("sakura.log"):
     try:
-        os.remove("ultroid.log")
+        os.remove("sakura.log")
     except BaseException:
         pass
 
@@ -38,19 +33,19 @@ basicConfig(
     format="%(asctime)s || %(name)s [%(levelname)s] - %(message)s",
     level=INFO,
     datefmt="%m/%d/%Y, %H:%M:%S",
-    handlers=[FileHandler("ultroid.log"), StreamHandler()],
+    handlers=[FileHandler("sakura.log"), StreamHandler()],
 )
 
 LOGS.info(
     """
-                -----------------------------------
-                        Starting Deployment
-                -----------------------------------
+                ----------------------------------
+                   🌸 MEMULAI PROSES DEPLOY 🌸
+                ----------------------------------
 """
 )
-LOGS.info(f"py-Ultroid Version - {ver}")
+LOGS.info(f"py-Sakura Version - {ver}")
 LOGS.info(f"Telethon Version - {vers}")
-LOGS.info(f"Ultroid Version - {ultroid_version}")
+LOGS.info(f"Sakura Version - {sakura_version}")
 
 
 def connect_redis():
