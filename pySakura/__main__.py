@@ -1,9 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# Sakura - UserBot
 
 import asyncio
 import multiprocessing
@@ -51,7 +46,7 @@ for x in x:
         os.mkdir(x)
 
 if udB.get("CUSTOM_THUMBNAIL"):
-    urlretrieve(udB.get("CUSTOM_THUMBNAIL"), "resources/extras/ultroid.jpg")
+    urlretrieve(udB.get("CUSTOM_THUMBNAIL"), "resources/extras/sakura.jpg")
 
 if udB.get("GDRIVE_TOKEN"):
     with open("resources/auths/auth_token.txt", "w") as t_file:
@@ -83,13 +78,13 @@ async def autobot():
         return
     if udB.get("BOT_TOKEN"):
         return
-    LOGS.info("MAKING A TELEGRAM BOT FOR YOU AT @BotFather , Please Kindly Wait")
+    LOGS.info("membuat bot untuk anda di @BotFather, tunggu sebentar...")
     who = await ultroid_bot.get_me()
-    name = who.first_name + "'s Assistant Bot"
+    name = who.first_name + "'s assistant bot"
     if who.username:
         username = who.username + "_bot"
     else:
-        username = "ultroid_" + (str(who.id))[5:] + "_bot"
+        username = "sakura_" + (str(who.id))[5:] + "_bot"
     bf = "Botfather"
     await ultroid_bot(UnblockRequest(bf))
     await ultroid_bot.send_message(bf, "/cancel")
@@ -101,19 +96,19 @@ async def autobot():
     isdone = (await ultroid_bot.get_messages(bf, limit=1))[0].text
     if isdone.startswith("That I cannot do."):
         LOGS.info(
-            "Please make a Bot from @BotFather and add it's token in BOT_TOKEN, as an env var and restart me."
+            "mohon buat bot di @BotFather lalu isi bot token di BOT_TOKEN, dalam bentuk var env lalu restart ulang."
         )
         exit(1)
     await ultroid_bot.send_message(bf, name)
     await asyncio.sleep(1)
     isdone = (await ultroid_bot.get_messages(bf, limit=1))[0].text
     if not isdone.startswith("Good."):
-        await ultroid_bot.send_message(bf, "My Assistant Bot")
+        await ultroid_bot.send_message(bf, "my assistant bot")
         await asyncio.sleep(1)
         isdone = (await ultroid_bot.get_messages(bf, limit=1))[0].text
         if not isdone.startswith("Good."):
             LOGS.info(
-                "Please make a Bot from @BotFather and add it's token in BOT_TOKEN, as an env var and restart me."
+                "mohon buat bot di @BotFather lalu isi bot token di BOT_TOKEN, dalam bentuk var env lalu restart ulang."
             )
             exit(1)
     await ultroid_bot.send_message(bf, username)
@@ -122,7 +117,7 @@ async def autobot():
     await ultroid_bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = "ultroid_" + (str(who.id))[6:] + str(ran) + "_bot"
+        username = "sakura_" + (str(who.id))[6:] + str(ran) + "_bot"
         await ultroid_bot.send_message(bf, username)
         await asyncio.sleep(1)
         nowdone = (await ultroid_bot.get_messages(bf, limit=1))[0].text
@@ -134,7 +129,7 @@ async def autobot():
             await ultroid_bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
             await ultroid_bot.send_message(bf, "Search")
-            LOGS.info(f"DONE YOUR TELEGRAM BOT IS CREATED SUCCESSFULLY @{username}")
+            LOGS.info(f"SELESAI, ASSISTANT BOT ANDA SUDAH SELESAI DIBUAT @{username}")
         else:
             LOGS.info(
                 f"Please Delete Some Of your Telegram bots at @Botfather or Set Var BOT_TOKEN with token of a bot"
@@ -148,7 +143,7 @@ async def autobot():
         await ultroid_bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
         await ultroid_bot.send_message(bf, "Search")
-        LOGS.info(f"DONE YOUR TELEGRAM BOT IS CREATED SUCCESSFULLY @{username}")
+        LOGS.info(f"SELESAI, ASSISTANT BOT ANDA SUDAH SELESAI DIBUAT @{username}")
     else:
         LOGS.info(
             f"Please Delete Some Of your Telegram bots at @Botfather or Set Var BOT_TOKEN with token of a bot"
@@ -183,19 +178,19 @@ async def autopilot():
     try:
         r = await ultroid_bot(
             CreateChannelRequest(
-                title="My Ultroid Logs",
-                about="My Ultroid Log Group\n\n Join @TeamUltroid",
+                title="🌸 sakura log group 🌸",
+                about="🌸 my sakura logs group\n\n Join @levinachannel",
                 megagroup=True,
             ),
         )
     except ChannelsTooMuchError:
         LOGS.info(
-            "You Are On Too Many Channels & Groups , Leave some And Restart The Bot"
+            "terlalu banyak channel dan grup, hapus salah satu dan restart lagi"
         )
         exit(1)
     except BaseException:
         LOGS.info(
-            "Something Went Wrong , Create A Group and set its id on config var LOG_CHANNEL."
+            "terjadi kesalahan, buat sebuah grup lalu isi id nya di config var LOG_CHANNEL."
         )
         exit(1)
     chat_id = r.chats[0].id
@@ -213,11 +208,11 @@ async def autopilot():
         anonymous=False,
         manage_call=True,
     )
-    await ultroid_bot(EditAdminRequest(chat_id, asst.me.username, rights, "Assistant"))
+    await ultroid_bot(EditAdminRequest(chat_id, asst.me.username, rights, "assistant"))
     pfpa = await ultroid_bot.download_profile_photo(chat_id)
     if not pfpa:
         urllib.request.urlretrieve(
-            "https://telegra.ph/file/bac3a1c21912a7b35c797.jpg", "channelphoto.jpg"
+            "https://telegra.ph/file/3a41ceef4778f796c484c.jpg", "channelphoto.jpg"
         )
         ll = await ultroid_bot.upload_file("channelphoto.jpg")
         await ultroid_bot(EditPhotoRequest(chat_id, InputChatUploadedPhoto(ll)))
@@ -231,12 +226,12 @@ async def bot_info():
     return asst.me
 
 
-LOGS.info("Initialising...")
+LOGS.info("menginialisasi...")
 
 
 # log in
 BOT_TOKEN = udB.get("BOT_TOKEN")
-LOGS.info("Starting Ultroid...")
+LOGS.info("Starting Sakura...")
 try:
     asst.start(bot_token=BOT_TOKEN)
     ultroid_bot.start()
@@ -245,7 +240,7 @@ try:
     LOGS.info("Done, startup completed")
     LOGS.info("Assistant - Started")
 except (AuthKeyDuplicatedError, PhoneNumberInvalidError, EOFError):
-    LOGS.info("Session String expired. Please create a new one! Ultroid is stopping...")
+    LOGS.info("Session String expired. Please create a new one! Sakura is stopping...")
     exit(1)
 except ApiIdInvalidError:
     LOGS.info("Your API ID/API HASH combination is invalid. Kindly recheck.")
@@ -299,9 +294,9 @@ if Plug_channel:
                 if "(" not in files:
                     try:
                         load_addons(plugin.replace(".py", ""))
-                        LOGS.info(f"Ultroid - PLUGIN_CHANNEL - Installed - {plugin}")
+                        LOGS.info(f"Sakura - PLUGIN_CHANNEL - Installed - {plugin}")
                     except Exception as e:
-                        LOGS.info(f"Ultroid - PLUGIN_CHANNEL - ERROR - {plugin}")
+                        LOGS.info(f"Sakura - PLUGIN_CHANNEL - ERROR - {plugin}")
                         LOGS.info(str(e))
                 else:
                     LOGS.info(f"Plugin {plugin} is Pre Installed")
@@ -318,14 +313,14 @@ async def customize():
         chat_id = int(udB.get("LOG_CHANNEL"))
         xx = await ultroid_bot.get_entity(asst.me.username)
         if xx.photo is None:
-            LOGS.info("Customising Ur Assistant Bot in @BOTFATHER")
+            LOGS.info("mengkostumisasi bot anda di @BOTFATHER")
             UL = f"@{asst.me.username}"
             if (ultroid_bot.me.username) is None:
                 sir = ultroid_bot.me.first_name
             else:
                 sir = f"@{ultroid_bot.me.username}"
             await ultroid_bot.send_message(
-                chat_id, "Auto Customisation Started on @botfather"
+                chat_id, "kostumisasi otomatis dimulai di @botfather"
             )
             await asyncio.sleep(1)
             await ultroid_bot.send_message("botfather", "/cancel")
@@ -337,7 +332,7 @@ async def customize():
             await ultroid_bot.send_message("botfather", UL)
             await asyncio.sleep(1)
             await ultroid_bot.send_file(
-                "botfather", "resources/extras/ultroid_assistant.jpg"
+                "botfather", "resources/extras/sakura_assistant.jpg"
             )
             await asyncio.sleep(2)
             await ultroid_bot.send_message("botfather", "/setabouttext")
@@ -345,7 +340,7 @@ async def customize():
             await ultroid_bot.send_message("botfather", UL)
             await asyncio.sleep(1)
             await ultroid_bot.send_message(
-                "botfather", f"✨ Hello ✨!! I'm Assistant Bot of {sir}"
+                "botfather", f"🌸 Hello, im assistant bot of {sir}"
             )
             await asyncio.sleep(2)
             await ultroid_bot.send_message("botfather", "/setdescription")
@@ -354,7 +349,7 @@ async def customize():
             await asyncio.sleep(1)
             await ultroid_bot.send_message(
                 "botfather",
-                f"✨ PowerFul Ultroid Assistant Bot ✨\n✨ Master ~ {sir} ✨\n\n✨ Powered By ~ @TeamUltroid ✨",
+                f"🌸 sakura assistant bot 🌸\n👩🏻‍💻 master » {sir} ✨\n\n✨ powered by » @levinachannel",
             )
             await asyncio.sleep(2)
             await ultroid_bot.send_message(
@@ -368,14 +363,14 @@ async def customize():
 # some stuffs
 async def ready():
     chat_id = int(udB.get("LOG_CHANNEL"))
-    MSG = f"**Ultroid has been deployed!**\n➖➖➖➖➖➖➖➖➖\n**UserMode**: [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.me.id})\n**Assistant**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖\n**Support**: @TeamUltroid\n➖➖➖➖➖➖➖➖➖"
-    BTTS = [Button.inline("Help", "open")]
+    MSG = f"**🌸SAKURA USERBOT AKTIF🌸**\n➖➖➖➖➖➖➖➖➖\n**USERBOT**: [{scyther_bot.me.first_name}](tg://user?id={scyther_bot.me.id})\n**ASSISTANT**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖\n**SUPPORT**: @levinachannel\n➖➖➖➖➖➖➖➖➖"
+    BTTS = [Button.inline("✨ BUKA MENU HELP ✨", "open")]
     updava = await updater()
     try:
         if updava:
             BTTS = [
-                [Button.inline("Update Available", "updtavail")],
-                [Button.inline("Help", "open")],
+                [Button.inline("UPDATE TERSEDIA", "updtavail")],
+                [Button.inline("✨ MENU HELP ✨", "open")],
             ]
         await asst.send_message(chat_id, MSG, buttons=BTTS)
     except BaseException:
@@ -385,7 +380,7 @@ async def ready():
             LOGS.info(ef)
     try:
         # To Let Them know About New Updates and Changes
-        await ultroid_bot(JoinChannelRequest("@TheUltroid"))
+        await ultroid_bot(JoinChannelRequest("@levinachannel"))
     except BaseException:
         pass
 
@@ -397,9 +392,9 @@ def pycli():
 
 
 suc_msg = """
-            ----------------------------------------------------------------------
-                Ultroid has been deployed! Visit @TheUltroid for updates!!
-            ----------------------------------------------------------------------
+            -----------------------------------
+             🌸 Sakura Userbot Sudah Aktif 🌸
+            -----------------------------------
 """
 
 ultroid_bot.loop.run_until_complete(customize())
