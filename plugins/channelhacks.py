@@ -3,7 +3,6 @@
 """
 📚 Commands Available
 
-
 🔹 `{i}shift <from channel> | <to channel>`
      This will transfer all old post from channel A to channel B.
       (u can use username or id of channel too)
