@@ -35,7 +35,7 @@ from datetime import datetime as dt
 from platform import python_version as pyver
 
 from git import Repo
-from pyUltroid.version import __version__ as UltVer
+from pySakura.version import __version__ as UltVer
 from telethon import __version__, events
 from telethon.errors.rpcerrorlist import ChatSendMediaForbiddenError
 
@@ -56,7 +56,7 @@ async def lol(ult):
     als = (get_string("alive_1")).format(
         header,
         OWNER_NAME,
-        ultroid_version,
+        sakura_version,
         UltVer,
         uptime,
         pyver(),
@@ -107,11 +107,11 @@ async def cmds(event):
     pattern="restart$",
 )
 async def restartbt(ult):
-    ok = await eor(ult, "`restarting sakura-ubot...`")
+    ok = await eor(ult, "`restarting sakura userbot...`")
     if Var.HEROKU_API:
         await restart(ok)
     else:
-        await bash("pkill python3 && python3 -m pyUltroid")
+        await bash("pkill python3 && python3 -m pySakura")
 
 
 @ultroid_cmd(pattern="shutdown$")
