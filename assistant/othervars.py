@@ -46,7 +46,7 @@ async def send(eve):
             ],
             [
                 Button.inline("« ʙᴀᴄᴋ", data="back"),
-                Button.inline("••ᴄʟᴏsᴇ••", data="close"),
+                Button.inline("• ᴄʟᴏsᴇ •", data="close"),
             ],
         ]
     else:
@@ -61,7 +61,7 @@ async def send(eve):
             ],
             [
                 Button.inline("« ʙᴀᴄᴋ", data="buck"),
-                Button.inline("••ᴄʟᴏsᴇ••", data="close"),
+                Button.inline("• ᴄʟᴏsᴇ •", data="close"),
             ],
         ]
     await eve.edit(file=plugin, thumb=thumb, buttons=buttons)
@@ -121,7 +121,7 @@ async def update(eve):
         await eve.edit(
             "`sakura userbot telah diperbarui!\nmemulai ulang, mohon tunggu...`"
         )
-        execl(sys.executable, sys.executable, "-m", "pyUltroid")
+        execl(sys.executable, sys.executable, "-m", "pySakura")
 
 
 @callback("changes")
@@ -133,15 +133,15 @@ async def changes(okk):
     changelog_str = changelog + f"\n\ntekan tombol dibawah untuk memperbarui!"
     if len(changelog_str) > 1024:
         await okk.edit(get_string("upd_4"))
-        file = open(f"ultroid_updates.txt", "w+")
+        file = open(f"sakura_updates.txt", "w+")
         file.write(tl_chnglog)
         file.close()
         await okk.edit(
             get_string("upd_5"),
-            file="ultroid_updates.txt",
+            file="sakura_updates.txt",
             buttons=Button.inline("UPDATE NOW", data="updatenow"),
         )
-        remove(f"ultroid_updates.txt")
+        remove(f"sakura_updates.txt")
         return
     else:
         await okk.edit(
@@ -171,7 +171,7 @@ async def _(e):
     if ok.startswith("plugins"):
         buttons = [
             Button.inline("« ʙᴀᴄᴋ", data="back"),
-            Button.inline("••ᴄʟᴏsᴇ••", data="close"),
+            Button.inline("• ᴄʟᴏsᴇ •", data="close"),
         ]
     else:
         buttons = [
@@ -305,7 +305,7 @@ async def otvaar(event):
                 Button.inline("ᴀᴅᴅᴏɴs", data="eaddon"),
             ],
             [
-                Button.inline("ᴇᴍᴏᴊɪ ɪɴ ʜᴇʟᴘ", data="emoj"),
+                Button.inline("ᴇᴍᴏᴊɪ ʜᴇʟᴘ", data="emoj"),
                 Button.inline("sᴇᴛ ɢᴅʀɪᴠᴇ", data="gdrive"),
             ],
             [Button.inline("ɪɴʟɪɴᴇ ᴘɪᴄ", data="inli_pic")],
@@ -467,7 +467,7 @@ async def taglogerr(event):
 @owner
 async def pmset(event):
     await event.edit(
-        "ADDONS ~ Extra Plugins:",
+        "Addons ~ Extra Plugins:",
         buttons=[
             [Button.inline("ᴀᴅᴅᴏɴs ᴏɴ", data="edon")],
             [Button.inline("ᴀᴅᴅᴏɴs ᴏғғ", data="edof")],
@@ -482,7 +482,7 @@ async def eddon(event):
     var = "ADDONS"
     await setit(event, var, "True")
     await event.edit(
-        "DONE !!, ADDONS sudah dinyalakan.\n\n sekarang ketik restart agar perubahan disimpan.",
+        "Baik !!, Addons sudah dinyalakan.\n\n sekarang ketik restart agar perubahan disimpan.",
         buttons=get_back_button("eaddon"),
     )
 
@@ -493,7 +493,7 @@ async def eddof(event):
     var = "ADDONS"
     await setit(event, var, "False")
     await event.edit(
-        "DONE !!, ADDONS sudah dinonaktifkan.\n\n sekarang ketik restart agar perubahan disimpan.",
+        "Baik !!, Addons sudah dinonaktifkan.\n\n sekarang ketik restart agar perubahan disimpan.",
         buttons=get_back_button("eaddon"),
     )
 
@@ -806,7 +806,7 @@ async def media(event):
             themssg = response.message.message
             if themssg == "/cancel":
                 return await conv.send_message(
-                    "Operation cancelled!!",
+                    "dibatalkan !!",
                     buttons=get_back_button("pmcstm"),
                 )
         except BaseException:
