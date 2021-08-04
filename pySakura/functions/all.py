@@ -1,10 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
-
+# Sakura - UserBot
 
 import asyncio
 import io
@@ -80,7 +74,7 @@ from ..dB.database import Var
 from ..misc import *
 from ..misc._wrappers import *
 from ..utils import *
-from ..version import ultroid_version
+from ..version import sakura_version
 from . import DANGER
 from ._FastTelethon import download_file as downloadable
 from ._FastTelethon import upload_file as uploadable
@@ -92,7 +86,7 @@ G_DRIVE_DIR_MIME_TYPE = "application/vnd.google-apps.folder"
 chatbot_base = "https://api.affiliateplus.xyz/api/chatbot?message={message}&botname=Ultroid&ownername={owner}&user=20"
 
 telegraph = Telegraph()
-telegraph.create_account(short_name="Ultroid Cmds List")
+telegraph.create_account(short_name="sakura cmd's list")
 
 request = cloudscraper.create_scraper()
 
@@ -105,7 +99,7 @@ CMD_WEB = {
     "siasky": 'curl -X POST "https://siasky.net/skynet/skyfile" -F "file=@{}"',
 }
 
-UPSTREAM_REPO_URL = "https://github.com/TeamUltroid/Ultroid"
+UPSTREAM_REPO_URL = "https://github.com/levina-lab/SakuraUserbot"
 
 width_ratio = 0.7
 reqs = "resources/extras/local-requirements.txt"
@@ -200,8 +194,8 @@ async def updateme_requirements():
 async def gen_chlog(repo, diff):
     ac_br = repo.active_branch.name
     ch_log = tldr_log = ""
-    ch = f"<b>Ultroid {ultroid_version} updates for <a href={UPSTREAM_REPO_URL}/tree/{ac_br}>[{ac_br}]</a>:</b>"
-    ch_tl = f"Ultroid {ultroid_version} updates for {ac_br}:"
+    ch = f"<b>Sakura {sakura_version} updates for <a href={UPSTREAM_REPO_URL}/tree/{ac_br}>[{ac_br}]</a>:</b>"
+    ch_tl = f"Sakura {sakura_version} updates for {ac_br}:"
     d_form = "%d/%m/%y || %H:%M"
     for c in repo.iter_commits(diff):
         ch_log += f"\n\n💬 <b>{c.count()}</b> 🗓 <b>[{c.committed_datetime.strftime(d_form)}]</b>\n<b><a href={UPSTREAM_REPO_URL.rstrip('/')}/commit/{c}>[{c.summary}]</a></b> 👨‍💻 <code>{c.author}</code>"
@@ -306,7 +300,7 @@ def make_html_telegraph(title, author, text):
     page = client.post(
         title=title,
         author=author,
-        author_url="https://t.me/TeamUltroid",
+        author_url="https://t.me/levinachannel",
         text=text,
     )
     return page["url"]
@@ -660,7 +654,7 @@ async def upload_file(http, file_path, file_name, mime_type, event, parent_id):
     media_body = MediaFileUpload(file_path, mimetype=mime_type, resumable=True)
     body = {
         "title": file_name,
-        "description": "Uploaded using Ultroid Userbot",
+        "description": "Uploaded using Sakura Userbot",
         "mimeType": mime_type,
     }
     if parent_id is not None:
@@ -857,7 +851,7 @@ async def restart(ult):
                 "`HEROKU_API` or `HEROKU_APP_NAME` is wrong! Kindly re-check in config vars.",
             )
     else:
-        execl(executable, executable, "-m", "pyUltroid")
+        execl(executable, executable, "-m", "pySakura")
 
 
 async def shutdown(ult, dynotype="ultroid"):
@@ -1298,30 +1292,30 @@ async def safeinstall(event):
                         output = "**Plugin** - `{}`\n".format(plug)
                         for i in HELP[plug]:
                             output += i
-                        output += "\n© @TheUltroid"
+                        output += "\n© @levinachannel"
                         await eod(
                             ok,
-                            f"✓ `Ultroid - Installed`: `{plug}` ✓\n\n{output}",
+                            f"✓ `Sakura - Installed`: `{plug}` ✓\n\n{output}",
                             time=10,
                         )
                     elif plug in CMD_HELP:
-                        kk = f"Plugin Name-{plug}\n\n✘ Commands Available-\n\n"
+                        kk = f"Plugin Name-{plug}\n\n📚 Commands Available-\n\n"
                         kk += str(CMD_HELP[plug])
                         await eod(
-                            ok, f"✓ `Ultroid - Installed`: `{plug}` ✓\n\n{kk}", time=10
+                            ok, f"✓ `Sakura - Installed`: `{plug}` ✓\n\n{kk}", time=10
                         )
                     else:
                         try:
-                            x = f"Plugin Name-{plug}\n\n✘ Commands Available-\n\n"
+                            x = f"Plugin Name-{plug}\n\n📚 Commands Available-\n\n"
                             for d in LIST[plug]:
                                 x += HNDLR + d
                                 x += "\n"
                             await eod(
-                                ok, f"✓ `Ultroid - Installed`: `{plug}` ✓\n\n`{x}`"
+                                ok, f"✓ `Sakura - Installed`: `{plug}` ✓\n\n`{x}`"
                             )
                         except BaseException:
                             await eod(
-                                ok, f"✓ `Ultroid - Installed`: `{plug}` ✓", time=3
+                                ok, f"✓ `Sakura - Installed`: `{plug}` ✓", time=3
                             )
                 except Exception as e:
                     await ok.edit(str(e))
@@ -1341,14 +1335,14 @@ async def allcmds(event):
         x.replace(",", "\n")
         .replace("[", """\n """)
         .replace("]", "\n\n")
-        .replace("':", """ Plugin\n ✘ Commands Available-""")
+        .replace("':", """ Plugin\n 📚 Commands Available-""")
         .replace("'", "")
         .replace("{", "")
         .replace("}", "")
     )
-    t = telegraph.create_page(title="Ultroid All Cmds", content=[f"{xx}"])
+    t = telegraph.create_page(title="Sakura All Cmds", content=[f"{xx}"])
     w = t["url"]
-    await eod(event, f"All Ultroid Cmds : [Click Here]({w})", link_preview=False)
+    await eod(event, f"All Sakura Cmds : [Click Here]({w})", link_preview=False)
 
 
 def autopicsearch(query):
@@ -1536,24 +1530,24 @@ async def heroku_logs(event):
         )
     await xx.edit("`Downloading Logs...`")
     ok = app.get_log()
-    with open("ultroid-heroku.log", "w") as log:
+    with open("sakura-heroku.log", "w") as log:
         log.write(ok)
     await event.client.send_file(
         event.chat_id,
-        file="ultroid-heroku.log",
-        thumb="resources/extras/ultroid.jpg",
-        caption=f"**Ultroid Heroku Logs.**",
+        file="sakura-heroku.log",
+        thumb="resources/extras/sakura.jpg",
+        caption=f"**Sakura Heroku Logs.**",
     )
-    os.remove("ultroid-heroku.log")
+    os.remove("sakura-heroku.log")
     await xx.delete()
 
 
 async def def_logs(ult):
     await ult.client.send_file(
         ult.chat_id,
-        file="ultroid.log",
-        thumb="resources/extras/ultroid.jpg",
-        caption=f"**Ultroid Logs.**",
+        file="sakura.log",
+        thumb="resources/extras/sakura.jpg",
+        caption=f"**Sakura Logs.**",
     )
 
 
@@ -1644,13 +1638,13 @@ def get_anime_src_res(search_str):
 
 def get_chatbot_reply(event, message):
     req_link = chatbot_base.format(
-        message=message, owner=(event.sender.first_name or "UltroidUser")
+        message=message, owner=(event.sender.first_name or "SakuraUser")
     )
     try:
         data = requests.get(req_link)
         if data.status_code == 200:
             return (data.json())["message"]
         else:
-            LOGS.info("**ERROR:**\n`API down, report this to `@UltroidSupport.")
+            LOGS.info("**ERROR:**\n`API down, report this to `@VeezSupportGroup.")
     except Exception:
         LOGS.info("**ERROR:**`{str(e)}`")
