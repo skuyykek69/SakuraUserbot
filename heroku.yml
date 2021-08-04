@@ -1,5 +1,5 @@
 build:
   docker:
-      ultroid: Dockerfile
+      sakura: Dockerfile
 run:
-  ultroid: bash resources/startup/startup.sh
+  sakura: bash resources/startup/startup.sh
