@@ -15,8 +15,8 @@ from pathlib import Path
 from plugins import *
 from telethon import events, types
 
-from pyUltroid.misc._decorators import *
-from pyUltroid.misc._wrappers import eod, eor
+from pySakura.misc._decorators import *
+from pySakura.misc._wrappers import eod, eor
 
 from .. import udB, ultroid_bot
 from ..dB.core import LIST
