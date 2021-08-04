@@ -7,8 +7,8 @@
 
 from datetime import datetime
 
-from pyUltroid.functions.asst_fns import *
-from pyUltroid.misc import owner_and_sudos
+from pySakura.functions.asst_fns import *
+from pySakura.misc import owner_and_sudos
 from telethon import events
 from telethon.utils import get_display_name
 
@@ -17,12 +17,12 @@ from plugins import *
 from . import *
 
 Owner_info_msg = f"""
-**PEMILIK** - {OWNER_NAME}
-**ID PEMILIK** - `{OWNER_ID}`
+👩🏻‍💻 **owner** : {OWNER_NAME}
+📮 **id owner** : `{OWNER_ID}`
 
-**pesan terusan** - {udB.get("PMBOT")}
+💭 **pesan terusan** » {udB.get("PMBOT")}
 
-__sakura {ultroid_version}, powered by @levinachannel__
+__sakura {sakura_version}, powered by @levinachannel__
 """
 
 _settings = [
@@ -89,7 +89,7 @@ async def ultroid(event):
                 if udB.get("PMBOT") == "True":
                     ok = "🌸 anda bisa kirim pesan ke tuan saya melalui bot ini.\n\n🌸 kirimkan pesan mu, saya akan meneruskan nya ke tuan saya."
                 await event.reply(
-                    f"🌸 hai [{get_display_name(u)}](tg://user?id={u.id}), ini adalah sakura asisstant bot milik [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.uid})!\n\n{ok}",
+                    f"🌸 hai [{get_display_name(u)}](tg://user?id={u.id}), ini adalah sakura assistant bot milik [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.uid})!\n\n{ok}",
                     buttons=[Button.inline("Info.", data="ownerinfo")],
                 )
             else:
@@ -128,8 +128,8 @@ async def ultroid(event):
 @owner
 async def botstat(event):
     ok = len(get_all_users())
-    msg = """sakura asisstant - statistik
-total pengguna - {}""".format(
+    msg = """statistik » sakura assistant
+total pengguna » {}""".format(
         ok,
     )
     await event.answer(msg, cache_time=0, alert=True)
@@ -142,7 +142,7 @@ async def bdcast(event):
     await event.edit(f"broadcast ke {len(ok)} pengguna.")
     async with event.client.conversation(OWNER_ID) as conv:
         await conv.send_message(
-            "kirimkan pesan untuk broadcast.\nklik /cancel untuk membatalkan broadcast.",
+            "berikan pesan untuk melakukan broadcast.\nklik /cancel untuk membatalkan broadcast.",
         )
         response = conv.wait_event(events.NewMessage(chats=OWNER_ID))
         response = await response
@@ -165,9 +165,9 @@ async def bdcast(event):
             await conv.send_message(
                 f"""
 broadcast selesai dalam {time_taken} detik.
-total pengguna di bot - {len(ok)}
+total pengguna di bot » {len(ok)}
 terkirim ke {success} pengguna.
-gagal ke {fail} pengguna(s).""",
+gagal ke {fail} pengguna.""",
             )
 
 
@@ -175,6 +175,6 @@ gagal ke {fail} pengguna(s).""",
 @owner
 async def setting(event):
     await event.edit(
-        "pilih pengaturan dibawah ini -",
+        "✨ pilih pengaturan dibawah ini:",
         buttons=_settings,
     )
