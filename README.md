@@ -13,9 +13,6 @@
 - [Heroku](#Deploy-to-Heroku)
 - [Local Machine](#Deploy-Locally)
 
-# Documentation 
-[![Document](https://img.shields.io/badge/Documentation-Ultroid-blue)](http://ultroid.tech/)
-
 ---
 
 ## Deploy to Heroku
