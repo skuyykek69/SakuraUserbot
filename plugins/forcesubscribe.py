@@ -1,13 +1,7 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
-
+# Sakura - UserBot
 
 """
-✘ Commands Available -
+📚 Commands Available -
 
 • `{i}fsub <chat username><id>`
     Enable ForceSub in Used Chat !
@@ -25,7 +19,7 @@
 
 import re
 
-from pyUltroid.functions.forcesub_db import *
+from pySakura.functions.forcesub_db import *
 from telethon import events
 from telethon.errors.rpcerrorlist import UserNotParticipantError
 from telethon.tl.custom import Button
