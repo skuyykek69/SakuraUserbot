@@ -1,9 +1,4 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# Sakura - UserBot
 
 """
 📚 Commands Available : pilih siapa saja orang yang dapat mengakses userbot milikmu.
@@ -18,7 +13,7 @@
    Daftar semua anggota sudo.
 """
 
-from pyUltroid.misc import sudoers
+from pySakura.misc import sudoers
 
 from . import *
 
@@ -143,5 +138,5 @@ async def _(ult):
     if m == "False":
         m = "[False](https://telegra.ph/Ultroid-04-06)"
     return await ok.edit(
-        f"**SUDO MODE : {m}\n\n🌸 daftar anggota sudo :**\n{msg}", link_preview=False
+        f"**SUDO MODE : {m}\n\n🌸 daftar anggota sudo :**\n\n{msg}", link_preview=False
     )
