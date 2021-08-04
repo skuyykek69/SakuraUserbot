@@ -7,15 +7,15 @@
 
 import time
 
-from pyUltroid.dB import *
-from pyUltroid.dB.core import *
-from pyUltroid.functions.all import *
-from pyUltroid.functions.asstcmd_db import *
-from pyUltroid.functions.broadcast_db import *
-from pyUltroid.functions.gban_mute_db import *
-from pyUltroid.functions.nsfw_db import *
-from pyUltroid.functions.sudos import *
-from pyUltroid.utils import *
+from pySakura.dB import *
+from pySakura.dB.core import *
+from pySakura.functions.all import *
+from pySakura.functions.asstcmd_db import *
+from pySakura.functions.broadcast_db import *
+from pySakura.functions.gban_mute_db import *
+from pySakura.functions.nsfw_db import *
+from pySakura.functions.sudos import *
+from pySakura.utils import *
 from telethon import Button
 from telethon.tl import functions, types
 
@@ -30,7 +30,7 @@ except ModuleNotFoundError:
 
 
 start_time = time.time()
-ultroid_version = "v0.0.8.1"
+scyther_version = "v0.8.5.5"
 OWNER_NAME = ultroid_bot.me.first_name
 OWNER_ID = ultroid_bot.me.id
 
