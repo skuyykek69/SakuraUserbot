@@ -1,9 +1,5 @@
-# Ultroid - UserBot
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# Sakura - UserBot
+# Copyright (C) 2021 VeezProject
 
 from datetime import datetime
 
@@ -22,7 +18,10 @@ Owner_info_msg = f"""
 
 💭 **pesan terusan** » {udB.get("PMBOT")}
 
-__sakura {sakura_version}, powered by @levinachannel__
+💬 » @VeezSupportGroup
+📣 » @levinachannel
+
+__sakura {sakura_version}, powered by veez project__
 """
 
 _settings = [
@@ -89,21 +88,21 @@ async def ultroid(event):
                 if udB.get("PMBOT") == "True":
                     ok = "🌸 anda bisa kirim pesan ke tuan saya melalui bot ini.\n\n🌸 kirimkan pesan mu, saya akan meneruskan nya ke tuan saya."
                 await event.reply(
-                    f"🌸 hai [{get_display_name(u)}](tg://user?id={u.id}), ini adalah sakura assistant bot milik [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.uid})!\n\n{ok}",
-                    buttons=[Button.inline("Info.", data="ownerinfo")],
+                    f"🌸 hai [{get_display_name(u)}](tg://user?id={u.id}), ini adalah sakura assistant bot milik [{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.uid})!, tekan tombol informasi dibawah untuk melihat info tentang tuan saya\n\n{ok}",
+                    buttons=[Button.inline("❔ INFORMASI", data="ownerinfo")],
                 )
             else:
                 me = f"[{ultroid_bot.me.first_name}](tg://user?id={ultroid_bot.uid})"
                 mention = f"[{get_display_name(u)}](tg://user?id={u.id})"
                 await event.reply(
                     Redis("STARTMSG").format(me=me, mention=mention),
-                    buttons=[Button.inline("Info.", data="ownerinfo")],
+                    buttons=[Button.inline("❔ INFORMASI", data="ownerinfo")],
                 )
         else:
             name = get_display_name(event.sender_id)
             if event.pattern_match.group(1) == "set":
                 await event.reply(
-                    "pilih pengaturan dibawah ini -",
+                    "pilih pengaturan dibawah ini ↧",
                     buttons=_settings,
                 )
             else:
@@ -128,8 +127,8 @@ async def ultroid(event):
 @owner
 async def botstat(event):
     ok = len(get_all_users())
-    msg = """statistik » sakura assistant
-total pengguna » {}""".format(
+    msg = """📊 statistik » sakura assistant
+👤 total pengguna » {}""".format(
         ok,
     )
     await event.answer(msg, cache_time=0, alert=True)
@@ -139,10 +138,10 @@ total pengguna » {}""".format(
 @owner
 async def bdcast(event):
     ok = get_all_users()
-    await event.edit(f"broadcast ke {len(ok)} pengguna.")
+    await event.edit(f"📣 broadcast ke {len(ok)} pengguna.")
     async with event.client.conversation(OWNER_ID) as conv:
         await conv.send_message(
-            "berikan pesan untuk melakukan broadcast.\nklik /cancel untuk membatalkan broadcast.",
+            "💬 berikan pesan untuk melakukan broadcast.\nklik /cancel untuk membatalkan broadcast.",
         )
         response = conv.wait_event(events.NewMessage(chats=OWNER_ID))
         response = await response
